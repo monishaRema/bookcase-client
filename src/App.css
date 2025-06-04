@@ -10,7 +10,7 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #142850;
+  --color-primary: #03045e;
   --color-accent: #00ed64 ;
   /* #00A8CC; */
   --color-secondary: #001e2b;
@@ -19,13 +19,16 @@
 
 body{
     font-family: "Poppins", sans-serif;
-    background-color: #1a2b4ee7 ;
+    background-color: #142850;
+    color:#e7e7e7;
 }
 
 h1,h2,h3,h4,h5,h6, .font-play{
      font-family: "Playfair Display", serif;
 }
-
+#root{
+  position: relative;
+}
 .navlink:hover, .navlink.active{
   @apply text-accent;
 }

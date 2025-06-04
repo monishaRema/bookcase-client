@@ -79,10 +79,10 @@ const Navbar = () => {
       </motion.li>
       <motion.li variants={navItemVariants}>
         <NavLink
-          to="/bookshef"
+          to="/bookshelf"
           className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 "
         >
-          Bookshef
+          Bookshelf
         </NavLink>
       </motion.li>
       <motion.li variants={navItemVariants}>
@@ -111,10 +111,11 @@ const Navbar = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={navVarient}
-        className="bg-primary text-white"
+   
       >
-        <div className="container mx-auto px-5">
-          <div className="navbar px-0 flex justify-between items-center py-5">
+        <div className="container mx-auto px-8 fixed top-0 left-[50%] -translate-x-1/2 bg-[#00000050] backdrop-blur-2xl text-white sm:rounded-[40px] sm:mt-5 z-50">
+
+          <div className="navbar px-0 flex justify-between items-center py-3">
             <div className="flex items-center gap-1 md:gap-0">
               <motion.div  variants={navItemVariants} className="dropdown">
                 <div
@@ -152,7 +153,7 @@ const Navbar = () => {
                       className={"navlink"}
                       to="/Bookself"
                     >
-                      Bookself
+                      Bookshelf
                     </NavLink>
                   </li>
                   <li>
@@ -177,17 +178,17 @@ const Navbar = () => {
               <Link className="flex items-center gap-1" to="/">
                 <motion.img
                   variants={navItemVariants}
-                  className="w-20 h-13"
+                  className="w-12 h-10 md:w-20 md:h-13"
                   src={Logo}
                   alt=""
                 />
 
                 <motion.p
                   variants={navItemVariants}
-                  className="text-xl md:text-3xl font-bold text-white flex flex-col font-play"
+                  className="text-lg md:text-3xl font-bold text-white flex flex-col font-play"
                 >
                  <span>Book</span>
-                 <span className="-mt-2 font-light text-lg uppercase tracking-[.5rem]">Case</span>
+                 <span className="-mt-2 font-light text-base md:text-lg uppercase tracking-[1px] md:tracking-[2px]">Case</span>
                 </motion.p>
               </Link>
             </div>
@@ -201,7 +202,7 @@ const Navbar = () => {
                 className="buttons flex gap-1 md:gap-3 items-center"
                 
               >
-                {user ? (
+                {user &&  (
                   <>
                     <a
                       className="size-10 rounded-full overflow-hidden"
@@ -220,29 +221,31 @@ const Navbar = () => {
                       </div>
                     </Tooltip>
                   </>
-                ) : (
-                  <Link
-                    to="/register"
-                    className="btn btn-outline btn-accent"
-                  >
-                    Register
-                  </Link>
-                )}
+                ) }
 
                 {user ? (
                   <button
                     onClick={handleLogOut}
-                    className="btn btn-outline btn-accent"
+                    className="btn btn-outline btn-accent text-sm md:text-base px-2 md:px-3"
                   >
                     LogOut
                   </button>
                 ) : (
+                   <>
+                  <Link
+                    to="/register"
+                    className="btn btn-outline btn-accent text-xs md:text-base px-2 md:px-3"
+                  >
+                    Register
+                  </Link>
+                
                   <Link
                     to="/login"
-                    className="btn btn-outline btn-accent"
+                    className="btn btn-outline btn-accent text-xs md:text-base px-2 md:px-3"
                   >
                     LogIn
                   </Link>
+                  </>
                 )}
                
               </motion.div>
