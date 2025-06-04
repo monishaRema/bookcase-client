@@ -1,0 +1,32 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+@plugin "daisyui";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+body{
+   
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Kufam', cursive;
+}
+
+.slick-list{
+  height: 600px;
+}
+.navlink.active{
+  @apply text-yellow-500 ;
+}
+
+.btn, button, a{
+  cursor:pointer;
+  transition:all 0.3s ease-in-out;
+}
+input{
+  outline:none;
+}
