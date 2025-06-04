@@ -72,33 +72,33 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 hover:text-yellow-400 "
+          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
         >
           Home
         </NavLink>
       </motion.li>
       <motion.li variants={navItemVariants}>
         <NavLink
-          to="/all-plants"
-          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 hover:text-yellow-400"
+          to="/bookshef"
+          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 "
         >
-          All Plants
+          Bookshef
         </NavLink>
       </motion.li>
       <motion.li variants={navItemVariants}>
         <NavLink
-          to="/add-plant"
-          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 hover:text-yellow-400"
+          to="/add-book"
+          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 "
         >
-          Add Plant
+          Add Book
         </NavLink>
       </motion.li>
       <motion.li variants={navItemVariants}>
         <NavLink
-          to="/my-plants"
-          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 hover:text-yellow-400"
+          to="/my-books"
+          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
         >
-          My Plants
+          My Books
         </NavLink>
       </motion.li>
     </>
@@ -111,7 +111,7 @@ const Navbar = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={navVarient}
-        className="bg-green-50 text-blak dark:bg-[#204e36] dark:text-white"
+        className="bg-primary text-white"
       >
         <div className="container mx-auto px-5">
           <div className="navbar px-0 flex justify-between items-center py-5">
@@ -140,35 +140,35 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="text-base dropdown-content rounded-b-md shadow-sm z-1 mt-6 md:mt-9 w-64 px-4 py-5 space-y-3 bg-green-50 text-[#6A8C25] dark:bg-[#204e36] dark:text-white"
+                  className="text-base dropdown-content rounded-b-md shadow-sm z-1 mt-6 md:mt-9 w-64 px-4 py-5 space-y-3"
                 >
                   <li>
-                    <NavLink className={"navlink hover:text-yellow-500"} to="/">
+                    <NavLink className={"navlink"} to="/">
                       Home
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      className={"navlink hover:text-yellow-500"}
-                      to="/all-plants"
+                      className={"navlink"}
+                      to="/Bookself"
                     >
-                      All Plants
+                      Bookself
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      className={"navlink hover:text-yellow-500"}
-                      to="/add-plant"
+                      className={"navlink "}
+                      to="/add-book"
                     >
-                      Add Plant
+                      Add Book
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      className={"navlink hover:text-yellow-500"}
-                      to="/my-plants"
+                      className={"navlink"}
+                      to="/my-books"
                     >
-                      My Plants
+                      My Books
                     </NavLink>
                   </li>
                 </ul>
@@ -177,17 +177,18 @@ const Navbar = () => {
               <Link className="flex items-center gap-1" to="/">
                 <motion.img
                   variants={navItemVariants}
-                  className="size-10 md:size-15"
+                  className="w-20 h-13"
                   src={Logo}
                   alt=""
                 />
 
-                <motion.span
+                <motion.p
                   variants={navItemVariants}
-                  className="text-xl md:text-3xl font-bold text-[#6A8C25] dark:text-white"
+                  className="text-xl md:text-3xl font-bold text-white flex flex-col font-play"
                 >
-                  Planto.
-                </motion.span>
+                 <span>Book</span>
+                 <span className="-mt-2 font-light text-lg uppercase tracking-[.5rem]">Case</span>
+                </motion.p>
               </Link>
             </div>
 
@@ -213,7 +214,7 @@ const Navbar = () => {
                       place="bottom"
                       variant="white"
                     >
-                      <div className="flex flex-col bg-[#6A8C25] text-white p-3 rounded z-[999]">
+                      <div className="flex flex-col p-3 rounded z-[999]">
                         <p>{user?.displayName}</p>
                         <p>{user?.email}</p>
                       </div>
@@ -222,7 +223,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to="/register"
-                    className="rounded px-2 md:px-5 py-1 md:py-2 text-sm md:text-base border-2 border-[#6A8C25] dark:border-white bg-transparent text-[#6A8C25] hover:text-white dark:hover:text-white dark:text-white  hover:bg-[#6A8C25] hover:border-[#6A8C25]"
+                    className="btn btn-outline btn-accent"
                   >
                     Register
                   </Link>
@@ -231,14 +232,14 @@ const Navbar = () => {
                 {user ? (
                   <button
                     onClick={handleLogOut}
-                    className="rounded px-2 md:px-5 py-1 md:py-2 text-sm md:text-base border-2 border-[#6A8C25]  bg-[#6A8C25] text-white hover:bg-transparent hover:text-[#6A8C25] dark:hover:text-white  dark:hover:bg-transparent  dark:hover:border-white"
+                    className="btn btn-outline btn-accent"
                   >
                     LogOut
                   </button>
                 ) : (
                   <Link
                     to="/login"
-                    className="rounded px-2 md:px-5 py-1 md:py-2 text-sm md:text-base border-2 border-[#6A8C25]  bg-[#6A8C25] text-white hover:bg-transparent hover:text-[#6A8C25] dark:hover:text-white  dark:hover:bg-transparent  dark:hover:border-white"
+                    className="btn btn-outline btn-accent"
                   >
                     LogIn
                   </Link>

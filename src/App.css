@@ -1,27 +1,36 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @import "tailwindcss";
+ @plugin "daisyui" {
+  themes: light --default;
+ }
 
-@plugin "daisyui";
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #142850;
+  --color-accent: #00ed64 ;
+  /* #00A8CC; */
+  --color-secondary: #001e2b;
+
+}
 
 body{
-   
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Poppins", sans-serif;
+    background-color: #1a2b4ee7 ;
 }
 
-h1,h2,h3,h4,h5,h6{
-     font-family: 'Kufam', cursive;
+h1,h2,h3,h4,h5,h6, .font-play{
+     font-family: "Playfair Display", serif;
 }
 
-.slick-list{
-  height: 600px;
+.navlink:hover, .navlink.active{
+  @apply text-accent;
 }
-.navlink.active{
-  @apply text-yellow-500 ;
-}
+
+
 
 .btn, button, a{
   cursor:pointer;
