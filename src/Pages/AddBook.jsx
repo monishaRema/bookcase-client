@@ -13,6 +13,9 @@ const AddBook = () => {
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
+    data.upvotes = parseInt(data.upvotes)
+    data.user_email = user?.email;
+    data.user_name = user?.displayName
     axios
       .post(`${baseUrl}/book`, data)
       .then((result) => {
