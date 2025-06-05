@@ -3,21 +3,33 @@ import React, { use } from "react";
 import { AuthContext } from "../Contex/AuthContex";
 import { GiBookshelf } from "react-icons/gi";
 import axios from "axios";
-import { baseUrl } from "../../../../../Learning Projects/Job Portal/career-code-client/src/Api/applicationsApi";
+import { baseUrl } from "../Libs/Utility";
+import Swal from "sweetalert2";
 
 const AddBook = () => {
-    const {user} = use(AuthContext)
+  const { user } = use(AuthContext);
   const handleAddBook = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log(data)
-    axios.post(`${baseUrl}/book`, data)
-    .then( result => {
-      console.log(result.data)
-    })
-    .catch()
+    console.log(data);
+    axios
+      .post(`${baseUrl}/book`, data)
+      .then((result) => {
+        console.log(result.data);
+        if (result.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You have added a book successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      })
+      .catch();
   };
   return (
     <section className="register pb-25 pt-45">
@@ -25,8 +37,6 @@ const AddBook = () => {
         <Helmet>
           <title>Book Case | Add Book</title>
         </Helmet>
-
-
 
         <div className="max-w-5xl mx-auto bg-primary text-gray-50 rounded-lg  gap-5 items-center overflow-hidden border-2 border-[#00ed6440] accent-shadow">
           <div className="form-box w-full  p-6 md:p-10 ">
@@ -101,12 +111,27 @@ const AddBook = () => {
                     className="theme-select"
                     required
                   >
-                    <option value="fiction" className="bg-[#0e1b36] text-white">Fiction</option>
-                    <option value="Sci-Fi" className="bg-[#0e1b36] text-white">Sci-Fi</option>
-                    <option value="romance" className="bg-[#0e1b36] text-white">Romance</option>
-                    <option value="history" className="bg-[#0e1b36] text-white">History</option>
-                    <option value="fantasy" className="bg-[#0e1b36] text-white">Fantasy</option>
-                    <option value="motivation" className="bg-[#0e1b36] text-white">Motivation</option>
+                    <option value="fiction" className="bg-[#0e1b36] text-white">
+                      Fiction
+                    </option>
+                    <option value="Sci-Fi" className="bg-[#0e1b36] text-white">
+                      Sci-Fi
+                    </option>
+                    <option value="romance" className="bg-[#0e1b36] text-white">
+                      Romance
+                    </option>
+                    <option value="history" className="bg-[#0e1b36] text-white">
+                      History
+                    </option>
+                    <option value="fantasy" className="bg-[#0e1b36] text-white">
+                      Fantasy
+                    </option>
+                    <option
+                      value="motivation"
+                      className="bg-[#0e1b36] text-white"
+                    >
+                      Motivation
+                    </option>
                   </select>
                 </div>
                 <div className="form-group mb-5 w-full md:w-1/2">
@@ -120,16 +145,23 @@ const AddBook = () => {
                     className="theme-select"
                     required
                   >
-                    <option value="want-to-read" className="bg-[#0e1b36] text-white">Want to read</option>
-                    <option value="reading" className="bg-[#0e1b36] text-white">Reading</option>
-                    <option value="read" className="bg-[#0e1b36] text-white">Read</option>
-                 
+                    <option
+                      value="want-to-read"
+                      className="bg-[#0e1b36] text-white"
+                    >
+                      Want to read
+                    </option>
+                    <option value="reading" className="bg-[#0e1b36] text-white">
+                      Reading
+                    </option>
+                    <option value="read" className="bg-[#0e1b36] text-white">
+                      Read
+                    </option>
                   </select>
                 </div>
-             
               </div>
 
-               <div className="flex flex-col md:flex-row gap-5">
+              <div className="flex flex-col md:flex-row gap-5">
                 <div className="form-group mb-5 w-full md:w-1/2">
                   <label htmlFor="user_email" className="block mb-2">
                     User Name
@@ -158,45 +190,42 @@ const AddBook = () => {
                     readOnly
                   />
                 </div>
-              
               </div>
               <div className="form-group mb-5 w-full ">
-                  <label htmlFor="upvotes" className="block mb-2">
-                   Upvotes
-                  </label>
-                  <input
-                    type="number"
-                    id="upvotes"
-                    name="upvotes"
-                    className="theme-input cursor-not-allowed"
-                    defaultValue={0}
-                    required
-                    readOnly
-                  />
-                </div>
+                <label htmlFor="upvotes" className="block mb-2">
+                  Upvotes
+                </label>
+                <input
+                  type="number"
+                  id="upvotes"
+                  name="upvotes"
+                  className="theme-input cursor-not-allowed"
+                  defaultValue={0}
+                  required
+                  readOnly
+                />
+              </div>
 
-                 <div className="form-group mb-5 w-full ">
-                  <label htmlFor="book_overview" className="block mb-2">
-                   Book Overview *
-                  </label>
-                 <textarea
-                    type="text"
-                    id="book_overview"
-                    name="book_overview"
-                    className="theme-input h-32"
-                    placeholder="Enter your book overview"
-                    required
-                 >
-
-                 </textarea>
-                </div>
+              <div className="form-group mb-5 w-full ">
+                <label htmlFor="book_overview" className="block mb-2">
+                  Book Overview *
+                </label>
+                <textarea
+                  type="text"
+                  id="book_overview"
+                  name="book_overview"
+                  className="theme-input h-32"
+                  placeholder="Enter your book overview"
+                  required
+                ></textarea>
+              </div>
 
               <div className="flex justify-center pt-5">
                 <button
                   type="submit"
                   className="btn px-8 btn-lg btn-accent bg-gradient-to-r from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
                 >
-                    <GiBookshelf  size={24}/>
+                  <GiBookshelf size={24} />
 
                   <span>Add Book to Shelf</span>
                 </button>

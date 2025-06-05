@@ -7,6 +7,7 @@ import AddBook from "../Pages/AddBook";
 import PrivateRoute from "../Routes/PrivateRoute";
 import UpdateBook from "../Pages/UpdateBook";
 import MyBooks from "../Pages/MyBooks";
+import { baseUrl } from "../Libs/Utility";
 
 
 export const routes = createBrowserRouter([
@@ -31,7 +32,7 @@ export const routes = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path:'update-book',
+        path:'update-book/:id',
         element:<PrivateRoute>
           <UpdateBook></UpdateBook>
         </PrivateRoute>
