@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../Contex/AuthContex";
-import { Link, Navigate, useNavigate } from "react-router";
+import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
 import Swal from "sweetalert2";
@@ -15,6 +15,8 @@ const Register = () => {
     use(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [showpassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const locationState = location.state;
   const navigate = useNavigate();
 
   if (user) {
@@ -90,7 +92,11 @@ const Register = () => {
               });
               form.reset();
 
-              navigate("/");
+              if (locationState) {
+                navigate(locationState);
+              } else {
+                navigate("/");
+              }
             }
           })
           .catch((err) => setErrorMessage(err.message));
@@ -112,7 +118,6 @@ const Register = () => {
         axios
           .post(`${baseUrl}/user`, userData)
           .then((res) => {
-
             if (res.data.success == true) {
               Swal.fire({
                 position: "center center",
@@ -122,7 +127,11 @@ const Register = () => {
                 timer: 1500,
               });
 
-              navigate("/");
+              if (locationState) {
+                navigate(locationState);
+              } else {
+                navigate("/");
+              }
             }
           })
           .catch((err) => setErrorMessage(err.message));
@@ -217,7 +226,7 @@ const Register = () => {
                   {errorMessage}
                 </p>
               )}
-              <button type="submit" className="btn btn-accent block w-full">
+              <button type="submit" className="btn btn-accent block w-full uppercase text-base">
                 REGISTER
               </button>
             </form>

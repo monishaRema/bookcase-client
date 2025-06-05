@@ -10,16 +10,18 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #03045e;
+  --color-primary: #142850;
   --color-accent: #00ed64 ;
-  /* #00A8CC; */
+
+  /* #00A8CC; #03045e; #001e28 */
   --color-secondary: #001e2b;
 
 }
 
 body{
     font-family: "Poppins", sans-serif;
-    background-color: #142850;
+    background-color:#0e1b36;
+    /* color: #023430; */
     color:#e7e7e7;
 }
 
@@ -37,8 +39,18 @@ h1,h2,h3,h4,h5,h6, .font-play{
 
 .btn, button, a{
   cursor:pointer;
-  transition:all 0.3s ease-in-out;
+  transition:all 0.5s ease-in-out;
 }
 input{
   outline:none;
+}
+
+.theme-input{
+  @apply w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none;
+}
+.theme-select{
+  @apply select text-base h-auto w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none;
+}
+.accent-shadow{
+  box-shadow: 0px 0px 30px -2px rgba(0, 237, 99, 0.21);
 }

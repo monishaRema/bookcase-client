@@ -3,6 +3,10 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import AddBook from "../Pages/AddBook";
+import PrivateRoute from "../Routes/PrivateRoute";
+import UpdateBook from "../Pages/UpdateBook";
+import MyBooks from "../Pages/MyBooks";
 
 
 export const routes = createBrowserRouter([
@@ -14,6 +18,24 @@ export const routes = createBrowserRouter([
         index: true,
         Component: Home
       }, 
+      {
+        path:'add-book',
+        element:<PrivateRoute>
+          <AddBook></AddBook>
+        </PrivateRoute>
+      },
+           {
+        path:'my-books',
+        element:<PrivateRoute>
+          <MyBooks></MyBooks>
+        </PrivateRoute>
+      },
+      {
+        path:'update-book',
+        element:<PrivateRoute>
+          <UpdateBook></UpdateBook>
+        </PrivateRoute>
+      },
       {
         path: 'register', 
         Component: Register

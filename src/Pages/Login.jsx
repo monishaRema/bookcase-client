@@ -1,13 +1,13 @@
 import React, { use, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Contex/AuthContex";
-import { FaGoogle} from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
 import Swal from "sweetalert2";
 import { Slide, toast } from "react-toastify";
-import Lottie from 'lottie-react';
-import LoginLottie from '../assets/Lottie/login-lottie.json'
+import Lottie from "lottie-react";
+import LoginLottie from "../assets/Lottie/login-lottie.json";
 import { baseUrl } from "../Libs/Utility";
 import axios from "axios";
 const Login = () => {
@@ -86,7 +86,7 @@ const Login = () => {
       });
   };
 
-    const handleGoogle = () => {
+  const handleGoogle = () => {
     GoogleSignIn()
       .then((result) => {
         setUser(result.user);
@@ -98,7 +98,6 @@ const Login = () => {
         axios
           .post(`${baseUrl}/user`, userData)
           .then((res) => {
-        
             if (res.data.success == true) {
               Swal.fire({
                 position: "center center",
@@ -108,7 +107,11 @@ const Login = () => {
                 timer: 1500,
               });
 
-              navigate("/");
+              if (locationState) {
+                navigate(locationState);
+              } else {
+                navigate("/");
+              }
             }
           })
           .catch((err) => setErrorMessage(err.message));
@@ -116,10 +119,8 @@ const Login = () => {
       .catch((err) => setErrorMessage(err.message));
   };
 
-
-
   return (
-       <section className="register pb-25 pt-45">
+    <section className="register pb-25 pt-45">
       <div className="container mx-auto px-5">
         <Helmet>
           <title>Book Case | Login</title>
@@ -127,15 +128,19 @@ const Login = () => {
 
         <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row bg-primary text-gray-100 shadow-lg rounded-lg  gap-5 items-center overflow-hidden">
           <div className="img-box w-full md:w-1/2 h-auto md:h-[800px]">
-       
-<Lottie style={{width:'100%', height: '100%'}} animationData={LoginLottie} loop={true}></Lottie>
-            
+            <Lottie
+              style={{ width: "100%", height: "100%" }}
+              animationData={LoginLottie}
+              loop={true}
+            ></Lottie>
           </div>
           <div className="form-box w-full md:w-1/2 p-6 md:p-10 ">
             <form onSubmit={handleLogin}>
               <h2 className="text-3xl font-bold mb-1 text-accent">Login</h2>
-               <p className="mb-7 text-gray-400">Start your reading journey with Book Case</p>
-          
+              <p className="mb-7 text-gray-400">
+                Welcome back to your reading journey
+              </p>
+
               <div className="form-group mb-5">
                 <label htmlFor="email" className="block mb-2">
                   Email
@@ -171,46 +176,44 @@ const Login = () => {
                   className="absolute top-12 right-6 text-accent"
                 >
                   {showpassword ? (
-                     <LuEye size={24}></LuEye>
-                   
+                    <LuEye size={24}></LuEye>
                   ) : (
                     <LuEyeClosed size={24}></LuEyeClosed>
                   )}
                 </button>
               </div>
-               {errorMessage && (
-              <p className="text-red-500 text-sm text-center my-3">
-                {errorMessage}
-              </p>
-            )}
-              <button type="submit" className="btn btn-accent block w-full">
-               Login
+              {errorMessage && (
+                <p className="text-red-500 text-sm text-center my-3">
+                  {errorMessage}
+                </p>
+              )}
+              <button type="submit" className="btn btn-accent block w-full uppercase text-base">
+                Login
               </button>
             </form>
-             <p className="font-semibold text-center mt-2">
+            <p className="font-semibold text-center mt-2">
               Do not have an account?{" "}
               <Link className="text-accent hover:text-green-600" to="/register">
                 Register
               </Link>
             </p>
-             <div className="flex items-center my-4 gap-2">
+            <div className="flex items-center my-4 gap-2">
               <hr className="flex-grow border-gray-300" />
               <span className="text-gray-400 text-sm">OR</span>
               <hr className="flex-grow border-gray-300" />
             </div>
-              <div className="social-login mt-5">
-                          <button
-                            onClick={handleGoogle}
-                            className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
-                          >
-                            <FaGoogle size={20}></FaGoogle>
-                            <span className="text-base font-medium">Continue With Google</span>
-                          </button>
-                        </div>
-           
-           
+            <div className="social-login mt-5">
+              <button
+                onClick={handleGoogle}
+                className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
+              >
+                <FaGoogle size={20}></FaGoogle>
+                <span className="text-base font-medium">
+                  Continue With Google
+                </span>
+              </button>
+            </div>
           </div>
-         
         </div>
       </div>
     </section>
