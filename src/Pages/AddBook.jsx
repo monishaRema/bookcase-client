@@ -13,11 +13,9 @@ const AddBook = () => {
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
     axios
       .post(`${baseUrl}/book`, data)
       .then((result) => {
-        console.log(result.data);
         if (result.data.insertedId) {
           Swal.fire({
             position: "center",
@@ -223,7 +221,7 @@ const AddBook = () => {
               <div className="flex justify-center pt-5">
                 <button
                   type="submit"
-                  className="btn px-8 btn-lg btn-accent bg-gradient-to-r from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
+                  className="gradient-btn"
                 >
                   <GiBookshelf size={24} />
 

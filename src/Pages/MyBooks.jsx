@@ -5,26 +5,26 @@ import { baseUrl } from '../Libs/Utility';
 import SignleBook from '../Components/Book/SignleBook';
 
 const MyBooks = () => {
-    const [book, setBook] = useState([])
+    const [books, setBooks] = useState([])
     const {user} = use(AuthContext)
 
     useEffect(()=> {
         axios.get(`${baseUrl}/book?email=${user.email}`).then(res => res.data)
         .then( res => {
-            setBook(res)
+            setBooks(res)
     })
 
     }, [])
 
-console.log(book)
+
 
     return (
        <section className='pb-25 pt-45'>
         <div className="container mx-auto px-5">
 
-        <div className="grid grid-cols-1 sm:grid-col-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
  {
-     book.length > 0 && book?.map(book => <SignleBook key={book._id} book={book}></SignleBook>)
+     books.length > 0 && books?.map(book => <SignleBook setBooks={setBooks} books={books} key={book._id} book={book}></SignleBook>)
     }
         </div>
     </div>

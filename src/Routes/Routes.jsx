@@ -8,6 +8,8 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import UpdateBook from "../Pages/UpdateBook";
 import MyBooks from "../Pages/MyBooks";
 import { baseUrl } from "../Libs/Utility";
+import BookDetails from "../Pages/BookDetails";
+import Bookshelf from "../Pages/Bookshelf";
 
 
 export const routes = createBrowserRouter([
@@ -33,9 +35,21 @@ export const routes = createBrowserRouter([
       },
       {
         path:'update-book/:id',
+        loader: ({params}) => fetch(`${baseUrl}/book/${params.id}`),
         element:<PrivateRoute>
           <UpdateBook></UpdateBook>
         </PrivateRoute>
+      },
+      {
+        path: "book-details/:id", 
+        loader: ({params}) => fetch(`${baseUrl}/book/${params.id}`),
+        Component: BookDetails
+
+      },
+      {
+       path:'bookshelf',
+      loader:()=> fetch(`${baseUrl}/all-books`),
+       Component:Bookshelf
       },
       {
         path: 'register', 
