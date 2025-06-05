@@ -5,20 +5,21 @@ import { Helmet } from "@dr.pogodin/react-helmet";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
 import Swal from "sweetalert2";
 import { FaGoogle } from "react-icons/fa";
-import Lottie from 'lottie-react';
-import RegisterLottie from '../assets/register-lottie.json'
+import Lottie from "lottie-react";
+import RegisterLottie from "../assets/Lottie/register-lottie.json";
+import axios from "axios";
+import { baseUrl } from "../Libs/Utility";
 
 const Register = () => {
-
-  const { CreateUser, setUser, UpdateUser, GoogleSignIn, user} = use(AuthContext);
+  const { CreateUser, setUser, UpdateUser, GoogleSignIn, user } =
+    use(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
   const [showpassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-   if(user){
-        return <Navigate to="/"></Navigate>
-    }
-
+  if (user) {
+    return <Navigate to="/"></Navigate>;
+  }
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -33,7 +34,6 @@ const Register = () => {
     const hasLowercase = /[a-z]/.test(password);
     const hasUppercase = /[A-Z]/.test(password);
     const hasNumber = /[0-9]/.test(password);
-
 
     if (password.length < 6) {
       setErrorMessage("Password must be at least 6 characters long.");
@@ -52,7 +52,6 @@ const Register = () => {
       return;
     }
 
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setErrorMessage("Please enter a valid email address.");
@@ -64,48 +63,69 @@ const Register = () => {
         displayName,
         photoURL,
       };
- 
-      UpdateUser(userDetails)
-       
+
+      UpdateUser(userDetails);
     };
     CreateUser(email, password)
       .then((currentUser) => {
-    
         setUser(currentUser);
         updateProfile();
-       Swal.fire({
-          position: "center center",
-          icon: "success",
-          title: "You have registered successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        form.reset();
-      
-        navigate("/");
-        location.reload()
-     
-     
+
+        const userData = {
+          name: displayName,
+          email,
+          photo: photoURL,
+        };
+        axios
+          .post(`${baseUrl}/user`, userData)
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "You have registered successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              form.reset();
+
+              navigate("/");
+            }
+          })
+          .catch((err) => setErrorMessage(err.message));
       })
       .catch((err) => {
         setErrorMessage(err.message);
       });
-
-
   };
 
-    const handleGoogle = () => {
+  const handleGoogle = () => {
     GoogleSignIn()
       .then((result) => {
         setUser(result.user);
-        Swal.fire({
-          position: "center center",
-          icon: "success",
-          title: "Login Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/");
+        const userData = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result.user.photoURL,
+        };
+        axios
+          .post(`${baseUrl}/user`, userData)
+          .then((res) => {
+
+            if (res.data.success == true) {
+              Swal.fire({
+                position: "center center",
+                icon: "success",
+                title: "You have logged in successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+
+              navigate("/");
+            }
+          })
+          .catch((err) => setErrorMessage(err.message));
       })
       .catch((err) => setErrorMessage(err.message));
   };
@@ -114,14 +134,16 @@ const Register = () => {
     <section className="register pb-25 pt-45">
       <div className="container mx-auto px-5">
         <Helmet>
-          <title>Planto | Register</title>
+          <title>Book Case | Register</title>
         </Helmet>
 
         <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row bg-primary text-gray-100 shadow-lg rounded-lg  gap-5 items-center overflow-hidden">
           <div className="form-box w-full md:w-1/2 p-6 md:p-10 ">
             <form onSubmit={handleRegister}>
               <h2 className="text-3xl font-bold mb-1 text-accent">Register</h2>
-               <p className="mb-7 text-gray-400">Start your reading journey with Book Case</p>
+              <p className="mb-7 text-gray-400">
+                Start your reading journey with Book Case
+              </p>
               <div className="form-group mb-5">
                 <label htmlFor="name" className="block mb-2">
                   Name
@@ -184,49 +206,50 @@ const Register = () => {
                   className="absolute top-12 right-6 text-accent"
                 >
                   {showpassword ? (
-                     <LuEye size={24}></LuEye>
-                   
+                    <LuEye size={24}></LuEye>
                   ) : (
                     <LuEyeClosed size={24}></LuEyeClosed>
                   )}
                 </button>
               </div>
-               {errorMessage && (
-              <p className="text-red-500 text-sm text-center my-3">
-                {errorMessage}
-              </p>
-            )}
+              {errorMessage && (
+                <p className="text-red-500 text-sm text-center my-3">
+                  {errorMessage}
+                </p>
+              )}
               <button type="submit" className="btn btn-accent block w-full">
-               REGISTER
+                REGISTER
               </button>
             </form>
-             <p className="font-semibold text-center mt-2">
+            <p className="font-semibold text-center mt-2">
               Already Have An Account ?{" "}
               <Link className="text-accent hover:text-green-600" to="/login">
                 Login
               </Link>
             </p>
-             <div className="flex items-center my-4 gap-2">
+            <div className="flex items-center my-4 gap-2">
               <hr className="flex-grow border-gray-300" />
               <span className="text-gray-400 text-sm">OR</span>
               <hr className="flex-grow border-gray-300" />
             </div>
-              <div className="social-login mt-5">
-                          <button
-                            onClick={handleGoogle}
-                            className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
-                          >
-                            <FaGoogle size={20}></FaGoogle>
-                            <span className="text-base font-medium">Continue With Google</span>
-                          </button>
-                        </div>
-           
-           
+            <div className="social-login mt-5">
+              <button
+                onClick={handleGoogle}
+                className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
+              >
+                <FaGoogle size={20}></FaGoogle>
+                <span className="text-base font-medium">
+                  Continue With Google
+                </span>
+              </button>
+            </div>
           </div>
           <div className="img-box w-full md:w-1/2 h-auto md:h-[800px]">
-       
-<Lottie style={{width:'100%', height: '100%'}} animationData={RegisterLottie} loop={true}></Lottie>
-            
+            <Lottie
+              style={{ width: "100%", height: "100%" }}
+              animationData={RegisterLottie}
+              loop={true}
+            ></Lottie>
           </div>
         </div>
       </div>
