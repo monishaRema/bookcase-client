@@ -46,7 +46,7 @@ input{
 }
 
 .theme-input{
-  @apply w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none;
+  @apply w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none placeholder-shown:text-gray-300 text-base;
 }
 .theme-select{
   @apply select text-base h-auto w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none;
