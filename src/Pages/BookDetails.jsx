@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { baseUrl } from "../Libs/Utility";
 import { useState } from "react";
+import Review from "../Components/Review/Review";
 
 const BookDetails = () => {
   const book = useLoaderData();
@@ -103,6 +104,9 @@ const BookDetails = () => {
               <span className="">Upvote</span>
             </button>
           </div>
+        </div>
+        <div className="review-write mt-40">
+            <Review></Review>
         </div>
       </div>
     </section>

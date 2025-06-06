@@ -1,16 +1,20 @@
 import { Helmet } from "@dr.pogodin/react-helmet";
 import React, { use } from "react";
 import { AuthContext } from "../Contex/AuthContex";
-import { GiBookshelf } from "react-icons/gi";
+import { FiEdit } from "react-icons/fi";
 import axios from "axios";
 import { baseUrl } from "../Libs/Utility";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
+import { PiBookOpenBold } from "react-icons/pi";
+
+
 
 
 const UpdateBook = () => {
   const { user } = use(AuthContext);
   const book = useLoaderData()
+  const navigate = useNavigate();
   console.log(book)
   const handleUpdateBook = (e) => {
     e.preventDefault();
@@ -31,7 +35,7 @@ const UpdateBook = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          form.reset();
+          navigate('/my-books');
         }
       })
       .catch();
@@ -43,10 +47,20 @@ const UpdateBook = () => {
           <title>Book Case | Add Book</title>
         </Helmet>
 
+  <div className="mb-20 max-w-5xl mx-auto">
+              <div className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group">
+                  <PiBookOpenBold className="size-15 group-hover:rotate-360 transition duration-1000 ease-in-out" />
+              </div>
+              <h1 className="text-center text-3xl md:text-4xl font-semibold mb-10">Update Your Book</h1>
+              <p className="text-center text-xl mb-10 max-w-3xl mx-auto text-gray-400">Edit your book information and keep your collection up to date. Easily manage details to organize your personal library.</p>
+         
+          </div>
 
 
         <div className="max-w-5xl mx-auto bg-primary text-gray-50 rounded-lg  gap-5 items-center overflow-hidden border-2 border-[#00ed6440] accent-shadow">
+          
           <div className="form-box w-full  p-6 md:p-10 ">
+            <h2 className="mb-10 text-3xl md:text-4xl font-bold text-accent text-center">Book Information</h2>
             <form onSubmit={handleUpdateBook}>
               <div className="flex flex-col md:flex-row gap-5">
                 <div className="form-group mb-5 w-full md:w-1/2">
@@ -121,6 +135,7 @@ const UpdateBook = () => {
                     name="book_category"
                     className="theme-select"
                     required
+                    defaultValue={book?.book_category}
                   >
                     <option value="fiction" className="bg-[#0e1b36] text-white">Fiction</option>
                     <option value="Sci-Fi" className="bg-[#0e1b36] text-white">Sci-Fi</option>
@@ -139,6 +154,7 @@ const UpdateBook = () => {
                     id="reading_status"
                     name="reading_status"
                     className="theme-select"
+                    defaultValue={book?.reading_status}
                     required
                   >
                     <option value="want-to-read" className="bg-[#0e1b36] text-white">Want to read</option>
@@ -218,9 +234,9 @@ const UpdateBook = () => {
                   type="submit"
                   className="btn px-8 btn-lg btn-accent bg-gradient-to-r from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
                 >
-                    <GiBookshelf  size={24}/>
+                    <FiEdit   size={24}/>
 
-                  <span>Update Book to Shelf</span>
+                  <span>Update Book Info</span>
                 </button>
               </div>
             </form>
