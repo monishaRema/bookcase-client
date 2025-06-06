@@ -19,6 +19,7 @@ export const routes = createBrowserRouter([
     children: [
       {
         index: true,
+         loader:()=> fetch(`${baseUrl}/all-books`),
         Component: Home
       }, 
       {

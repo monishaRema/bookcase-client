@@ -2,13 +2,40 @@ import { Helmet } from "@dr.pogodin/react-helmet";
 import React, { use } from "react";
 import { AuthContext } from "../Contex/AuthContex";
 import { GiBookshelf } from "react-icons/gi";
+import axios from "axios";
+import { baseUrl } from "../Libs/Utility";
+import Swal from "sweetalert2";
+import { useLoaderData } from "react-router";
+
 
 const UpdateBook = () => {
-        const {user} = use(AuthContext)
-      const handleAddBook = (e) => {
-        e.preventDefault();
-        alert("hello");
-      };
+  const { user } = use(AuthContext);
+  const book = useLoaderData()
+  console.log(book)
+  const handleUpdateBook = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    data.upvotes = parseInt(data.upvotes)
+    data.user_email = user?.email;
+    data.user_name = user?.displayName
+
+      axios.put(`${baseUrl}/book/${book._id}`, data)
+      .then((result) => {
+         if (result.data.modifiedCount) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You have updated a book successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      })
+      .catch();
+  };
     return (
            <section className="register pb-25 pt-45">
       <div className="container mx-auto px-5">
@@ -20,7 +47,7 @@ const UpdateBook = () => {
 
         <div className="max-w-5xl mx-auto bg-primary text-gray-50 rounded-lg  gap-5 items-center overflow-hidden border-2 border-[#00ed6440] accent-shadow">
           <div className="form-box w-full  p-6 md:p-10 ">
-            <form onSubmit={handleAddBook}>
+            <form onSubmit={handleUpdateBook}>
               <div className="flex flex-col md:flex-row gap-5">
                 <div className="form-group mb-5 w-full md:w-1/2">
                   <label htmlFor="book_title" className="block mb-2">
@@ -32,6 +59,7 @@ const UpdateBook = () => {
                     name="book_title"
                     className="theme-input"
                     placeholder="Enter your book title"
+                    defaultValue={book?.book_title}
                     required
                   />
                 </div>
@@ -45,6 +73,7 @@ const UpdateBook = () => {
                     name="book_author"
                     className="theme-input"
                     placeholder="Enter book author"
+                    defaultValue={book?.book_author}
                     required
                   />
                 </div>
@@ -61,6 +90,7 @@ const UpdateBook = () => {
                     name="cover_photo"
                     className="theme-input"
                     placeholder="Enter book cover photo URL"
+                     defaultValue={book?.cover_photo}
                     required
                   />
                 </div>
@@ -74,6 +104,7 @@ const UpdateBook = () => {
                     name="total_pages"
                     className="theme-input"
                     placeholder="Enter book author"
+                     defaultValue={book?.total_pages}
                     required
                   />
                 </div>
@@ -175,6 +206,7 @@ const UpdateBook = () => {
                     name="book_overview"
                     className="theme-input h-32"
                     placeholder="Enter your book overview"
+                    defaultValue={book?.book_overview}
                     required
                  >
 
@@ -188,7 +220,7 @@ const UpdateBook = () => {
                 >
                     <GiBookshelf  size={24}/>
 
-                  <span>Add Book to Shelf</span>
+                  <span>Update Book to Shelf</span>
                 </button>
               </div>
             </form>

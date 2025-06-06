@@ -7,6 +7,7 @@ import { SlLike } from "react-icons/sl";
 import Swal from "sweetalert2";
 import { baseUrl } from "../../Libs/Utility";
 
+
 const SignleBook = ({ book, setBooks, books }) => {
   const handleDelete = (id) => {
     Swal.fire({
@@ -41,6 +42,7 @@ const SignleBook = ({ book, setBooks, books }) => {
   };
   return (
      <div className="card theme-card flex flex-col gap-5 justify-between">
+
           <div className="flex gap-3 items-center">
             <div className="img-box w-5/12 overflow-hidden rounded  h-36">
               <img

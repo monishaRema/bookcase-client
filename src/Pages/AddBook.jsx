@@ -5,6 +5,11 @@ import { GiBookshelf } from "react-icons/gi";
 import axios from "axios";
 import { baseUrl } from "../Libs/Utility";
 import Swal from "sweetalert2";
+import { PiBookOpenBold } from "react-icons/pi";
+import { IoShareSharp } from "react-icons/io5";
+import { MdLibraryBooks } from "react-icons/md";
+
+
 
 const AddBook = () => {
   const { user } = use(AuthContext);
@@ -38,6 +43,41 @@ const AddBook = () => {
         <Helmet>
           <title>Book Case | Add Book</title>
         </Helmet>
+
+         <div className="mb-20 max-w-[900px] mx-auto">
+              <div className="img-box bg-gradient-to-l from-secondary to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10">
+                  <PiBookOpenBold className="size-15" />
+              </div>
+              <h1 className="text-center text-3xl md:text-4xl font-semibold mb-10">Add Your Book</h1>
+              <p className="text-center text-xl mb-10 ">Share your literary journey with our community! Adding books to your digital <br /> bookshelf helps you:</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-5 ">
+
+                <div className="box-1 border border-accent rounded  py-4 px-2">
+                  <div className="img-box bg-gradient-to-r from-secondary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
+                  <PiBookOpenBold className="size-7" />
+              </div>
+              <h3 className="text-center text-xl  font-semibold mb-4">Track Progress</h3>
+              <p className="text-center">Monitor your reading journey and set goals</p>
+                </div>
+                
+                <div className="box-2 border border-accent rounded  py-5 px-3">
+                  <div className="img-box bg-primary  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
+                  <IoShareSharp  className="size-7" />
+              </div>
+              <h3 className="text-center text-xl  font-semibold mb-4">Share Reviews</h3>
+              <p className="text-center">Help others discover amazing books</p>
+                </div>
+                
+                <div className="box-3 border border-accent rounded  py-5 px-3">
+                  <div className="img-box bg-gradient-to-l from-secondary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
+                  <MdLibraryBooks  className="size-7" />
+              </div>
+              <h3 className="text-center text-xl  font-semibold mb-4">Build Library</h3>
+              <p className="text-center">Create your personal digital collection</p>
+                </div>
+                
+              </div>
+            </div>
 
         <div className="max-w-5xl mx-auto bg-primary text-gray-50 rounded-lg  gap-5 items-center overflow-hidden border-2 border-[#00ed6440] accent-shadow">
           <div className="form-box w-full  p-6 md:p-10 ">
