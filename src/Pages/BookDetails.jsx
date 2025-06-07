@@ -14,22 +14,23 @@ import { baseUrl } from "../Libs/Utility";
 import { useState } from "react";
 import Review from "../Components/Review/Review";
 import { useEffect } from "react";
+import DisplayReview from "../Components/Review/DisplayReview";
 
 const BookDetails = () => {
   const book = useLoaderData();
   const [upvote, setUpvote] = useState(parseInt(book.upvotes));
-  const [review, setReview] = useState([])
+  const [reviews, setReviews] = useState([])
   const { user } = use(AuthContext);
 
   useEffect(()=>{
     axios.get(`${baseUrl}/review`)
     .then(result =>{
-      setReview(result.data)
+      setReviews(result.data)
     })
 
-  },[])
+  },[reviews])
 
-
+  
   const handleUpvote = (id) => {
     if (user.email !== book.user_email) {
     
@@ -118,7 +119,8 @@ const BookDetails = () => {
           </div>
         </div>
         <div className="review-write mt-40">
-            <Review bookId={book?._id} user_email={book?.user_email} review={review} setReview={setReview}></Review>
+            <Review bookId={book?._id} user_email={book?.user_email} reviews={reviews} setReviews={setReviews}></Review>
+            <DisplayReview reviews={reviews} setReviews={setReviews}></DisplayReview>
         </div>
       </div>
     </section>

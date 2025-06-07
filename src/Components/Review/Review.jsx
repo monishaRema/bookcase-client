@@ -7,14 +7,13 @@ import axios from "axios";
 import { baseUrl } from "../../Libs/Utility";
 import { useNavigate } from "react-router";
 
-const Review = (bookId, user_email, review, setReview) => {
+const Review = (bookId, user_email, reviews, setReviews) => {
   const { user } = use(AuthContext);
-  console.log(bookId.bookId)
   const navigate = useNavigate();
   const handleReview = (e) => {
     e.preventDefault();
     const formReview = e.target.review.value;
-  
+
     if (!user || !user.email) {
       Swal.fire({
         text: "Please login first to post a review",
@@ -27,17 +26,28 @@ const Review = (bookId, user_email, review, setReview) => {
       const data = {
         book_id: bookId.bookId,
         user_email: user?.email,
+        user_name: user?.displayName,
         review_text: formReview,
         created_at: new Date().toISOString(),
       };
       axios.post(`${baseUrl}/review`, data).then((result) => {
+        if (result.data.status == 400) {
+          Swal.fire({
+            position: "center center",
+            icon: "warning",
+            title: "Sorry you have already reviewed this book",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          return;
+        }
         if (result.data.insertedId) {
           Swal.fire({
             position: "center center",
             icon: "success",
             title: "You posted a review successfully",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2000,
           });
         }
       });
