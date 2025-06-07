@@ -1,6 +1,7 @@
 import { Helmet } from "@dr.pogodin/react-helmet";
 import React from "react";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+
 
 const Error = () => {
   return (
@@ -8,15 +9,18 @@ const Error = () => {
       <Helmet>
         <title>Book Case | 404</title>
       </Helmet>
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-5 text-center">
         <h1 className="text-center text-3xl md:text-4xl">Oops!</h1>
         <p>404 - Page Not Found</p>
 
+      <div className="flex justify-center">
+
         <button className="gradient-btn flex items-center gap-3">
+          <FaArrowLeft className="text-xl"/>
           <span> Go Back Home</span>
-          <FaArrowAltCircleLeft className="size-10"/>
          
           </button>
+      </div>
       </div>
     </section>
   );

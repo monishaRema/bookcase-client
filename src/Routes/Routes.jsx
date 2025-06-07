@@ -10,12 +10,14 @@ import MyBooks from "../Pages/MyBooks";
 import { baseUrl } from "../Libs/Utility";
 import BookDetails from "../Pages/BookDetails";
 import Bookshelf from "../Pages/Bookshelf";
+import Error from "../Pages/Error";
 
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <Error></Error>,
     children: [
       {
         index: true,
@@ -58,7 +60,12 @@ export const routes = createBrowserRouter([
       {
         path:'login',
         Component:Login
+      },
+      {
+        path:'/*',
+        Component: Error
       }
+
     ]
   
   },

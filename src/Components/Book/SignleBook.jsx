@@ -30,7 +30,7 @@ const SignleBook = ({ book, setBooks, books }) => {
 
               Swal.fire({
                 title: "Deleted!",
-                text: "Your file has been deleted.",
+                text: "Your book has been deleted.",
                 icon: "success",
               });
             }
