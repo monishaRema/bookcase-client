@@ -15,6 +15,9 @@ import { useNavigate } from "react-router";
 const AddBook = () => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
+  if(!user.email || !user.displayName){
+     return location.reload();
+  }
   const handleAddBook = (e) => {
     e.preventDefault();
     const form = e.target;

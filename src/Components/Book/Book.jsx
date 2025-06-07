@@ -21,7 +21,7 @@ const Book = ({ book }) => {
         </div>
         <div className="w-7/12">
         <h3 className="card-heading">{book.book_title}</h3>
-        <p className="flex item-center gap-2"><FaUserEdit className="text-2xl text-accent"></FaUserEdit> <span className="text-gray-100">{book?.book_author}</span></p>
+        <p className="flex item-center gap-2"><FaUserEdit className="text-2xl text-accent"></FaUserEdit> <span className="text-gray-300">{book?.book_author}</span></p>
         </div>
       </div>
       <div className="flex gap-5 justify-between">

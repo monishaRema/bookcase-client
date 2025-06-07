@@ -113,7 +113,7 @@ const Navbar = () => {
         variants={navVarient}
    
       >
-        <div className="container mx-auto px-8 fixed top-0 left-[50%] -translate-x-1/2 bg-[#00000050] backdrop-blur-2xl text-white sm:rounded-[40px] sm:mt-5 z-50">
+        <div className="container mx-auto px-8 fixed top-0 left-[50%] -translate-x-1/2 bg-[#00000030] backdrop-blur-xl text-white sm:rounded-[40px] sm:mt-5 z-50">
 
           <div className="navbar px-0 flex justify-between items-center py-3">
             <div className="flex items-center gap-1 md:gap-0">

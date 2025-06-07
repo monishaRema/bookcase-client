@@ -7,11 +7,12 @@ import axios from "axios";
 import { baseUrl } from "../../Libs/Utility";
 import { useNavigate } from "react-router";
 
-const Review = (bookId, user_email, reviews, setReviews) => {
+const Review = ({ bookId, setReviews }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
   const handleReview = (e) => {
     e.preventDefault();
+    const form = e.target
     const formReview = e.target.review.value;
 
     if (!user || !user.email) {
@@ -24,12 +25,13 @@ const Review = (bookId, user_email, reviews, setReviews) => {
     }
     if (formReview.length >= 30) {
       const data = {
-        book_id: bookId.bookId,
+        book_id: bookId,
         user_email: user?.email,
         user_name: user?.displayName,
         review_text: formReview,
         created_at: new Date().toISOString(),
       };
+
       axios.post(`${baseUrl}/review`, data).then((result) => {
         if (result.data.status == 400) {
           Swal.fire({
@@ -39,7 +41,7 @@ const Review = (bookId, user_email, reviews, setReviews) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          return;
+          return form.reset();
         }
         if (result.data.insertedId) {
           Swal.fire({
@@ -49,6 +51,10 @@ const Review = (bookId, user_email, reviews, setReviews) => {
             showConfirmButton: false,
             timer: 2000,
           });
+          axios.get(`${baseUrl}/review/${bookId}`).then((result) => {
+            setReviews(result.data);
+          });
+          form.reset()
         }
       });
     } else {

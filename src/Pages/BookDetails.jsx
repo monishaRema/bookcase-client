@@ -23,14 +23,12 @@ const BookDetails = () => {
   const { user } = use(AuthContext);
 
   useEffect(()=>{
-    axios.get(`${baseUrl}/review`)
+    axios.get(`${baseUrl}/review/${book._id}`)
     .then(result =>{
-      setReviews(result.data)
+        setReviews(result.data);
     })
 
-  },[reviews])
-
-  
+  },[book._id])
   const handleUpvote = (id) => {
     if (user.email !== book.user_email) {
     
@@ -60,6 +58,7 @@ const BookDetails = () => {
         <title>Book Case | Book Details</title>
       </Helmet>
       <div className="container mx-auto px-5">
+
         <div className=" max-w-[1080px] flex flex-col md:flex-row gap-15 items-center">
           <div className="img-box w-full overflow-hidden rounded  md:w-5/12 p-5 border  border-[#00ed6440]">
             <img
