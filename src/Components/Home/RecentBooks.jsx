@@ -4,15 +4,21 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { baseUrl } from "../../Libs/Utility";
 import Book from "../Book/Book";
+import axios from 'axios';
+import Spinner from '../../Pages/Spinner';
 
 const RecentBooks = () => {
 
      const [latestBook, setLatestBook] = useState([]);
+    const [loading, setLoading] = useState(true);
 
  useEffect(()=>{
-      fetch(`${baseUrl}/recent-books/`)
-      .then( res => res.json())
-      .then(data => setLatestBook(data))
+      axios.get(`${baseUrl}/recent-books/`)
+   .then((result) => {
+        setLatestBook(result.data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
  }, [])
     return (
         <section className='py-25 bg-gradient-to-b from-secondary to-primary'>
@@ -35,6 +41,7 @@ const RecentBooks = () => {
           Discover the most popular books loved by readers. Explore trending
           titles across genres and find your next great read.
         </p>
+        {loading && <Spinner></Spinner>}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {
             latestBook.length > 0 && latestBook.map( book => <Book key={book._id} book={book}></Book>)
