@@ -52,6 +52,8 @@ const BookDetails = () => {
     }
   };
 
+  
+
   return (
     <section className="register pb-25 pt-45">
       <Helmet>
@@ -119,7 +121,7 @@ const BookDetails = () => {
         </div>
         <div className="review-write mt-40">
             <Review bookId={book?._id} user_email={book?.user_email} reviews={reviews} setReviews={setReviews}></Review>
-            <DisplayReview reviews={reviews} setReviews={setReviews}></DisplayReview>
+            <DisplayReview reviews={reviews} setReviews={setReviews} bookId={book?._id}></DisplayReview>
         </div>
       </div>
     </section>

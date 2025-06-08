@@ -3,6 +3,7 @@ import Banner from '../Components/Header/Banner';
 
 import { Helmet } from '@dr.pogodin/react-helmet';
 import PopularBooks from '../Components/Home/PopularBooks';
+import RecentBooks from '../Components/Home/RecentBooks';
 
 const Home = () => {
       
@@ -12,8 +13,9 @@ const Home = () => {
       <title>Book Case | Home
       </title>
     </Helmet>
-       {/* <Banner></Banner> */}
+       <Banner></Banner>
        <PopularBooks></PopularBooks>
+       <RecentBooks></RecentBooks>
        
        </>
     );

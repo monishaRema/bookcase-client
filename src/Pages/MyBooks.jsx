@@ -6,23 +6,45 @@ import SignleBook from "../Components/Book/SignleBook";
 import { SlBookOpen } from "react-icons/sl";
 import { Link } from "react-router";
 import { FaPlus } from "react-icons/fa";
+import Spinner from "./Spinner";
+
 
 const MyBooks = () => {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true)
   const { user } = use(AuthContext);
 
-  useEffect(() => {
+   useEffect(() => {
+    if (!user?.email) return;
+
+    setLoading(true);
     axios
       .get(`${baseUrl}/book?email=${user.email}`)
-      .then((res) => res.data)
       .then((res) => {
-        setBooks(res);
+        setBooks(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }, []);
+  }, [user?.email]);
+
+
 
   return (
-    <section className="pb-25 pt-45">
+ 
+   <section className="pb-25 pt-45">
+
+    {
+      loading ? <Spinner></Spinner> : (
+
+  
       <div className="container mx-auto px-5">
+
+       
+  
         <div className="mb-20 max-w-[900px] mx-auto">
           <div className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group">
             <SlBookOpen className="size-15 group-hover:rotate-360 transition duration-1000 ease-in-out" />
@@ -44,6 +66,7 @@ const MyBooks = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+     
           {books.length > 0 &&
             books?.map((book) => (
               <SignleBook
@@ -55,6 +78,8 @@ const MyBooks = () => {
             ))}
         </div>
       </div>
+          )
+    }
     </section>
   );
 };

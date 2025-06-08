@@ -7,13 +7,15 @@ import { baseUrl } from "../../Libs/Utility";
 import { AuthContext } from "../../Contex/AuthContex";
 import { FaUser } from "react-icons/fa";
 import { MdAccessTime } from "react-icons/md";
+import { useState } from "react";
+import UpdateReview from "./UpdateReview";
 
 
 
 
 const SingleReview = ({ review ,reviews, setReviews}) => {
 
-
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const { user } = use(AuthContext);
   const email = user?.email;
@@ -48,6 +50,8 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
       }
     });
   }
+
+
   return (
     <div
       className="flex flex-col gap-5 bg-primary rounded mb-5 p-5"
@@ -72,7 +76,11 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
           <button
           onClick={()=>handleDeleteReview(review._id)}
           className="btn btn-warning">Delete</button>
-          <button className="btn btn-accent">Edit</button>
+
+          <button className="btn btn-accent" onClick={()=>setIsModalOpen(true)}>Edit</button>
+            <UpdateReview id={review._id} review_text={review.review_text} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}
+            setReviews={setReviews}
+             ></UpdateReview>
         </div>
       )}
     </div>

@@ -11,6 +11,7 @@ import { baseUrl } from "../Libs/Utility";
 import BookDetails from "../Pages/BookDetails";
 import Bookshelf from "../Pages/Bookshelf";
 import Error from "../Pages/Error";
+import Spinner from "../Pages/Spinner";
 
 
 export const routes = createBrowserRouter([
@@ -65,7 +66,6 @@ export const routes = createBrowserRouter([
         path:'/*',
         Component: Error
       }
-
     ]
   
   },
