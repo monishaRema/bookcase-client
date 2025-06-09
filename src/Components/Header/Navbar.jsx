@@ -141,7 +141,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="text-base dropdown-content rounded-b-md shadow-sm z-1 mt-6 md:mt-9 w-64 px-4 py-5 space-y-3"
+                  className="text-base dropdown-content rounded-b-md shadow-sm z-1 mt-5 md:mt-9 w-64 px-4 py-5 space-y-3 bg-primary"
                 >
                   <li>
                     <NavLink className={"navlink"} to="/">
@@ -151,7 +151,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       className={"navlink"}
-                      to="/Bookself"
+                      to="/Bookshelf"
                     >
                       Bookshelf
                     </NavLink>

@@ -42,7 +42,7 @@ const RecentBooks = () => {
           titles across genres and find your next great read.
         </p>
         {loading && <Spinner></Spinner>}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {
             latestBook.length > 0 && latestBook.map( book => <Book key={book._id} book={book}></Book>)
           }

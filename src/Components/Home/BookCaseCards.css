@@ -1,0 +1,29 @@
+.book-card-stack {
+  position: relative;
+}
+.book-card {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 40px;
+  background: white;
+  border: 1px solid #ddd;
+  margin-bottom: -100px;
+  transform-origin: top center;
+}
+.book-card-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.book-card-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.book-card-content p {
+  font-size: 1.1rem;
+}

@@ -4,6 +4,8 @@ import Banner from '../Components/Header/Banner';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import PopularBooks from '../Components/Home/PopularBooks';
 import RecentBooks from '../Components/Home/RecentBooks';
+import Category from '../Components/Home/Category';
+import BookCards from '../Components/Home/BookCards';
 
 const Home = () => {
       
@@ -15,6 +17,8 @@ const Home = () => {
     </Helmet>
        <Banner></Banner>
        <PopularBooks></PopularBooks>
+       <Category></Category>
+       {/* <BookCards></BookCards> */}
        <RecentBooks></RecentBooks>
        
        </>
