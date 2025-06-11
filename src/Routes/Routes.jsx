@@ -12,6 +12,7 @@ import BookDetails from "../Pages/BookDetails";
 import Bookshelf from "../Pages/Bookshelf";
 import Error from "../Pages/Error";
 import Spinner from "../Pages/Spinner";
+import UserProfile from "../Pages/UserProfile";
 
 
 export const routes = createBrowserRouter([
@@ -41,6 +42,12 @@ export const routes = createBrowserRouter([
         loader: ({params}) => fetch(`${baseUrl}/book/${params.id}`),
         element:<PrivateRoute>
           <UpdateBook></UpdateBook>
+        </PrivateRoute>
+      },
+      {
+        path: 'user-profile',
+        element: <PrivateRoute>
+          <UserProfile></UserProfile>
         </PrivateRoute>
       },
       {

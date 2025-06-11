@@ -172,7 +172,7 @@ const BookDetails = () => {
                <div className="mt-10">
 
                 <button
-                  className="gradient-btn flex items-center gap-3"
+                  className="btn px-8 btn-lg btn-accent bg-gradient-to-t from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
                   onClick={() => handleUpvote(book?._id)}
                   >
                   <BiSolidLike size={24} />

@@ -205,20 +205,20 @@ const Navbar = () => {
               >
                 {user &&  (
                   <>
-                    <a
+                    <Link
+                     to="/user-profile"
                       className="size-10 rounded-full overflow-hidden"
                       data-tooltip-id="profile-tooltip"
                     >
                       <img src={photoUrl} alt="" className="size-full" />
-                    </a>
+                    </Link>
                     <Tooltip
                       id="profile-tooltip"
                       place="bottom"
                       variant="white"
                     >
-                      <div className="flex flex-col p-3 rounded z-[999]">
+                      <div className="flex flex-col p-3 bg-primary text-white rounded z-[999]">
                         <p>{user?.displayName}</p>
-                        <p>{user?.email}</p>
                       </div>
                     </Tooltip>
                   </>
