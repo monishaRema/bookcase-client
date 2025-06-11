@@ -58,7 +58,7 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
       key={review._id}
     >
       <p className="text-base text-gray-300">{review.review_text}</p>
-      <div className="flex gap-10">
+      <div className="flex flex-wrap gap-5">
         <p className="flex items-center gap-2">
           <FaUser className="text-accent text-xl" />
           <span className="text-gray-400 capitalize">{review?.user_name}</span>

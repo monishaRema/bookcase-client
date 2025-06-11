@@ -105,15 +105,16 @@ const Navbar = () => {
   );
 
   return (
-    <header>
+    <header className="h-22">
       <motion.nav
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={navVarient}
+        className="fixed top-0 left-0 right-0 w-full  bg-[#00000030] backdrop-blur-xl text-white z-50"
    
       >
-        <div className="container mx-auto px-8 fixed top-0 left-[50%] -translate-x-1/2 bg-[#00000030] backdrop-blur-xl text-white sm:rounded-[40px] sm:mt-5 z-50">
+        <div className="container mx-auto px-5">
 
           <div className="navbar px-0 flex justify-between items-center py-3">
             <div className="flex items-center gap-1 md:gap-0">
