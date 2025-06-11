@@ -35,7 +35,7 @@ const MyBooks = () => {
 
   return (
  
-   <section className="pb-25 pt-45">
+   <section className="py-25 bg-gradient-r from-primary to-secondary">
 
     {
       loading ? <Spinner></Spinner> : (

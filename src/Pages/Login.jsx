@@ -120,7 +120,7 @@ const Login = () => {
   };
 
   return (
-    <section className="register pb-25 pt-45">
+    <section className="register py-25">
       <div className="container mx-auto px-5">
         <Helmet>
           <title>Book Case | Login</title>

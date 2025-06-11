@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 const Error = () => {
   return (
-    <section className="register pb-25 pt-45">
+    <section className="register py-25">
       <Helmet>
         <title>Book Case | 404</title>
       </Helmet>

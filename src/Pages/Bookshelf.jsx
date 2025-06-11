@@ -7,7 +7,7 @@ const Bookshelf = () => {
   const books = useLoaderData();
 
   return (
-    <section className="register pb-25 pt-45">
+    <section className="register py-25">
          <Helmet>
           <title>Book Case | Bookshelf</title>
         </Helmet>
