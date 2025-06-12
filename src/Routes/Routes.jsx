@@ -26,47 +26,48 @@ export const routes = createBrowserRouter([
         Component: Home
       }, 
       {
-        path:'add-book',
+        path:'/add-book',
         element:<PrivateRoute>
           <AddBook></AddBook>
         </PrivateRoute>
       },
            {
-        path:'my-books',
+        path:'/my-books',
         element:<PrivateRoute>
           <MyBooks></MyBooks>
         </PrivateRoute>
       },
       {
-        path:'update-book/:id',
+        path:'/update-book/:id',
         loader: ({params}) => fetch(`${baseUrl}/book/${params.id}`),
         element:<PrivateRoute>
           <UpdateBook></UpdateBook>
         </PrivateRoute>
       },
       {
-        path: 'user-profile',
+        path: '/user-profile',
         element: <PrivateRoute>
           <UserProfile></UserProfile>
         </PrivateRoute>
       },
       {
-        path: "book-details/:id", 
+        path: "/book-details/:id", 
         loader: ({params}) => fetch(`${baseUrl}/book/${params.id}`),
         Component: BookDetails
 
       },
       {
-       path:'bookshelf',
+       path:'/bookshelf',
       loader:()=> fetch(`${baseUrl}/all-books`),
-       Component:Bookshelf
+      Component:Bookshelf, 
+      hydrateFallbackElement: <Spinner></Spinner>
       },
       {
-        path: 'register', 
+        path: '/register', 
         Component: Register
       },
       {
-        path:'login',
+        path:'/login',
         Component:Login
       },
       {

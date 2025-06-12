@@ -105,7 +105,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="h-22">
+    <header className="h-20">
       <motion.nav
         initial="hidden"
         whileInView="show"
@@ -152,7 +152,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       className={"navlink"}
-                      to="/Bookshelf"
+                      to="/bookshelf"
                     >
                       Bookshelf
                     </NavLink>
