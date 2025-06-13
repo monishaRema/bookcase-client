@@ -56,8 +56,8 @@ const Bookshelf = () => {
               className="w-full rounded-lg outline-0 border border-[#00ed6440] focus:border-accent px-5 py-3 bg-transparent text-gray-100"
               defaultValue=""
             >
-              <option className="bg-primary tex-white" value="">
-                Filter By status
+              <option className="bg-primary tex-white" value="" selected disabled>
+                Filter By Reading status
               </option>
               <option className="bg-primary tex-white" value="">
                 All Status
