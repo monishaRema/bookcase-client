@@ -1,20 +1,21 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
-import { baseUrl } from "../../Libs/Utility";
+
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 import Spinner from "../../Pages/Spinner";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const BookChart = ({ user_email }) => {
   const [loading, setLoading] = useState(true);
   const [chartData, setChartData] = useState([]);
-
+  const axiosSecure = UseAxiosSecure();
   useEffect(() => {
     setLoading(true);
-    axios.get(`${baseUrl}/user/category/?email=${user_email}`).then((res) => {
+    axiosSecure.get(`/user/category/?email=${user_email}`).then((res) => {
       setChartData(res.data);
       setLoading(false);
     });
-  }, [user_email]);
+  }, [user_email, axiosSecure]);
 
   const COLORS = [
     "#00A8CC",

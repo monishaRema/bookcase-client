@@ -1,15 +1,15 @@
-import axios from "axios";
 import React from "react";
 import { Link } from "react-router";
 import { FaBookReader, FaUserEdit } from "react-icons/fa";
 import { TbCategory } from "react-icons/tb";
 import { SlLike } from "react-icons/sl";
 import Swal from "sweetalert2";
-import { baseUrl } from "../../Libs/Utility";
-import { MdOutlineMenuBook } from "react-icons/md";
 
+import { MdOutlineMenuBook } from "react-icons/md";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const SignleBook = ({ book, setBooks, books }) => {
+  const axiosSecure = UseAxiosSecure();
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -21,12 +21,12 @@ const SignleBook = ({ book, setBooks, books }) => {
       confirmButtonText: "Delete it",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`${baseUrl}/book/${id}`)
+        axiosSecure
+          .delete(`/book/${id}`)
           .then((result) => {
             if (result.data.deletedCount) {
-                const remainingBooks = books.filter(book => book._id !==id)
-                setBooks(remainingBooks)
+              const remainingBooks = books.filter((book) => book._id !== id);
+              setBooks(remainingBooks);
 
               Swal.fire({
                 title: "Deleted!",
@@ -42,45 +42,49 @@ const SignleBook = ({ book, setBooks, books }) => {
     });
   };
   return (
-     <div className="card theme-card flex flex-col gap-5 justify-between">
+    <div className="card theme-card flex flex-col gap-5 justify-between">
+      <div className="flex gap-3 items-center">
+        <div className="img-box w-5/12 overflow-hidden rounded  h-36">
+          <img
+            src={book?.cover_photo}
+            alt={book?.book_title}
+            className="size-full object-cover"
+          />
+        </div>
+        <div className="w-7/12">
+          <h3 className="card-heading">{book.book_title}</h3>
+          <p className="flex item-center gap-2">
+            <FaUserEdit className="text-2xl text-accent"></FaUserEdit>{" "}
+            <span className="text-gray-100">{book?.book_author}</span>
+          </p>
+        </div>
+      </div>
+      <div className="flex gap-6 flex-wrap justify-between">
+        <p className="flex items-center gap-2">
+          <TbCategory className="text-accent text-2xl" />
+          <span className="text-gray-100 capitalize">
+            {book?.book_category}
+          </span>
+        </p>
+        <p className="flex items-center gap-2">
+          <MdOutlineMenuBook className="text-accent text-2xl" />
+          <span className="text-gray-100 capitalize">{book?.total_pages}</span>
+        </p>
+      </div>
 
-          <div className="flex gap-3 items-center">
-            <div className="img-box w-5/12 overflow-hidden rounded  h-36">
-              <img
-                src={book?.cover_photo}
-                alt={book?.book_title}
-                className="size-full object-cover"
-              />
-            </div>
-            <div className="w-7/12">
-            <h3 className="card-heading">{book.book_title}</h3>
-            <p className="flex item-center gap-2"><FaUserEdit className="text-2xl text-accent"></FaUserEdit> <span className="text-gray-100">{book?.book_author}</span></p>
-            </div>
-          </div>
-          <div className="flex gap-6 flex-wrap justify-between">
-            <p className="flex items-center gap-2">
-                <TbCategory className="text-accent text-2xl" />
-                <span className="text-gray-100 capitalize">{book?.book_category}</span>
-            </p>
-                   <p className="flex items-center gap-2">
-                <MdOutlineMenuBook className="text-accent text-2xl" />
-                <span className="text-gray-100 capitalize">{book?.total_pages}</span>
-            </p>
-              
-          </div>
-          
       <div className="flex gap-6 flex-wrap justify-between border-t border-[#00ed6440] pt-5">
-  
-             <p className="flex items-center gap-2">
-                <FaBookReader className="text-accent text-2xl" />
-                <span className="text-gray-100 capitalize">{book?.reading_status}</span>
-            </p>
-          
-                <p className="flex items-center gap-2">
-                <SlLike className="text-accent text-2xl" />
-                <span className="text-gray-100 capitalize">{book?.upvotes}</span>
-            </p>
-          </div>
+        <p className="flex items-center gap-2">
+          <FaBookReader className="text-accent text-2xl" />
+          <span className="text-gray-100 capitalize">
+            {book?.reading_status}
+          </span>
+        </p>
+
+        <p className="flex items-center gap-2">
+          <SlLike className="text-accent text-2xl" />
+          <span className="text-gray-100 capitalize">{book?.upvotes}</span>
+        </p>
+      </div>
       <div className="flex gap-2 ">
         <Link
           className="btn btn-accent flex-1"

@@ -2,20 +2,19 @@ import { Helmet } from "@dr.pogodin/react-helmet";
 import React, { use } from "react";
 import { AuthContext } from "../Contex/AuthContex";
 import { FiEdit } from "react-icons/fi";
-import axios from "axios";
-import { baseUrl } from "../Libs/Utility";
+
 import Swal from "sweetalert2";
 import { useLoaderData, useNavigate } from "react-router";
 import { PiBookOpenBold } from "react-icons/pi";
-
-
-
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const UpdateBook = () => {
   const { user } = use(AuthContext);
   const book = useLoaderData()
   const navigate = useNavigate();
-  console.log(book)
+  const axiosSecure = UseAxiosSecure()
+
+
   const handleUpdateBook = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -25,7 +24,7 @@ const UpdateBook = () => {
     data.user_email = user?.email;
     data.user_name = user?.displayName
 
-      axios.put(`${baseUrl}/book/${book._id}`, data)
+      axiosSecure.put(`/book/${book._id}`, data)
       .then((result) => {
          if (result.data.modifiedCount) {
           Swal.fire({

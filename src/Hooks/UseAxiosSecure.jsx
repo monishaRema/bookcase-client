@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-import { use, useEffect } from 'react';
+import { use, useEffect} from 'react';
 import { baseUrl } from '../Libs/Utility';
 import { AuthContext } from '../Contex/AuthContex';
 
@@ -12,9 +11,11 @@ const UseAxiosSecure = () => {
   const { user } = use(AuthContext);
 
   useEffect(() => {
+    if (!user) return;
+
     const requestInterceptor = axiosInstance.interceptors.request.use(async (config) => {
-      if (user) {
-        const token = await user.getIdToken(); // Get Firebase ID token
+      const token = await user.getIdToken();
+      if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
       return config;

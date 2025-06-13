@@ -21,6 +21,7 @@ import { useState } from "react";
 import Review from "../Components/Review/Review";
 import { useEffect } from "react";
 import DisplayReview from "../Components/Review/DisplayReview";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const BookDetails = () => {
   const book = useLoaderData();
@@ -29,6 +30,7 @@ const BookDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = use(AuthContext);
   const navigate = useNavigate();
+  const axiosSecure = UseAxiosSecure()
 
   useEffect(() => {
     axios.get(`${baseUrl}/review/${book._id}`).then((result) => {
@@ -45,7 +47,7 @@ const BookDetails = () => {
       return navigate("/login");
     }
     if (user?.email !== book.user_email) {
-      axios.patch(`${baseUrl}/upvote/${id}`).then((result) => {
+    axiosSecure.patch(`/upvote/${id}`).then((result) => {
         if (result.data.modifiedCount) {
           Swal.fire({
             title: "You have voted successfuly",
@@ -84,7 +86,7 @@ const BookDetails = () => {
         timer: 1500,
       });
     }
-    axios.patch(`${baseUrl}/book/status/${id}`, data).then((result) => {
+    axiosSecure.patch(`/book/status/${id}`, data).then((result) => {
       console.log(result.data);
       setReadingStatus(status);
       Swal.fire({

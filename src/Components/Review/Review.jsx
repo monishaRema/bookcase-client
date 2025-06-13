@@ -3,13 +3,15 @@ import { use } from "react";
 import { MdOutlineAddComment, MdRateReview } from "react-icons/md";
 import { AuthContext } from "../../Contex/AuthContex";
 import Swal from "sweetalert2";
-import axios from "axios";
-import { baseUrl } from "../../Libs/Utility";
 import { useNavigate } from "react-router";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const Review = ({ bookId, setReviews }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
+   const axiosSecure = UseAxiosSecure();
+
+
   const handleReview = (e) => {
     e.preventDefault();
     const form = e.target
@@ -32,7 +34,7 @@ const Review = ({ bookId, setReviews }) => {
         created_at: new Date().toISOString(),
       };
 
-      axios.post(`${baseUrl}/review`, data).then((result) => {
+      axiosSecure.post(`/review`, data).then((result) => {
         if (result.data.status == 400) {
           Swal.fire({
             position: "center center",
@@ -51,8 +53,9 @@ const Review = ({ bookId, setReviews }) => {
             showConfirmButton: false,
             timer: 2000,
           });
-          axios.get(`${baseUrl}/review/${bookId}`).then((result) => {
+          axiosSecure.get(`/review/${bookId}`).then((result) => {
             setReviews(result.data);
+            
           });
           form.reset()
         }

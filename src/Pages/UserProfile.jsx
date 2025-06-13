@@ -1,32 +1,44 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../Contex/AuthContex";
-import axios from "axios";
-import { baseUrl } from "../Libs/Utility.js";
+
 import Spinner from "./Spinner.jsx";
 import { Link, useNavigate } from "react-router";
 import { FaBook, FaBookOpen, FaBookReader } from "react-icons/fa";
 import { LuBookHeart } from "react-icons/lu";
 import BookChart from "../Components/BookChart/BookChart.jsx";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure.jsx";
 
 const UserProfile = () => {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
 
   const { user } = use(AuthContext);
+  const axiosSecure = UseAxiosSecure();
   const navigate = useNavigate();
-  if (!user?.email) {
-    navigate("/login");
-  }
+
 
   useEffect(() => {
-    setLoading(true);
-    if (user?.email) {
-      axios.get(`${baseUrl}/user/books/?email=${user.email}`).then((res) => {
-        setBooks(res.data);
-        setLoading(false);
-      });
+    if (!user) return;
+    if (!user.email) {
+      navigate("/login");
     }
-  }, [user?.email]);
+  }, [user, navigate]);
+
+ useEffect(() => {
+    if (user?.email) {
+      setLoading(true);
+      axiosSecure
+        .get(`/user/books/?email=${user.email}`)
+        .then((res) => {
+          setBooks(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Error fetching books:", err);
+          setLoading(false);
+        });
+    }
+  }, [user?.email, axiosSecure]);
 
   const reading = books.filter(
     (book) => book.reading_status === "reading"
