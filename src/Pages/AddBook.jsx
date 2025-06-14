@@ -155,8 +155,8 @@ const AddBook = () => {
           </motion.div>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto bg-primary text-gray-50 rounded-lg  gap-5 items-center overflow-hidden border-2 border-[#00ed6440] accent-shadow">
-          <div className="form-box w-full  p-6 md:p-10 ">
+        <div className="theme-card-wrapper">
+          <div className="theme-card-content form-box">
             <motion.form
               onSubmit={handleAddBook}
               variants={containerVariants}
