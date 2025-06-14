@@ -19,12 +19,12 @@ const BookChart = ({ user_email }) => {
   }, [user_email, axiosSecure]);
 
   const COLORS = [
-    "#00A8CC",
-    "#00ed64",
-    "#142850",
-    "#001e2b",
-    "#13f3ce",
-    "#001e28 ",
+    "#663ef8",
+    "#00bafe",
+    "#8a0cff",
+    "#12051d",
+    "#06041b",
+    "#0cdbff ",
   ];
 
   const chartWidth = 350;

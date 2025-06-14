@@ -266,7 +266,7 @@ const BookDetails = () => {
                     </div>
                   ) : (
                     <div className="flex gap-2 items-center">
-                      <span className="badge badge-success capitalize">
+                      <span className="badge badge-accent text-white capitalize">
                         {readingStatus}
                       </span>
                     </div>

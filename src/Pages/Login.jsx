@@ -187,13 +187,13 @@ const Login = () => {
                   {errorMessage}
                 </p>
               )}
-              <button type="submit" className="btn btn-accent block w-full uppercase text-base">
+              <button type="submit" className="btn btn-accent text-white block w-full uppercase text-base">
                 Login
               </button>
             </form>
             <p className="font-semibold text-center mt-2">
               Do not have an account?{" "}
-              <Link className="text-accent hover:text-green-600" to="/register">
+              <Link className="text-violet-400 hover:text-violet-600" to="/register">
                 Register
               </Link>
             </p>

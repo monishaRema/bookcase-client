@@ -72,12 +72,12 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
         </p>
       </div>
       {review.user_email == email && (
-        <div className="flex gap-5 border-t border-[#00ed6440] pt-5">
+        <div className="flex gap-5 border-t border-[#663ef840] pt-5">
           <button
           onClick={()=>handleDeleteReview(review._id)}
           className="btn btn-warning">Delete</button>
 
-          <button className="btn btn-accent" onClick={()=>setIsModalOpen(true)}>Edit</button>
+          <button className="btn btn-accent text-white" onClick={()=>setIsModalOpen(true)}>Edit</button>
             <UpdateReview id={review._id} review_text={review.review_text} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}
             setReviews={setReviews}
              ></UpdateReview>

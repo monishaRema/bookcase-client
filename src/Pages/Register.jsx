@@ -226,13 +226,13 @@ const Register = () => {
                   {errorMessage}
                 </p>
               )}
-              <button type="submit" className="btn btn-accent block w-full uppercase text-base">
+              <button type="submit" className="btn btn-accent text-white block w-full uppercase text-base">
                 REGISTER
               </button>
             </form>
             <p className="font-semibold text-center mt-2">
               Already Have An Account ?{" "}
-              <Link className="text-accent hover:text-green-600" to="/login">
+              <Link className="text-violet-400 hover:text-violet-600" to="/login">
                 Login
               </Link>
             </p>

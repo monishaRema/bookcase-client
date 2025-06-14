@@ -54,7 +54,7 @@ const UserProfile = () => {
   const photoUrl = user && user.photoURL ? user.photoURL : UserAvator;
 
   return (
-    <section className="py-25 bg-gradient-to-bl from-primary via-cyan-900 to-green-800">
+    <section className="py-25 bg-gradient-to-bl from-primary via-[#6645eb4f] via-35% to-secondary">
       <div className="container mx-auto px-5">
         {loading && <Spinner></Spinner>}
         <h1 className="text-3xl md:text-5xl text-center mb-3">Profile Page</h1>
@@ -62,7 +62,7 @@ const UserProfile = () => {
           Your reading journey at a glance
         </p>
         <div className="flex flex-col lg:flex-row gap-10">
-          <div className="profile-info bg-[#ffffff30] rounded-2xl p-8 border backdrop-blur-2xl w-full lg:w-4/12 border-[#00ed6450] flex flex-col items-center justify-center">
+          <div className="profile-info bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl w-full lg:w-4/12 border-[#663ef840] flex flex-col items-center justify-center">
             <div className="img-box">
               <img
                 src={photoUrl}
@@ -75,7 +75,7 @@ const UserProfile = () => {
             </h2>
             <p className="text-gray-400 text-center">{user?.email}</p>
           </div>
-          <div className="profile-details w-full lg:w-8/12 bg-[#ffffff30] rounded-2xl p-8 border backdrop-blur-2xl border-[#00ed6450]">
+          <div className="profile-details w-full lg:w-8/12 bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl border-[#663ef840]">
             <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-5">
               <h2 className="text-3xl md:text-4xl font-semibold">
                 My Bookshelf
@@ -101,17 +101,17 @@ const UserProfile = () => {
                 <h3 className="mb-3 text-5xl">{books && books.length}</h3>
                 <p className="text-base text-gray-300">Total Books</p>
               </div>
-              <div className="bg-gradient-to-r from-secondary to-[#00A8CC] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
+              <div className="bg-gradient-to-r from-secondary to-[#09878b] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
                 <FaBookOpen size={42} />
                 <h3 className="text-5xl mb-3">{read}</h3>
                 <p className="text-base text-gray-300">Books Read</p>
               </div>
-              <div className="bg-gradient-to-r from-secondary to-accent rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
+              <div className="bg-gradient-to-r from-secondary to-violet-700 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
                 <FaBookReader size={42} />
                 <h3 className="mb-3 text-5xl">{reading}</h3>
                 <p className="text-base text-gray-300">Books Reading</p>
               </div>
-              <div className="bg-gradient-to-r from-secondary to-[#00A8CC] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
+              <div className="bg-gradient-to-r from-secondary to-[#1686ee] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
                 <LuBookHeart size={42} />
                 <h3 className="mb-5 text-5xl">{wantsToRead}</h3>
                 <p className="text-base text-gray-200">Wish to Read</p>
@@ -119,7 +119,7 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#ffffff30] backdrop-blur-2xl rounded-3xl px-0 py-5 border border-[#00ed6490] mt-15">
+        <div className="bg-[#55555521] backdrop-blur-2xl rounded-3xl px-0 py-5 border-2 border-[#663ef840] mt-15">
           <BookChart user_email={user.email}></BookChart>
         </div>
       </div>
