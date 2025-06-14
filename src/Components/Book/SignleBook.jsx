@@ -87,7 +87,7 @@ const SignleBook = ({ book, setBooks, books }) => {
       </div>
       <div className="flex gap-2 ">
         <Link
-          className="btn btn-accent flex-1"
+          className="btn btn-accent flex-1 text-white"
           to={`/book-details/${book?._id}`}
         >
           View

@@ -28,7 +28,7 @@ const CTA = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-    className="py-32 bg-gradient-to-b from-primary via-[#064457] to-secondary"
+    className="py-32 bg-gradient-to-t from-primary via-[#44288f57] to-secondary"
     >
       <div className="max-w-2xl mx-auto px-5">
          <div className="flex flex-col items-center justify-center text-center gap-10">

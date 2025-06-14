@@ -50,7 +50,7 @@ const Footer = () => {
   );
 
   return (
-    <footer className="border-t bg-[#001e2b] border-[#00ed644d] pt-20 pb-5">
+    <footer className="border-t bg-[#120536] border-[#9e7cfa54] pt-20 pb-5">
       <div className="container mx-auto px-5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div
@@ -64,7 +64,7 @@ const Footer = () => {
                 className="w-12 h-12 p-2 rounded-lg flex items-center justify-center"
                 style={{
                   background:
-                    "linear-gradient(135deg, #00ed64 0%, #00684a 100%)",
+                    "linear-gradient(135deg, #120536 0%, #6745EB 100%)",
                 }}
               >
                 <Link className="flex items-center gap-2" to="/">
@@ -145,7 +145,7 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="border-t mt-8 pt-8 text-center border-[#00ed644d]"
+          className="border-t mt-8 pt-8 text-center border-[#9e7cfa54]"
         >
           <p className="text-gray-300 ">
             © 2025 Book Case. All rights reserved. Designed by Mosnisha Rema.

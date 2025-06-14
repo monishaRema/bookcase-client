@@ -46,7 +46,7 @@ const RecentBooks = () => {
   }
 
   return (
-    <motion.section className="py-25 bg-gradient-to-b from-secondary to-primary">
+    <motion.section className="py-25 bg-gradient-to-t from-secondary to-primary">
       <div className="container mx-auto px-5">
         <motion.div
           initial="hidden"

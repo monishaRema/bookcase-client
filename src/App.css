@@ -125,5 +125,6 @@ input {
 }
 .cat-card:hover{
   /* hover:bg-gradient-to-b hover:from-[] hover:to-[] */
-    background: linear-gradient(#03262c 0%, #23014b 100%);
+    background: linear-gradient(#24185046 0%, #43288f 100%);
+    color:white;
 }
