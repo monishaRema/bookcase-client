@@ -13,17 +13,17 @@ const Book = ({ book }) => {
 
   return (
     <div className="card theme-card flex flex-col gap-5 justify-between">
-      <div className="flex gap-3 items-center">
-        <div className="img-box w-4/12 overflow-hidden rounded  h-36">
+      <div className="gap-3 items-center">
+        <div className="img-box overflow-hidden rounded  h-52 flex justify-center mb-5">
           <img
             src={book?.cover_photo}
             alt={book?.book_title}
-            className="w-full"
+            className="max-w-full"
           />
         </div>
-        <div className="w-8/12">
-        <h3 className="card-heading">{book.book_title}</h3>
-        <p className="flex item-center gap-2"><FaUserEdit className="text-2xl text-accent"></FaUserEdit> <span className="text-gray-400">{book?.book_author}</span></p>
+        <div className="w-12/12">
+        <h3 className="card-heading text-center">{book.book_title}</h3>
+        <p className="flex item-center gap-2 justify-center pb-5 border-b border-[#00ed6430]"><span className="text-gray-400">By :</span> <span className="text-green-400"> {book?.book_author}</span></p>
         </div>
       </div>
       <div className="flex gap-5 justify-between">

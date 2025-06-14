@@ -247,16 +247,16 @@ const BookDetails = () => {
                   </div>
                   {readingStatus !== "read" ? (
                     <div className="flex gap-2 items-center flex-wrap">
-                      <span className="badge badge-info capitalize">
+                      <span className="text-sm text-gray-400 capitalize">
                         {readingStatus}
                       </span>
                       <FaLongArrowAltRight className="text-accent"></FaLongArrowAltRight>
 
-                      <span className="badge badge-success capitalize">
+                      <span className="text-accent text-sm capitalize">
                         {statusNext}
                       </span>
                       <button
-                        className="badge badge-accent"
+                        className="badge bg-white"
                         onClick={() =>
                           handleReadingStatus(book._id, statusNext)
                         }

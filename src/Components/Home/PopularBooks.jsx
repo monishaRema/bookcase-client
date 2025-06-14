@@ -47,7 +47,7 @@ const PopularBooks = () => {
   }
 
   return (
-    <motion.section className="bg-gradient-to-t from-primary to-secondary py-25">
+    <motion.section className=" py-25">
       <div className="container mx-auto px-5">
         <motion.div
           initial="hidden"
@@ -65,7 +65,7 @@ const PopularBooks = () => {
           <motion.p
             key={1}
             variants={cardVariants}
-            className="text-gray-300 mb-10 max-w-2xl mx-auto text-center text-lg"
+            className="text-gray-300 mb-15 max-w-2xl mx-auto text-center text-lg"
           >
             Discover the most popular books loved by readers. Explore trending
             titles across genres and find your next great read.

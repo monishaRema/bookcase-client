@@ -36,7 +36,7 @@ switch (category.book_category.toLowerCase()) {
 
 
 return (
-<div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#142d57] to-primary hover:bg-gradient-to-b hover:from-[#03505e] hover:to-[#001e2b] transition-all duration-300 ease-in-out">
+<div className="cat-card">
       <div className="relative rounded-2xl  z-10 flex flex-col justify-center items-center gap-5 px-5 py-10 text-center">
         <div className="bg-gradient-to-t to-accent from-primary rounded-xl size-20 flex justify-center items-center text-white text-3xl">
             {icon}
@@ -46,6 +46,6 @@ return (
       </div>
   </div>
   );
-};
+}
 
 export default SingleCategory;

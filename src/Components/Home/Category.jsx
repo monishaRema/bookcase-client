@@ -54,7 +54,7 @@ const Category = () => {
   }
 
   return (
-    <motion.section className="py-25 bg-primary">
+    <motion.section className="py-25 bg-gradient-to-b from-[#06041b] to-secondary">
       <div className="container mx-auto px-5">
         <motion.div
           initial="hidden"

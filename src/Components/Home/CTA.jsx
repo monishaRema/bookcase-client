@@ -38,9 +38,9 @@ Ready to Start Your Journey?
             <motion.p variants={fadeInUp} className="text-base md:text-lg text-gray-300">
                 Join thousands of readers who have transformed their reading experience. Your next great book adventure awaits.
             </motion.p>
-            <motion.button variants={fadeInUp}>
+            <motion.div variants={fadeInUp}>
                 <Link to={'/register'} className="gradient-btn">Start Digital Bookshelf</Link>
-            </motion.button>
+            </motion.div>
          </div>
       </div>
     </motion.section>
