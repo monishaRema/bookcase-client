@@ -87,7 +87,7 @@ const BookDetails = () => {
       });
     }
     axiosSecure.patch(`/book/status/${id}`, data).then((result) => {
-      console.log(result.data);
+      
       setReadingStatus(status);
       Swal.fire({
         title: "You have updated the progress successfuly",

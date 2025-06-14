@@ -9,12 +9,11 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 const Review = ({ bookId, setReviews }) => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
-   const axiosSecure = UseAxiosSecure();
-
+  const axiosSecure = UseAxiosSecure();
 
   const handleReview = (e) => {
     e.preventDefault();
-    const form = e.target
+    const form = e.target;
     const formReview = e.target.review.value;
 
     if (!user || !user.email) {
@@ -53,11 +52,18 @@ const Review = ({ bookId, setReviews }) => {
             showConfirmButton: false,
             timer: 2000,
           });
-          axiosSecure.get(`/review/${bookId}`).then((result) => {
-            setReviews(result.data);
-            
-          });
-          form.reset()
+          axiosSecure
+            .get(`/review/${bookId}`)
+            .then((result) => {
+              setReviews(result.data);
+            })
+            .catch((err) => {
+              Swal.fire({
+                title: err.message,
+                icon: "error",
+              });
+            });
+          form.reset();
         }
       });
     } else {

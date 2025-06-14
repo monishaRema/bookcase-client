@@ -13,9 +13,9 @@ const DisplayReview = ({ reviews, setReviews }) => {
       </h2>
       {reviews.length === 0 && (
         <div className=" font-medium text-gray-400 italic mt-4">
-          < p className="">
-            <span>No reviews yet.</span> Be the first
-            to share your thoughts about this book!
+          <p className="">
+            <span>No reviews yet.</span> Be the first to share your thoughts
+            about this book!
           </p>
         </div>
       )}

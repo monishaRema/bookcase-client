@@ -1,23 +1,20 @@
 import React from "react";
 import { use } from "react";
 import { format } from "date-fns";
-import axios from "axios";
 import Swal from "sweetalert2";
-import { baseUrl } from "../../Libs/Utility";
 import { AuthContext } from "../../Contex/AuthContex";
 import { FaUser } from "react-icons/fa";
 import { MdAccessTime } from "react-icons/md";
 import { useState } from "react";
 import UpdateReview from "./UpdateReview";
-
-
-
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const SingleReview = ({ review ,reviews, setReviews}) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const { user } = use(AuthContext);
+  const axiosSecure = UseAxiosSecure();
   const email = user?.email;
 
   const handleDeleteReview = (id)=>{
@@ -30,8 +27,8 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
       confirmButtonText: "Delete it",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`${baseUrl}/review/${id}`)
+        axiosSecure
+          .delete(`/review/${id}`)
           .then((result) => {
             if (result.data.deletedCount) {
                 const remainingReview = reviews.filter(review => review._id !==id)
@@ -45,7 +42,10 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
             }
           })
           .catch((err) => {
-            console.log(err);
+           Swal.fire({
+              title : err.message,
+              icon: "error",
+           })
           });
       }
     });
