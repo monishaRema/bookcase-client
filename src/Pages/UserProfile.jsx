@@ -7,6 +7,8 @@ import { FaBook, FaBookOpen, FaBookReader } from "react-icons/fa";
 import { LuBookHeart } from "react-icons/lu";
 import BookChart from "../Components/BookChart/BookChart.jsx";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure.jsx";
+import UserAvator from "../assets/userAvator.png"
+
 
 const UserProfile = () => {
   const [loading, setLoading] = useState(true);
@@ -49,6 +51,8 @@ const UserProfile = () => {
     (book) => book.reading_status === "want-to-read"
   ).length;
 
+  const photoUrl = user && user.photoURL ? user.photoURL : UserAvator;
+
   return (
     <section className="py-25 bg-gradient-to-bl from-primary via-cyan-900 to-green-800">
       <div className="container mx-auto px-5">
@@ -61,9 +65,9 @@ const UserProfile = () => {
           <div className="profile-info bg-[#ffffff30] rounded-2xl p-8 border backdrop-blur-2xl w-full lg:w-4/12 border-[#00ed6450] flex flex-col items-center justify-center">
             <div className="img-box">
               <img
-                src={user?.photoURL}
+                src={photoUrl}
                 alt={`${user?.displayName} image`}
-                className="size-20 rounded-full mx-auto"
+                className="size-20 rounded-full mx-auto object-cover"
               />
             </div>
             <h2 className="text-xl md:text-2xl text-gray-200 text-center mt-5 mb-2">

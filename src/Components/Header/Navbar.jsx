@@ -7,7 +7,7 @@ import Logo from "../../assets/logo.png";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 import { Slide, toast } from "react-toastify";
-
+import UserAvator from "../../assets/userAvator.png"
 import { delay, motion } from "framer-motion";
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
     });
   };
 
-  const photoUrl = user && user.photoURL ? user.photoURL : "";
+  const photoUrl = user && user.photoURL ? user.photoURL : UserAvator;
 
   const navVarient = {
     hidden: {},

@@ -28,35 +28,73 @@ const Category = () => {
         setLoading(false);
       });
   }, []);
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
 
-  console.log(bookCategory);
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
+
   return (
-    <section className="py-25 bg-gradient-to-b from-secondary to-primary">
+    <motion.section className="py-25 bg-gradient-to-b from-secondary to-primary">
       <div className="container mx-auto px-5">
-        <motion.h2
-          transition={{
-            duration: 4,
-            delay: 1,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className="text-3xl md:text-5xl text-center mb-5 font-bold"
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
         >
-          Featured Categories
-        </motion.h2>
-        <p className="text-gray-300 mb-15 max-w-2xl mx-auto text-center text-lg">
-          Discover the most popular books loved by readers. Explore trending
-          titles across genres and find your next great read.
-        </p>
-        {loading && <Spinner></Spinner>}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.h2
+            key={0}
+            variants={cardVariants}
+            className="text-3xl md:text-5xl text-center mb-5 font-bold"
+          >
+            Featured Categories
+          </motion.h2>
+          <motion.p
+            key={1}
+            variants={cardVariants}
+            className="text-gray-300 mb-15 max-w-2xl mx-auto text-center text-lg"
+          >
+            Discover the most popular books loved by readers. Explore trending
+            titles across genres and find your next great read.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+         initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {bookCategory.length > 0 &&
             bookCategory.map((category, i) => (
-              <SingleCategory key={i} category={category}></SingleCategory>
+              <motion.div key={i} variants={cardVariants}>
+                <SingleCategory category={category} />
+              </motion.div>
             ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

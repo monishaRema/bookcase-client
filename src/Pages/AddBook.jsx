@@ -8,6 +8,7 @@ import { IoShareSharp } from "react-icons/io5";
 import { MdLibraryBooks } from "react-icons/md";
 import { useNavigate } from "react-router";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { motion } from "framer-motion";
 
 const AddBook = () => {
   const { user } = use(AuthContext);
@@ -41,9 +42,31 @@ const AddBook = () => {
         }
       })
       .catch((error) => {
-        Swal.fire('Error', 'Failed to add book');
+        Swal.fire("Error", "Failed to add book");
       });
   };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
     <section className="register py-25">
       <div className="container mx-auto px-5">
@@ -51,19 +74,44 @@ const AddBook = () => {
           <title>Book Case | Add Book</title>
         </Helmet>
 
-        <div className="mb-20 max-w-5xl mx-auto">
-          <div className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mb-20 max-w-5xl mx-auto"
+        >
+          <motion.div
+            variants={fadeIn}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group"
+          >
             <PiBookOpenBold className="size-15 group-hover:rotate-360 transition duration-1000 ease-in-out" />
-          </div>
-          <h1 className="text-center text-3xl md:text-4xl font-semibold mb-10">
+          </motion.div>
+          <motion.h1
+            variants={fadeInUp}
+            transition={{ duration: 0.6 }}
+            className="text-center text-3xl md:text-4xl font-semibold mb-10"
+          >
             Add Your Book
-          </h1>
-          <p className="text-center text-xl mb-10 ">
+          </motion.h1>
+          <motion.p
+            variants={fadeInUp}
+            transition={{ duration: 0.6 }}
+            className="text-center text-xl mb-10 "
+          >
             Share your literary journey with our community! Adding books to your
             digital <br /> bookshelf helps you:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-            <div className="box-1 border border-[#00ed6460] rounded  py-4 px-2">
+          </motion.p>
+          <motion.div
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 "
+          >
+            <motion.div
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+              className="box-1 border border-[#00ed6460] rounded  py-4 px-2"
+            >
               <div className="img-box bg-gradient-to-l from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <PiBookOpenBold className="size-7" />
               </div>
@@ -73,9 +121,13 @@ const AddBook = () => {
               <p className="text-center">
                 Monitor your reading journey and set goals
               </p>
-            </div>
+            </motion.div>
 
-            <div className="box-2 border border-[#00ed6460] rounded  py-5 px-3">
+            <motion.div
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+              className="box-2 border border-[#00ed6460] rounded  py-5 px-3"
+            >
               <div className="img-box bg-gradient-to-b from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <IoShareSharp className="size-7" />
               </div>
@@ -83,9 +135,13 @@ const AddBook = () => {
                 Share Reviews
               </h3>
               <p className="text-center">Help others discover amazing books</p>
-            </div>
+            </motion.div>
 
-            <div className="box-3 border border-[#00ed6460] rounded  py-5 px-3">
+            <motion.div
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+              className="box-3 border border-[#00ed6460] rounded  py-5 px-3"
+            >
               <div className="img-box bg-gradient-to-r from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <MdLibraryBooks className="size-7" />
               </div>
@@ -95,15 +151,25 @@ const AddBook = () => {
               <p className="text-center">
                 Create your personal digital collection
               </p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         <div className="max-w-5xl mx-auto bg-primary text-gray-50 rounded-lg  gap-5 items-center overflow-hidden border-2 border-[#00ed6440] accent-shadow">
           <div className="form-box w-full  p-6 md:p-10 ">
-            <form onSubmit={handleAddBook}>
+            <motion.form
+              onSubmit={handleAddBook}
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="flex flex-col md:flex-row gap-5">
-                <div className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="book_title" className="block mb-2">
                     Book Title *
                   </label>
@@ -115,8 +181,12 @@ const AddBook = () => {
                     placeholder="Enter your book title"
                     required
                   />
-                </div>
-                <div className="form-group mb-5 w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="book_author" className="block mb-2">
                     Book Author *
                   </label>
@@ -128,11 +198,15 @@ const AddBook = () => {
                     placeholder="Enter book author"
                     required
                   />
-                </div>
+                </motion.div>
               </div>
 
               <div className="flex flex-col md:flex-row gap-5">
-                <div className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="cover_photo" className="block mb-2">
                     Cover photo URL *
                   </label>
@@ -144,8 +218,12 @@ const AddBook = () => {
                     placeholder="Enter book cover photo URL"
                     required
                   />
-                </div>
-                <div className="form-group mb-5 w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="total_pages" className="block mb-2">
                     Total Pages *
                   </label>
@@ -157,11 +235,15 @@ const AddBook = () => {
                     placeholder="Enter book author"
                     required
                   />
-                </div>
+                </motion.div>
               </div>
 
               <div className="flex flex-col md:flex-row gap-5">
-                <div className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="book_category" className="block mb-2">
                     Book Category *
                   </label>
@@ -194,8 +276,12 @@ const AddBook = () => {
                       Motivation
                     </option>
                   </select>
-                </div>
-                <div className="form-group mb-5 w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="reading_status" className="block mb-2">
                     Reading Status *
                   </label>
@@ -219,11 +305,15 @@ const AddBook = () => {
                       Read
                     </option>
                   </select>
-                </div>
+                </motion.div>
               </div>
 
               <div className="flex flex-col md:flex-row gap-5">
-                <div className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="user_email" className="block mb-2">
                     User Name
                   </label>
@@ -236,8 +326,12 @@ const AddBook = () => {
                     required
                     readOnly
                   />
-                </div>
-                <div className="form-group mb-5 w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                    variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="user_name" className="block mb-2">
                     User Name
                   </label>
@@ -250,9 +344,13 @@ const AddBook = () => {
                     required
                     readOnly
                   />
-                </div>
+                </motion.div>
               </div>
-              <div className="form-group mb-5 w-full ">
+              <motion.div
+                  variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                className="form-group mb-5 w-full "
+              >
                 <label htmlFor="upvotes" className="block mb-2">
                   Upvotes
                 </label>
@@ -265,9 +363,13 @@ const AddBook = () => {
                   required
                   readOnly
                 />
-              </div>
+              </motion.div>
 
-              <div className="form-group mb-5 w-full ">
+              <motion.div
+                  variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                className="form-group mb-5 w-full "
+              >
                 <label htmlFor="book_overview" className="block mb-2">
                   Book Overview *
                 </label>
@@ -279,16 +381,20 @@ const AddBook = () => {
                   placeholder="Enter your book overview"
                   required
                 ></textarea>
-              </div>
+              </motion.div>
 
-              <div className="flex justify-center pt-5">
+              <motion.div
+                  variants={fadeInUp}
+              transition={{ duration: 0.5 }}
+                className="flex justify-center pt-5"
+              >
                 <button type="submit" className="gradient-btn">
                   <GiBookshelf size={24} />
 
                   <span>Add Book to Shelf</span>
                 </button>
-              </div>
-            </form>
+              </motion.div>
+            </motion.form>
           </div>
         </div>
       </div>
