@@ -1,72 +1,115 @@
-
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss";
- @plugin "daisyui" {
+@plugin "daisyui" {
   themes: light --default;
- }
+}
 
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
   --color-primary: #142850;
-  --color-accent: #00ed64 ;
+  --color-accent: #00ed64;
 
   /* #00A8CC; #03045e; #001e28 */
   --color-secondary: #001e2b;
-
 }
 
-body{
-    font-family: "Poppins", sans-serif;
-    background-color:#0e1b36;
-/* color: #00ed644d; */
-    color:#e7e7e7;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #0e1b36;
+  /* color: #00ed644d; */
+  color: #e7e7e7;
 }
 
-h1,h2,h3,h4,h5,h6, .font-play{
-     font-family: "Playfair Display", serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-play {
+  font-family: "Playfair Display", serif;
 }
-#root{
+#root {
   position: relative;
 }
-.navlink:hover, .navlink.active{
+.navlink:hover,
+.navlink.active {
   @apply text-accent;
 }
 
-
-
-.btn, button, a{
-  cursor:pointer;
-  transition:all 0.5s ease-in-out;
+.btn,
+button,
+a {
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
-input{
-  outline:none;
+input {
+  outline: none;
 }
 
-.theme-input{
+.theme-input {
   @apply w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none placeholder-shown:text-gray-300 text-base;
 }
-.theme-select{
+.theme-select {
   @apply select text-base h-auto w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none;
 }
-.accent-shadow{
+.accent-shadow {
   box-shadow: 0px 0px 30px -2px rgba(0, 237, 99, 0.21);
 }
-.card-heading{
+.card-heading {
   @apply text-xl md:text-2xl text-white mb-2;
 }
-.gradient-btn{
+.gradient-btn {
   @apply btn px-8 btn-lg btn-accent bg-gradient-to-r from-secondary to-accent text-white hover:border-secondary flex items-center gap-3;
 }
 
-.theme-card{
+.theme-card {
   @apply bg-primary p-5 border border-[#00ed6430] scale-100 transition-all duration-300 ease-in-out;
   box-shadow: 0px 0px 30px 2px rgba(0, 237, 99, 0.21);
 }
-.theme-card:hover{
+.theme-card:hover {
   @apply -translate-y-1;
-  transform:scale(1.01);
+  transform: scale(1.01);
   box-shadow: 0px 20px 30px 2px rgba(0, 237, 99, 0.21);
+}
+.theme-card-wrapper {
+  max-width: 1024px;
+  margin-inline: auto;
+  border-radius: 24px;
+  background: #0f1e3b;
+  color: #ddd;
+  padding: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.theme-card-content {
+  width: 100%;
+  position: relative;
+  background-color: #0f1e3b;
+  border-radius: 24px;
+  z-index: 10;
+  @apply p-6 md:p-10;
+}
+.theme-card-wrapper:before {
+  content: "";
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(transparent 270deg, #00ed64, transparent);
+  animation: rotate 5s linear infinite;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+  }
 }

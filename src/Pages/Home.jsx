@@ -4,6 +4,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import PopularBooks from '../Components/Home/PopularBooks';
 import RecentBooks from '../Components/Home/RecentBooks';
 import Category from '../Components/Home/Category';
+import CTA from '../Components/Home/CTA';
 
 const Home = () => {
       
@@ -16,6 +17,7 @@ const Home = () => {
        <Banner></Banner>
        <PopularBooks></PopularBooks>
        <Category></Category>
+       <CTA></CTA>
        <RecentBooks></RecentBooks>
        
        </>

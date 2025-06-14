@@ -68,7 +68,7 @@ const UpdateBook = () => {
         </Helmet>
 
         <motion.div
-           variants={containerVariants}
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -77,42 +77,49 @@ const UpdateBook = () => {
           <motion.div
             variants={fadeIn}
             transition={{ duration: 0.8, ease: "easeOut" }}
-          className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group">
+            className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group"
+          >
             <PiBookOpenBold className="size-15 group-hover:rotate-360 transition duration-1000 ease-in-out" />
           </motion.div>
           <motion.h1
-                variants={fadeInUp}
+            variants={fadeInUp}
             transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center text-3xl md:text-4xl font-semibold mb-10">
+            className="text-center text-3xl md:text-4xl font-semibold mb-10"
+          >
             Update Your Book
           </motion.h1>
-          <motion.p      variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="text-center text-xl mb-10 max-w-3xl mx-auto text-gray-400">
+          <motion.p
+            variants={fadeInUp}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center text-xl mb-10 max-w-3xl mx-auto text-gray-400"
+          >
             Edit your book information and keep your collection up to date.
             Easily manage details to organize your personal library.
           </motion.p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto bg-primary text-gray-50 rounded-lg  gap-5 items-center overflow-hidden border-2 border-[#00ed6440] accent-shadow">
-          <motion.div 
-                      variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="form-box w-full  p-6 md:p-10 ">
+        <div className="theme-card-wrapper">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="theme-card-content"
+          >
             <motion.h2
-             variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-10 text-3xl md:text-4xl font-bold text-accent text-center">
+              variants={fadeInUp}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mb-10 text-3xl md:text-4xl font-bold text-accent text-center"
+            >
               Book Information
             </motion.h2>
-            <motion.form
-              onSubmit={handleUpdateBook}
-      
-            >
+            <motion.form onSubmit={handleUpdateBook}>
               <div className="flex flex-col md:flex-row gap-5">
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="book_title" className="block mb-2">
                     Book Title *
                   </label>
@@ -126,8 +133,11 @@ const UpdateBook = () => {
                     required
                   />
                 </motion.div>
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="book_author" className="block mb-2">
                     Book Author *
                   </label>
@@ -144,8 +154,11 @@ const UpdateBook = () => {
               </div>
 
               <div className="flex flex-col md:flex-row gap-5">
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="cover_photo" className="block mb-2">
                     Cover photo URL *
                   </label>
@@ -159,8 +172,11 @@ const UpdateBook = () => {
                     required
                   />
                 </motion.div>
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="total_pages" className="block mb-2">
                     Total Pages *
                   </label>
@@ -177,8 +193,11 @@ const UpdateBook = () => {
               </div>
 
               <div className="flex flex-col md:flex-row gap-5">
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="book_category" className="block mb-2">
                     Book Category *
                   </label>
@@ -213,8 +232,11 @@ const UpdateBook = () => {
                     </option>
                   </select>
                 </motion.div>
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="reading_status" className="block mb-2">
                     Reading Status *
                   </label>
@@ -243,8 +265,11 @@ const UpdateBook = () => {
               </div>
 
               <div className="flex flex-col md:flex-row gap-5">
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="user_name" className="block mb-2">
                     User Name
                   </label>
@@ -258,8 +283,11 @@ const UpdateBook = () => {
                     readOnly
                   />
                 </motion.div>
-                <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full md:w-1/2">
+                <motion.div
+                  variants={fadeInUp}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="form-group mb-5 w-full md:w-1/2"
+                >
                   <label htmlFor="user_name" className="block mb-2">
                     User Name
                   </label>
@@ -274,8 +302,11 @@ const UpdateBook = () => {
                   />
                 </motion.div>
               </div>
-              <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full ">
+              <motion.div
+                variants={fadeInUp}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="form-group mb-5 w-full "
+              >
                 <label htmlFor="upvotes" className="block mb-2">
                   Upvotes
                 </label>
@@ -290,8 +321,11 @@ const UpdateBook = () => {
                 />
               </motion.div>
 
-              <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="form-group mb-5 w-full ">
+              <motion.div
+                variants={fadeInUp}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="form-group mb-5 w-full "
+              >
                 <label htmlFor="book_overview" className="block mb-2">
                   Book Overview *
                 </label>
@@ -306,8 +340,11 @@ const UpdateBook = () => {
                 ></textarea>
               </motion.div>
 
-              <motion.div  variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-center pt-5">
+              <motion.div
+                variants={fadeInUp}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="flex justify-center pt-5"
+              >
                 <button
                   type="submit"
                   className="btn px-8 btn-lg btn-accent bg-gradient-to-r from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"

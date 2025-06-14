@@ -18,8 +18,8 @@ const Navbar = () => {
       title: "Are you sure?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#FF9F00",
-      cancelButtonColor: "#6A8C25",
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#00A8CC",
       confirmButtonText: "Yes, Logout!",
     }).then((result) => {
       if (result.isConfirmed) {

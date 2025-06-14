@@ -22,6 +22,7 @@ import Review from "../Components/Review/Review";
 import { useEffect } from "react";
 import DisplayReview from "../Components/Review/DisplayReview";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { motion } from "motion/react";
 
 const BookDetails = () => {
   const book = useLoaderData();
@@ -30,7 +31,7 @@ const BookDetails = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = use(AuthContext);
   const navigate = useNavigate();
-  const axiosSecure = UseAxiosSecure()
+  const axiosSecure = UseAxiosSecure();
 
   useEffect(() => {
     axios.get(`${baseUrl}/review/${book._id}`).then((result) => {
@@ -47,7 +48,7 @@ const BookDetails = () => {
       return navigate("/login");
     }
     if (user?.email !== book.user_email) {
-    axiosSecure.patch(`/upvote/${id}`).then((result) => {
+      axiosSecure.patch(`/upvote/${id}`).then((result) => {
         if (result.data.modifiedCount) {
           Swal.fire({
             title: "You have voted successfuly",
@@ -87,7 +88,6 @@ const BookDetails = () => {
       });
     }
     axiosSecure.patch(`/book/status/${id}`, data).then((result) => {
-      
       setReadingStatus(status);
       Swal.fire({
         title: "You have updated the progress successfuly",
@@ -99,6 +99,27 @@ const BookDetails = () => {
     });
   };
 
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <section className="register py-25 ">
       <Helmet>
@@ -107,20 +128,35 @@ const BookDetails = () => {
 
       <div className="container mx-auto px-5">
         <div className="flex flex-col sm:flex-row items-start gap-10 sm:relative">
-          <div className="book-info w-full  md:w-6/12 lg:w-4/12 sm:sticky sm:top-0 rounded p-5 border border-[#00ed6440]">
-            <div className="img-box w-full overflow-hidden  ">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+            className="book-info w-full  md:w-6/12 lg:w-4/12 sm:sticky sm:top-0 rounded p-5 border border-[#00ed6440]"
+          >
+            <motion.div
+              variants={cardVariants}
+              className="img-box w-full overflow-hidden  "
+            >
               <img
                 src={book?.cover_photo}
                 alt={book?.book_title}
                 className="h-[300px] md:h-[350px] object-contain rounded"
               />
-            </div>
+            </motion.div>
             <div className="content-box w-full mt-10">
-              <h1 className="text-3xl font-semibold mb-5">
+              <motion.h1
+                variants={cardVariants}
+                className="text-3xl font-semibold mb-5"
+              >
                 {book?.book_title}
-              </h1>
+              </motion.h1>
               <div className="flex flex-col gap-5 mb-5 ">
-                <div className="flex items-center justify-between gap-2">
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2"
+                >
                   <div className="flex items-center gap-2">
                     <FaUserEdit className="text-accent text-2xl" />
                     <span className="text-gray-300 capitalize">Author :</span>
@@ -128,8 +164,11 @@ const BookDetails = () => {
                   <span className="text-gray-300 capitalize">
                     {book?.book_author}
                   </span>
-                </div>
-                <div className="flex items-center justify-between gap-2">
+                </motion.div>
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2"
+                >
                   <div className="flex items-center gap-2">
                     <TbCategory className="text-accent text-2xl" />
                     <span className="text-gray-300 capitalize">Category :</span>
@@ -137,9 +176,12 @@ const BookDetails = () => {
                   <span className="text-gray-300 capitalize">
                     {book?.book_category}
                   </span>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center justify-between gap-2">
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2"
+                >
                   <div className="flex items-center gap-2">
                     <MdOutlineMenuBook className="text-accent text-2xl" />
                     <span className="text-gray-300 capitalize">
@@ -149,8 +191,11 @@ const BookDetails = () => {
                   <span className="text-gray-300 capitalize">
                     {book?.total_pages}
                   </span>
-                </div>
-                <div className="flex items-center justify-between gap-2 flex-wrap">
+                </motion.div>
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2 flex-wrap"
+                >
                   <div className="flex items-center gap-2">
                     <FaUser className="text-accent text-xl" />
                     <span className="text-gray-300 capitalize">Added By :</span>
@@ -160,8 +205,11 @@ const BookDetails = () => {
                       " " +
                       book?.user_name.split(" ")[1]}
                   </span>
-                </div>
-                <div className="flex items-center justify-between gap-2 flex-wrap">
+                </motion.div>
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2 flex-wrap"
+                >
                   <div className="flex items-center gap-2">
                     <FaEnvelope className="text-accent text-xl" />
                     <span className="text-gray-300 capitalize">
@@ -171,9 +219,12 @@ const BookDetails = () => {
                   <span className="text-gray-300 capitalize">
                     {book?.user_email}
                   </span>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center justify-between gap-2">
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2"
+                >
                   <div className="flex items-center gap-2">
                     <FaBookReader className="text-accent text-2xl" />
                     <span className="text-gray-300 capitalize">
@@ -184,9 +235,12 @@ const BookDetails = () => {
                   <span className="text-gray-300 capitalize">
                     {readingStatus}
                   </span>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center justify-between gap-2 flex-wrap">
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2 flex-wrap"
+                >
                   <div className="flex items-center gap-2">
                     <FaBookReader className="text-accent text-2xl" />
                     <span className="text-gray-300 capitalize">Progress :</span>
@@ -217,32 +271,47 @@ const BookDetails = () => {
                       </span>
                     </div>
                   )}
-                </div>
+                </motion.div>
 
-                <div className="flex items-center justify-between gap-2">
+                <motion.div
+                  variants={cardVariants}
+                  className="flex items-center justify-between gap-2"
+                >
                   <div className="flex items-center gap-2">
                     <SlLike className="text-accent text-2xl" />
                     <span className="text-gray-300 capitalize">Upvotes :</span>
                   </div>
 
                   <span className="text-gray-300 capitalize">{upvote}</span>
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="book-details w-full md:w-6/12 lg:w-8/12">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+            className="book-details w-full md:w-6/12 lg:w-8/12"
+          >
             <div className="rounded p-5 border border-[#00ed6440] mb-10">
-              <h3 className=" flex items-center gap-2">
+              <motion.h3
+                variants={cardVariants}
+                className=" flex items-center gap-2"
+              >
                 <MdViewCompact className="text-accent text-3xl" />
                 <span className="text-xl md:text-2xl text-accent font-semibold">
                   Book Overview
                 </span>
-              </h3>
-              <p className="text-base text-gray-400 mt-5">
+              </motion.h3>
+              <motion.p
+                variants={cardVariants}
+                className="text-base text-gray-400 mt-5"
+              >
                 {book?.book_overview}
-              </p>
-              <div className="mt-10">
+              </motion.p>
+              <motion.div variants={cardVariants} className="mt-10">
                 <button
                   className="btn px-8 btn-lg btn-accent bg-gradient-to-t from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
                   onClick={() => handleUpvote(book?._id)}
@@ -250,20 +319,25 @@ const BookDetails = () => {
                   <BiSolidLike size={24} />
                   <span className="">Upvote</span>
                 </button>
-              </div>
+              </motion.div>
             </div>
-            <DisplayReview
-              reviews={reviews}
-              setReviews={setReviews}
-              bookId={book?._id}
-            ></DisplayReview>
-            <Review
-              bookId={book?._id}
-              user_email={book?.user_email}
-              reviews={reviews}
-              setReviews={setReviews}
-            ></Review>
-          </div>
+            <motion.div variants={cardVariants}>
+              <DisplayReview
+                reviews={reviews}
+                setReviews={setReviews}
+                bookId={book?._id}
+              ></DisplayReview>
+            </motion.div>
+
+            <motion.div variants={cardVariants}>
+              <Review
+                bookId={book?._id}
+                user_email={book?.user_email}
+                reviews={reviews}
+                setReviews={setReviews}
+              ></Review>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
