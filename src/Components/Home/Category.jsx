@@ -54,7 +54,7 @@ const Category = () => {
   }
 
   return (
-    <motion.section className="py-25 bg-gradient-to-b from-secondary to-primary">
+    <motion.section className="py-25 bg-primary">
       <div className="container mx-auto px-5">
         <motion.div
           initial="hidden"
@@ -84,7 +84,7 @@ const Category = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           {bookCategory.length > 0 &&
             bookCategory.map((category, i) => (

@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+
 import { MdOutlineScience } from "react-icons/md";
 import { GoHistory } from "react-icons/go";
 import { GiEmbrassedEnergy, GiLovers, GiSpellBook  } from "react-icons/gi";
@@ -8,16 +8,7 @@ import { FaFantasyFlightGames } from "react-icons/fa";
 const SingleCategory = ({ category }) => {
 const controls = useAnimation();
 
-useEffect(() => {
-    controls.start({
-      rotate: [0,360],
-      transition: {
-        repeat: Infinity,
-        ease: "linear",
-        duration: 5,
-      },
-    });
-  }, [controls]);
+
 let icon;
 
 switch (category.book_category.toLowerCase()) {
@@ -45,24 +36,15 @@ switch (category.book_category.toLowerCase()) {
 
 
 return (
-<div className="relative p-[2px] rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 ease-in-out">
-      <motion.div
-        animate={controls}
-        className="absolute inset-0 z-0 rounded-2xl"
-        style={{
-          background: "conic-gradient(from 0deg, #00ed64,#142850, #142850, #142850)",
-          maskImage: "linear-gradient(white 0 0)",
-          WebkitMaskImage: "linear-gradient(white 0 0)",
-        }}
-      />
-      <div className="relative rounded-2xl bg-[#142850] z-10 flex flex-col justify-center items-center gap-5 px-5 py-10 text-center">
-        <div className="bg-gradient-to-b from-accent to-primary rounded-xl size-20 flex justify-center items-center text-white text-3xl">
+<div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#142d57] to-primary hover:bg-gradient-to-b hover:from-[#03505e] hover:to-[#001e2b] transition-all duration-300 ease-in-out">
+      <div className="relative rounded-2xl  z-10 flex flex-col justify-center items-center gap-5 px-5 py-10 text-center">
+        <div className="bg-gradient-to-t to-accent from-primary rounded-xl size-20 flex justify-center items-center text-white text-3xl">
             {icon}
         </div>
         <h3 className="text-3xl text-white capitalize">{category.book_category}</h3>
         <p className="text-gray-400">{category.count} Books</p>
       </div>
-    </div>
+  </div>
   );
 };
 

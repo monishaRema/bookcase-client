@@ -42,36 +42,35 @@ const PopularBooks = () => {
     },
   };
 
-  if(loading){
-    return <Spinner></Spinner>
+  if (loading) {
+    return <Spinner></Spinner>;
   }
 
   return (
     <motion.section className="bg-gradient-to-b from-primary to-secondary py-25">
       <div className="container mx-auto px-5">
-        <motion
-          className="div"
+        <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
         >
-        <motion.h2
-          key={0}
-          variants={cardVariants}
-          className="text-3xl md:text-5xl text-center mb-5 font-bold"
-        >
-          Popular Books
-        </motion.h2>
-        <motion.p
-          key={1}
-          variants={cardVariants}
-          className="text-gray-300 mb-10 max-w-2xl mx-auto text-center text-lg"
-        >
-          Discover the most popular books loved by readers. Explore trending
-          titles across genres and find your next great read.
-        </motion.p>
-        </motion>
+          <motion.h2
+            key={0}
+            variants={cardVariants}
+            className="text-3xl md:text-5xl text-center mb-5 font-bold"
+          >
+            Popular Books
+          </motion.h2>
+          <motion.p
+            key={1}
+            variants={cardVariants}
+            className="text-gray-300 mb-10 max-w-2xl mx-auto text-center text-lg"
+          >
+            Discover the most popular books loved by readers. Explore trending
+            titles across genres and find your next great read.
+          </motion.p>
+        </motion.div>
         <motion.div
           initial="hidden"
           whileInView="show"

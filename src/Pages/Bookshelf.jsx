@@ -5,6 +5,7 @@ import Book from "../Components/Book/Book";
 import axios from "axios";
 import { baseUrl } from "../Libs/Utility";
 import Spinner from "./Spinner";
+import { motion } from "motion/react";
 
 const Bookshelf = () => {
   const initialBooks = useLoaderData();
@@ -33,14 +34,41 @@ const Bookshelf = () => {
       });
   }, [searchTerm, readingStatus]);
 
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <section className="register py-25">
       <Helmet>
         <title>Book Case | Bookshelf</title>
       </Helmet>
       <div className="container mx-auto px-5">
-        <div className="flex flex-col lg:flex-row gap-5 mb-10">
-          <div className="w-full lg:w-9/12">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="flex flex-col lg:flex-row gap-5 mb-10"
+        >
+          <motion.div variants={cardVariants} className="w-full lg:w-9/12">
             <input
               type="text"
               name="search"
@@ -49,14 +77,19 @@ const Bookshelf = () => {
               defaultValue={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-          </div>
-          <div className="w-full lg:w-3/12">
+          </motion.div>
+          <motion.div variants={cardVariants} className="w-full lg:w-3/12">
             <select
               onChange={(e) => setReadingStatus(e.target.value)}
               className="w-full rounded-lg outline-0 border border-[#00ed6440] focus:border-accent px-5 py-3 bg-transparent text-gray-100"
               defaultValue=""
             >
-              <option className="bg-primary tex-white" value="" selected disabled>
+              <option
+                className="bg-primary tex-white"
+                value=""
+                selected
+                disabled
+              >
                 Filter By Reading status
               </option>
               <option className="bg-primary tex-white" value="">
@@ -72,8 +105,8 @@ const Bookshelf = () => {
                 Want to Read
               </option>
             </select>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
         {books.length <= 0 && (
           <div className="mt-20 flex flex-col items-center justify-center text-center text-gray-100">
             <h2 className="text-3xl lg:text-4xl font-semibold mb-2">
@@ -88,10 +121,20 @@ const Bookshelf = () => {
         {loading ? (
           <Spinner></Spinner>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {books.length > 0 &&
-              books.map((book) => <Book key={book._id} book={book}></Book>)}
-          </div>
+              books.map((book) => (
+                <motion.div variants={cardVariants} key={book._id}>
+                  <Book book={book} />
+                </motion.div>
+              ))}
+          </motion.div>
         )}
       </div>
     </section>
