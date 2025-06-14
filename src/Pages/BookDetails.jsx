@@ -133,7 +133,7 @@ const BookDetails = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
-            className="book-info w-full  md:w-6/12 lg:w-4/12 sm:sticky sm:top-0 rounded p-5 border border-[#00ed6440]"
+            className="book-info w-full  md:w-6/12 lg:w-4/12 sm:sticky sm:top-0 rounded p-5 border border-[#663ef840]"
           >
             <motion.div
               variants={cardVariants}
@@ -295,7 +295,7 @@ const BookDetails = () => {
             variants={containerVariants}
             className="book-details w-full md:w-6/12 lg:w-8/12"
           >
-            <div className="rounded p-5 border border-[#00ed6440] mb-10">
+            <div className="rounded p-5 border border-[#663ef840] mb-10">
               <motion.h3
                 variants={cardVariants}
                 className=" flex items-center gap-2"

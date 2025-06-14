@@ -75,7 +75,7 @@ const Review = ({ bookId, setReviews }) => {
     }
   };
   return (
-    <div className="p-5 border border-[#00ed6460] rounded">
+    <div className="p-5 border border-[#663ef840] rounded">
       <h2 className="flex items-center gap-4 mb-5 text-accent">
         <MdRateReview className="text-3xl mt-2" />
         <span className="text-2xl md:text-3xl font-bold">Write a Review</span>

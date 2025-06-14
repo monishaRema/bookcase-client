@@ -23,7 +23,7 @@ const Book = ({ book }) => {
         </div>
         <div className="w-12/12">
         <h3 className="card-heading text-center">{book.book_title}</h3>
-        <p className="flex item-center gap-2 justify-center pb-5 border-b border-[#00ed6430]"><span className="text-gray-400">By :</span> <span className="text-green-400"> {book?.book_author}</span></p>
+        <p className="flex item-center gap-2 justify-center pb-5 border-b border-[#ad82fc30]"><span className="text-gray-400">By :</span> <span className="text-violet-400"> {book?.book_author}</span></p>
         </div>
       </div>
       <div className="flex gap-5 justify-between">

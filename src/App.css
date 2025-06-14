@@ -9,14 +9,14 @@
   name: "light";
   default: true;
   --color-primary: #0c0925;
-  --color-accent: #00ed64;
+  --color-accent: #6745EB;
   --color-secondary: #12051d;
 
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #12051d;
+  background-color: #663ef8;
   background-color: #06041b;
   color: rgba(153, 153, 153, 0);
   color: #e6e6e6;
@@ -53,10 +53,10 @@ input {
   @apply w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none placeholder-shown:text-gray-300 text-base;
 }
 .theme-select {
-  @apply select text-base h-auto w-full p-3 border border-gray-700 bg-[#0e1b36] rounded focus:border-accent outline-none;
+  @apply select text-base h-auto w-full p-3 border border-gray-700 bg-[#130735] rounded focus:border-accent outline-none;
 }
 .accent-shadow {
-  box-shadow: 0px 0px 30px -2px rgba(0, 237, 99, 0.21);
+  box-shadow: 0px 0px 30px -2px rgba(111, 108, 250, 0.21);
 }
 .card-heading {
   @apply text-lg md:text-xl text-white mb-2;
@@ -66,14 +66,13 @@ input {
 }
 
 .theme-card {
-  /* border border-[#00ed6430] */
+
   @apply bg-gradient-to-b from-primary to-secondary border border-[#ffffff10] p-5  scale-100 transition-all duration-300 ease-in-out;
 
 }
 .theme-card:hover {
   @apply -translate-y-1;
   transform: scale(1.01);
-  /* box-shadow: 0px 20px 30px 2px rgba(0, 237, 99, 0.21); */
 }
 .theme-card-wrapper {
   max-width: 1024px;
@@ -101,7 +100,7 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: conic-gradient(transparent 270deg, #00ed64, transparent);
+  background: conic-gradient(transparent 270deg, #663ef8, transparent);
   animation: rotate 5s linear infinite;
 }
 

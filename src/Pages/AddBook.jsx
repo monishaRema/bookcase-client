@@ -110,7 +110,7 @@ const AddBook = () => {
             <motion.div
               variants={fadeInUp}
               transition={{ duration: 0.5 }}
-              className="box-1 border border-[#00ed6460] rounded  py-4 px-2"
+              className="box-1 border border-[#663ef840] rounded  py-4 px-2"
             >
               <div className="img-box bg-gradient-to-l from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <PiBookOpenBold className="size-7" />
@@ -126,7 +126,7 @@ const AddBook = () => {
             <motion.div
               variants={fadeInUp}
               transition={{ duration: 0.5 }}
-              className="box-2 border border-[#00ed6460] rounded  py-5 px-3"
+              className="box-2 border border-[#663ef840] rounded  py-5 px-3"
             >
               <div className="img-box bg-gradient-to-b from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <IoShareSharp className="size-7" />
@@ -140,7 +140,7 @@ const AddBook = () => {
             <motion.div
               variants={fadeInUp}
               transition={{ duration: 0.5 }}
-              className="box-3 border border-[#00ed6460] rounded  py-5 px-3"
+              className="box-3 border border-[#663ef840] rounded  py-5 px-3"
             >
               <div className="img-box bg-gradient-to-r from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <MdLibraryBooks className="size-7" />
