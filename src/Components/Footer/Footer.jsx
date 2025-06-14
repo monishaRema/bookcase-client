@@ -125,7 +125,7 @@ const Footer = () => {
                 <FaGithub className="size-8" />
               </span>
             </div>
-            <h3 className="mt-5 text-lg mb-4">Contact Us</h3>
+            <h3 className="mt-5 font-semibold text-lg mb-4 text-white">Contact Us</h3>
             <ul className="space-y-2 text-white">
               <li className="flex items-center gap-2 ">
                 <IoLocationSharp className="text-accent size-5" /> 123 Book Mall Street, Doha City
