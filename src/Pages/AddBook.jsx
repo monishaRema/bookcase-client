@@ -110,7 +110,7 @@ const AddBook = () => {
             <motion.div
               variants={fadeInUp}
               transition={{ duration: 0.5 }}
-              className="box-1 border border-[#663ef840] rounded  py-4 px-2"
+              className="box-1 border border-[#663ef840] rounded  py-8 px-5"
             >
               <div className="img-box bg-gradient-to-l from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <PiBookOpenBold className="size-7" />
@@ -126,7 +126,7 @@ const AddBook = () => {
             <motion.div
               variants={fadeInUp}
               transition={{ duration: 0.5 }}
-              className="box-2 border border-[#663ef840] rounded  py-5 px-3"
+              className="box-2 border border-[#663ef840] rounded  py-8 px-5"
             >
               <div className="img-box bg-gradient-to-b from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <IoShareSharp className="size-7" />
@@ -140,7 +140,7 @@ const AddBook = () => {
             <motion.div
               variants={fadeInUp}
               transition={{ duration: 0.5 }}
-              className="box-3 border border-[#663ef840] rounded  py-5 px-3"
+              className="box-3 border border-[#663ef840] rounded  py-8 px-5"
             >
               <div className="img-box bg-gradient-to-r from-primary to-accent  rounded-xl w-[60px] h-[60px] mx-auto flex justify-center items-center mb-5 ">
                 <MdLibraryBooks className="size-7" />
@@ -254,24 +254,24 @@ const AddBook = () => {
                     className="theme-select"
                     required
                   >
-                    <option value="fiction" className="bg-[#0e1b36] text-white">
+                    <option value="fiction" className="bg-primary text-white">
                       Fiction
                     </option>
-                    <option value="Sci-Fi" className="bg-[#0e1b36] text-white">
+                    <option value="Sci-Fi" className="bg-primary text-white">
                       Sci-Fi
                     </option>
-                    <option value="romance" className="bg-[#0e1b36] text-white">
+                    <option value="romance" className="bg-primary text-white">
                       Romance
                     </option>
-                    <option value="history" className="bg-[#0e1b36] text-white">
+                    <option value="history" className="bg-primary text-white">
                       History
                     </option>
-                    <option value="fantasy" className="bg-[#0e1b36] text-white">
+                    <option value="fantasy" className="bg-primary text-white">
                       Fantasy
                     </option>
                     <option
                       value="motivation"
-                      className="bg-[#0e1b36] text-white"
+                      className="bg-primary text-white"
                     >
                       Motivation
                     </option>
@@ -294,14 +294,14 @@ const AddBook = () => {
                   >
                     <option
                       value="want-to-read"
-                      className="bg-[#0e1b36] text-white"
+                      className="bg-primary text-white"
                     >
                       Want to read
                     </option>
-                    <option value="reading" className="bg-[#0e1b36] text-white">
+                    <option value="reading" className="bg-primary text-white">
                       Reading
                     </option>
-                    <option value="read" className="bg-[#0e1b36] text-white">
+                    <option value="read" className="bg-primary text-white">
                       Read
                     </option>
                   </select>

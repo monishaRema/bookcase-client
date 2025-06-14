@@ -72,7 +72,7 @@ const Bookshelf = () => {
             <input
               type="text"
               name="search"
-              className="w-full rounded-lg outline-0 border border-[#00ed6440] focus:border-accent px-5 py-3"
+              className="w-full rounded-lg outline-0 border border-[#663ef840] focus:border-accent px-5 py-3"
               placeholder="Search"
               defaultValue={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -81,7 +81,7 @@ const Bookshelf = () => {
           <motion.div variants={cardVariants} className="w-full lg:w-3/12">
             <select
               onChange={(e) => setReadingStatus(e.target.value)}
-              className="w-full rounded-lg outline-0 border border-[#00ed6440] focus:border-accent px-5 py-3 bg-transparent text-gray-100"
+              className="w-full rounded-lg outline-0 border border-[#663ef840] focus:border-accent px-5 py-3 bg-transparent text-gray-100"
               defaultValue=""
             >
               <option

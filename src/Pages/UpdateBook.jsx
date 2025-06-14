@@ -209,24 +209,24 @@ const UpdateBook = () => {
                     required
                     defaultValue={book?.book_category}
                   >
-                    <option value="fiction" className="bg-[#0e1b36] text-white">
+                    <option value="fiction" className="bg-primary text-white">
                       Fiction
                     </option>
-                    <option value="Sci-Fi" className="bg-[#0e1b36] text-white">
+                    <option value="Sci-Fi" className="bg-primary text-white">
                       Sci-Fi
                     </option>
-                    <option value="romance" className="bg-[#0e1b36] text-white">
+                    <option value="romance" className="bg-primary text-white">
                       Romance
                     </option>
-                    <option value="history" className="bg-[#0e1b36] text-white">
+                    <option value="history" className="bg-primary text-white">
                       History
                     </option>
-                    <option value="fantasy" className="bg-[#0e1b36] text-white">
+                    <option value="fantasy" className="bg-primary text-white">
                       Fantasy
                     </option>
                     <option
                       value="motivation"
-                      className="bg-[#0e1b36] text-white"
+                      className="bg-primary text-white"
                     >
                       Motivation
                     </option>
@@ -250,14 +250,14 @@ const UpdateBook = () => {
                   >
                     <option
                       value="want-to-read"
-                      className="bg-[#0e1b36] text-white"
+                      className="bg-primary text-white"
                     >
                       Want to read
                     </option>
-                    <option value="reading" className="bg-[#0e1b36] text-white">
+                    <option value="reading" className="bg-primary text-white">
                       Reading
                     </option>
-                    <option value="read" className="bg-[#0e1b36] text-white">
+                    <option value="read" className="bg-primary text-white">
                       Read
                     </option>
                   </select>
