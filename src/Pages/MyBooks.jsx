@@ -8,6 +8,9 @@ import { FaPlus } from "react-icons/fa";
 import Spinner from "./Spinner";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { motion } from "motion/react";
+
+
+
 const MyBooks = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -93,7 +96,7 @@ const MyBooks = () => {
             >
               <Link
                 to="/add-book"
-                className="btn btn-lg btn-accent flex items-center text-lg text-gray-800"
+                className="btn btn-lg btn-accent hover:bg-violet-600 flex items-center text-lg text-gray-100"
               >
                 <FaPlus size={20} />
                 <span>Add Book to Shelf</span>

@@ -76,11 +76,11 @@ const PopularBooks = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8"
+           className="flex flex-wrap gap-8 justify-center"
         >
           {PopularBooks.length > 0 &&
             PopularBooks.map((book) => (
-              <motion.div key={book._id} variants={cardVariants}>
+              <motion.div key={book._id} variants={cardVariants} className="w-full md:w-[350px]">
                 <Book book={book} />
               </motion.div>
             ))}

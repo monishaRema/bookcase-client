@@ -126,11 +126,11 @@ const Bookshelf = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="flex flex-wrap gap-8 justify-center"
           >
             {books.length > 0 &&
               books.map((book) => (
-                <motion.div variants={cardVariants} key={book._id}>
+                <motion.div variants={cardVariants} key={book._id} className="w-full md:w-[350px]">
                   <Book book={book} />
                 </motion.div>
               ))}

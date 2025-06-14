@@ -9,6 +9,7 @@ import Lottie from "lottie-react";
 import RegisterLottie from "../assets/Lottie/register-lottie.json";
 import axios from "axios";
 import { baseUrl } from "../Libs/Utility";
+import { motion } from "framer-motion";
 
 const Register = () => {
   const { CreateUser, setUser, UpdateUser, GoogleSignIn, user } =
@@ -139,6 +140,28 @@ const Register = () => {
       .catch((err) => setErrorMessage(err.message));
   };
 
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.18,
+        ease:"linear"
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, x: -50 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <section className="register pb-25 pt-45">
       <div className="container mx-auto px-5">
@@ -146,14 +169,27 @@ const Register = () => {
           <title>Book Case | Register</title>
         </Helmet>
 
-        <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row bg-primary text-gray-100 shadow-lg rounded-lg  gap-5 items-center overflow-hidden">
-          <div className="form-box w-full md:w-1/2 p-6 md:p-10 ">
+        <motion.div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row bg-primary text-gray-100 shadow-lg rounded-2xl gap-5 items-center overflow-hidden border-2 border-[#6745EB20]">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+            className="form-box w-full md:w-1/2 p-6 md:p-10"
+          >
             <form onSubmit={handleRegister}>
-              <h2 className="text-3xl font-bold mb-1 text-accent">Register</h2>
-              <p className="mb-7 text-gray-400">
+              <motion.h2
+                variants={cardVariants}
+                className="text-3xl font-bold mb-1 text-white"
+              >
+                Register
+              </motion.h2>
+              <motion.p variants={cardVariants} className="mb-7 text-gray-400">
                 Start your reading journey with Book Case
-              </p>
-              <div className="form-group mb-5">
+              </motion.p>
+
+              {/* Form Fields */}
+              <motion.div variants={cardVariants} className="form-group mb-5">
                 <label htmlFor="name" className="block mb-2">
                   Name
                 </label>
@@ -165,9 +201,9 @@ const Register = () => {
                   placeholder="Enter your name"
                   required
                 />
-              </div>
+              </motion.div>
 
-              <div className="form-group mb-5">
+              <motion.div variants={cardVariants} className="form-group mb-5">
                 <label htmlFor="email" className="block mb-2">
                   Email
                 </label>
@@ -179,9 +215,9 @@ const Register = () => {
                   placeholder="Enter your email"
                   required
                 />
-              </div>
+              </motion.div>
 
-              <div className="form-group mb-5">
+              <motion.div variants={cardVariants} className="form-group mb-5">
                 <label htmlFor="photoURL" className="block mb-2">
                   Photo URL
                 </label>
@@ -193,8 +229,12 @@ const Register = () => {
                   placeholder="Enter your photo URL"
                   required
                 />
-              </div>
-              <div className="form-group mb-5 relative">
+              </motion.div>
+
+              <motion.div
+                variants={cardVariants}
+                className="form-group mb-5 relative"
+              >
                 <label htmlFor="password" className="block mb-2">
                   Password
                 </label>
@@ -206,7 +246,6 @@ const Register = () => {
                   placeholder="Enter your password"
                   required
                 />
-
                 <button
                   onClick={(e) => {
                     e.preventDefault();
@@ -215,52 +254,75 @@ const Register = () => {
                   className="absolute top-12 right-6 text-accent"
                 >
                   {showpassword ? (
-                    <LuEye size={24}></LuEye>
+                    <LuEye size={24} />
                   ) : (
-                    <LuEyeClosed size={24}></LuEyeClosed>
+                    <LuEyeClosed size={24} />
                   )}
                 </button>
-              </div>
+              </motion.div>
+
               {errorMessage && (
-                <p className="text-red-500 text-sm text-center my-3">
+                <motion.p
+                  variants={cardVariants}
+                  className="text-red-500 text-sm text-center my-3"
+                >
                   {errorMessage}
-                </p>
+                </motion.p>
               )}
-              <button type="submit" className="btn btn-accent text-white block w-full uppercase text-base">
-                REGISTER
-              </button>
+
+              <motion.div variants={cardVariants}>
+                <motion.button
+                  type="submit"
+                  className="btn btn-accent text-white block w-full uppercase text-base"
+                >
+                  REGISTER
+                </motion.button>
+              </motion.div>
             </form>
-            <p className="font-semibold text-center mt-2">
-              Already Have An Account ?{" "}
-              <Link className="text-violet-400 hover:text-violet-600" to="/login">
+
+            <motion.p
+              variants={cardVariants}
+              className="font-semibold text-center mt-2"
+            >
+              Already Have An Account?{" "}
+              <Link
+                className="text-violet-400 hover:text-violet-600"
+                to="/login"
+              >
                 Login
               </Link>
-            </p>
-            <div className="flex items-center my-4 gap-2">
+            </motion.p>
+
+            <motion.div
+              variants={cardVariants}
+              className="flex items-center my-4 gap-2"
+            >
               <hr className="flex-grow border-gray-300" />
               <span className="text-gray-400 text-sm">OR</span>
               <hr className="flex-grow border-gray-300" />
-            </div>
-            <div className="social-login mt-5">
+            </motion.div>
+
+            <motion.div variants={cardVariants} className="social-login mt-5">
               <button
                 onClick={handleGoogle}
                 className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
               >
-                <FaGoogle size={20}></FaGoogle>
+                <FaGoogle size={20} />
                 <span className="text-base font-medium">
                   Continue With Google
                 </span>
               </button>
-            </div>
-          </div>
-          <div className="img-box w-full md:w-1/2 h-auto md:h-[800px]">
+            </motion.div>
+          </motion.div>
+
+          <motion.div className="img-box w-full md:w-1/2 h-auto md:h-[800px]">
             <Lottie
               style={{ width: "100%", height: "100%" }}
               animationData={RegisterLottie}
-              loop={true}
-            ></Lottie>
-          </div>
-        </div>
+              loop
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

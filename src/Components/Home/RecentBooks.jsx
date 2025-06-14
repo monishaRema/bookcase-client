@@ -75,11 +75,11 @@ const RecentBooks = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
+           className="flex flex-wrap gap-8 justify-center"
         >
           {latestBook.length > 0 &&
             latestBook.map((book) => (
-              <motion.div key={book._id} variants={cardVariants}>
+              <motion.div key={book._id} variants={cardVariants} className="w-full md:w-[350px]">
                 <Book book={book} />
               </motion.div>
             ))}

@@ -252,7 +252,7 @@ const BookDetails = () => {
                       </span>
                       <FaLongArrowAltRight className="text-accent"></FaLongArrowAltRight>
 
-                      <span className="text-accent text-sm capitalize">
+                      <span className="text-violet-100 text-sm capitalize">
                         {statusNext}
                       </span>
                       <button
@@ -298,10 +298,10 @@ const BookDetails = () => {
             <div className="rounded p-5 border border-[#663ef840] mb-10">
               <motion.h3
                 variants={cardVariants}
-                className=" flex items-center gap-2"
+                className=" flex items-center gap-2 text-white"
               >
-                <MdViewCompact className="text-accent text-3xl" />
-                <span className="text-xl md:text-2xl text-accent font-semibold">
+                <MdViewCompact className="text-3xl" />
+                <span className="text-xl md:text-2xl font-semibold">
                   Book Overview
                 </span>
               </motion.h3>
