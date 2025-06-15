@@ -180,52 +180,52 @@ const Register = () => {
             <form onSubmit={handleRegister}>
               <motion.h2
                 variants={cardVariants}
-                className="text-3xl font-bold mb-1 text-white"
+                className="text-3xl md:text-4xl font-bold mb-1 text-white"
               >
                 Register
               </motion.h2>
-              <motion.p variants={cardVariants} className="mb-7 text-gray-400">
+              <motion.p variants={cardVariants} className="mb-7 text-base md:text-xl text-gray-400">
                 Start your reading journey with Book Case
               </motion.p>
 
               {/* Form Fields */}
               <motion.div variants={cardVariants} className="form-group mb-5">
-                <label htmlFor="name" className="block mb-2">
+                <label htmlFor="name" className="block mb-2 text-base md:text-xl">
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none"
+                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none  text-sm md:text-lg"
                   placeholder="Enter your name"
                   required
                 />
               </motion.div>
 
               <motion.div variants={cardVariants} className="form-group mb-5">
-                <label htmlFor="email" className="block mb-2">
+                <label htmlFor="email" className="block mb-2  text-base md:text-xl">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none"
+                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none  text-sm md:text-lg"
                   placeholder="Enter your email"
                   required
                 />
               </motion.div>
 
               <motion.div variants={cardVariants} className="form-group mb-5">
-                <label htmlFor="photoURL" className="block mb-2">
+                <label htmlFor="photoURL" className="block mb-2  text-base md:text-xl">
                   Photo URL
                 </label>
                 <input
                   type="text"
                   id="photo"
                   name="photoUrl"
-                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none"
+                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none  text-sm md:text-lg"
                   placeholder="Enter your photo URL"
                   required
                 />
@@ -235,14 +235,14 @@ const Register = () => {
                 variants={cardVariants}
                 className="form-group mb-5 relative"
               >
-                <label htmlFor="password" className="block mb-2">
+                <label htmlFor="password" className="block mb-2  text-base md:text-xl">
                   Password
                 </label>
                 <input
                   type={showpassword ? "text" : "password"}
                   id="password"
                   name="password"
-                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none"
+                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none text-sm md:text-lg"
                   placeholder="Enter your password"
                   required
                 />
@@ -273,7 +273,7 @@ const Register = () => {
               <motion.div variants={cardVariants}>
                 <motion.button
                   type="submit"
-                  className="btn btn-accent text-white block w-full uppercase text-base"
+                  className="btn btn-accent text-white block w-full uppercase text-base md:text-lg"
                 >
                   REGISTER
                 </motion.button>
@@ -282,11 +282,11 @@ const Register = () => {
 
             <motion.p
               variants={cardVariants}
-              className="font-semibold text-center mt-2"
+              className="font-semibold text-center mt-2 text-base md:text-lg"
             >
               Already Have An Account?{" "}
               <Link
-                className="text-violet-400 hover:text-violet-600"
+                className="text-violet-400 hover:text-violet-600 text-base md:text-lg"
                 to="/login"
               >
                 Login
@@ -308,7 +308,7 @@ const Register = () => {
                 className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
               >
                 <FaGoogle size={20} />
-                <span className="text-base font-medium">
+                <span className=" font-medium text-base md:text-lg">
                   Continue With Google
                 </span>
               </button>

@@ -72,7 +72,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           Home
         </NavLink>
@@ -80,7 +80,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/bookshelf"
-          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 "
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           Bookshelf
         </NavLink>
@@ -88,7 +88,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/add-book"
-          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 "
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           Add Book
         </NavLink>
@@ -96,7 +96,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/my-books"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           My Books
         </NavLink>
@@ -235,14 +235,14 @@ const Navbar = () => {
                    <>
                   <Link
                     to="/register"
-                    className="nav-btn"
+                    className="nav-btn text-base md:text-xl"
                   >
                     Register
                   </Link>
                 
                   <Link
                     to="/login"
-                    className="nav-btn-alt"
+                    className="nav-btn-alt text-base md:text-xl"
                   >
                     LogIn
                   </Link>
