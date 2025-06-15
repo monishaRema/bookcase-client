@@ -9,7 +9,7 @@ const slides = [
     id: 1,
     title: "Discover Your Next Great Read",
     description: "Explore thousands of books across every genre, from thrilling mysteries to heartwarming romances, all in your personal virtual library.",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1749135102582-19927170462a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     button_text: 'Start Reading', 
     button_link: '/bookshelf'
 },
@@ -18,7 +18,7 @@ const slides = [
     title: "Build Your Digital Library",
 
     description: "Keep track of books you've read, want to read, and currently reading. Create custom shelves and share recommendations with fellow book lovers.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://d4804za1f1gw.cloudfront.net/wp-content/uploads/sites/18/2018/09/how-to-start-a-book-club-850x560.jpg",
    button_text: 'Add Book', 
     button_link: '/add-book'
 },
@@ -26,7 +26,7 @@ const slides = [
     id: 3,
     title: "Connect with Book Lovers",
     description: "Share reviews, join book clubs, and discover new authors through our vibrant community of readers who share your love for literature.",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://img.freepik.com/free-photo/young-student-learning-library_23-2149215402.jpg?uid=R196871962&ga=GA1.1.1820641712.1742857839&semt=ais_hybrid&w=740",
     button_text: 'Get Started', 
     button_link: '/bookshelf'
 }
