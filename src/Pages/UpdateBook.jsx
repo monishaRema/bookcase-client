@@ -70,7 +70,7 @@ const UpdateBook = () => {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
+          animate="show"
           viewport={{ once: true, amount: 0.2 }}
           className="mb-20 max-w-5xl mx-auto"
         >
@@ -84,7 +84,7 @@ const UpdateBook = () => {
           <motion.h1
             variants={fadeInUp}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center text-3xl md:text-4xl font-semibold mb-10"
+            className="text-center text-4xl md:text-5xl font-semibold mb-10"
           >
             Update Your Book
           </motion.h1>
