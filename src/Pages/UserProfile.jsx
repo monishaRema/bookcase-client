@@ -7,7 +7,7 @@ import { FaBook, FaBookOpen, FaBookReader } from "react-icons/fa";
 import { LuBookHeart } from "react-icons/lu";
 import BookChart from "../Components/BookChart/BookChart.jsx";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure.jsx";
-import UserAvator from "../assets/userAvator.png"
+import UserAvator from "../assets/userAvator.png";
 import { motion } from "framer-motion";
 
 const UserProfile = () => {
@@ -18,7 +18,6 @@ const UserProfile = () => {
   const axiosSecure = UseAxiosSecure();
   const navigate = useNavigate();
 
-
   useEffect(() => {
     if (!user) return;
     if (!user.email) {
@@ -26,7 +25,7 @@ const UserProfile = () => {
     }
   }, [user, navigate]);
 
- useEffect(() => {
+  useEffect(() => {
     if (user?.email) {
       setLoading(true);
       axiosSecure
@@ -53,9 +52,7 @@ const UserProfile = () => {
 
   const photoUrl = user && user.photoURL ? user.photoURL : UserAvator;
 
-
-
-    const containerVariants = {
+  const containerVariants = {
     hidden: {},
     show: {
       transition: {
@@ -85,7 +82,7 @@ const UserProfile = () => {
           Your reading journey at a glance
         </p>
         <div className="flex flex-col lg:flex-row gap-10">
-          <div className="profile-info bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl w-full lg:w-4/12 border-[#663ef840] flex flex-col items-center justify-center">
+          <motion.div className="profile-info bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl w-full lg:w-4/12 border-[#663ef840] flex flex-col items-center justify-center">
             <div className="img-box">
               <img
                 src={photoUrl}
@@ -97,13 +94,19 @@ const UserProfile = () => {
               {user?.displayName}
             </h2>
             <p className="text-gray-400 text-center">{user?.email}</p>
-          </div>
-          <div className="profile-details w-full lg:w-8/12 bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl border-[#663ef840]">
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            animate="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+            className="profile-details w-full lg:w-8/12 bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl border-[#663ef840]"
+          >
             <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-5">
-              <h2 className="text-3xl md:text-4xl font-semibold">
+              <motion.h2 variants={cardVariants} className="text-3xl md:text-4xl font-semibold">
                 My Bookshelf
-              </h2>
-              <div className="flex gap-5">
+              </motion.h2>
+              <motion.div variants={cardVariants} className="flex gap-5">
                 <Link
                   to="/add-book"
                   className="btn btn-info bg-gradient-to-r from-secondary to-[#00A8CC] text-white hover:border-secondary "
@@ -116,36 +119,43 @@ const UserProfile = () => {
                 >
                   View All
                 </Link>
-              </div>
+              </motion.div>
             </div>
-            <motion.div
-              initial="hidden"
-            animate="show"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={containerVariants}
-            className="flex flex-wrap gap-5 mt-10">
-              <motion.div variants={cardVariants} className="bg-gradient-to-l from-secondary to-accent rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
+            <motion.div className="flex flex-wrap gap-5 mt-10">
+              <motion.div
+                variants={cardVariants}
+                className="bg-gradient-to-l from-secondary to-accent rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]"
+              >
                 <FaBook size={42} />
                 <h3 className="mb-3 text-5xl">{books && books.length}</h3>
                 <p className="text-base text-gray-300">Total Books</p>
               </motion.div>
-              <motion.div variants={cardVariants} className="bg-gradient-to-r from-secondary to-[#09878b] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
+              <motion.div
+                variants={cardVariants}
+                className="bg-gradient-to-r from-secondary to-[#09878b] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]"
+              >
                 <FaBookOpen size={42} />
                 <h3 className="text-5xl mb-3">{read}</h3>
                 <p className="text-base text-gray-300">Books Read</p>
               </motion.div>
-              <motion.div  variants={cardVariants}className="bg-gradient-to-r from-secondary to-violet-700 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
+              <motion.div
+                variants={cardVariants}
+                className="bg-gradient-to-r from-secondary to-violet-700 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]"
+              >
                 <FaBookReader size={42} />
                 <h3 className="mb-3 text-5xl">{reading}</h3>
                 <p className="text-base text-gray-300">Books Reading</p>
               </motion.div>
-              <motion.div variants={cardVariants} className="bg-gradient-to-r from-secondary to-[#1686ee] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]">
+              <motion.div
+                variants={cardVariants}
+                className="bg-gradient-to-r from-secondary to-[#1686ee] rounded-lg hover:scale-105 transition-all duration-300 ease-in-out  p-5 text-center flex-1 flex flex-col justify-center items-center min-w-[180px]"
+              >
                 <LuBookHeart size={42} />
                 <h3 className="mb-5 text-5xl">{wantsToRead}</h3>
                 <p className="text-base text-gray-200">Wish to Read</p>
               </motion.div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
         <div className="bg-[#55555521] backdrop-blur-2xl rounded-3xl px-0 py-5 border-2 border-[#663ef840] mt-15">
           <BookChart user_email={user.email}></BookChart>
