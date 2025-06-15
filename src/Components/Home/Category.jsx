@@ -72,7 +72,11 @@ const Category = () => {
           <motion.p
             key={1}
             variants={cardVariants}
+<<<<<<< HEAD
+            className="text-gray-300 mb-15 max-w-2xl mx-auto text-center text-sm md:text-lg "
+=======
             className="text-gray-300 mb-15 max-w-2xl mx-auto text-center text-base md:text-lg"
+>>>>>>> 97ea5ae5907db3e4bf9a4b707e5325235dbbd727
           >
             Discover the most popular books loved by readers. Explore trending
             titles across genres and find your next great read.

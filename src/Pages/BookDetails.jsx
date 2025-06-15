@@ -103,7 +103,10 @@ const BookDetails = () => {
     hidden: {},
     show: {
       transition: {
+<<<<<<< HEAD
+=======
         staggerChildren: 0.25,
+>>>>>>> 97ea5ae5907db3e4bf9a4b707e5325235dbbd727
       },
     },
   };
