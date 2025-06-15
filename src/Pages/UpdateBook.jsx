@@ -4,10 +4,11 @@ import { AuthContext } from "../Contex/AuthContex";
 import { FiEdit } from "react-icons/fi";
 
 import Swal from "sweetalert2";
-import { useLoaderData, useNavigate } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { PiBookOpenBold } from "react-icons/pi";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { motion } from "framer-motion";
+import { FaArrowAltCircleLeft, FaArrowLeft, FaLongArrowAltLeft } from "react-icons/fa";
 const UpdateBook = () => {
   const { user } = use(AuthContext);
   const book = useLoaderData();
@@ -41,30 +42,30 @@ const UpdateBook = () => {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
+    hidden: {},
+    show: {
       transition: {
-        when: "beforeChildren",
         staggerChildren: 0.25,
       },
     },
   };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
+    const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeInOut",
+      },
+    },
   };
   return (
     <section className="register py-25">
       <div className="container mx-auto px-5">
         <Helmet>
-          <title>Book Case | Add Book</title>
+          <title>Book Case | Update Book</title>
         </Helmet>
 
         <motion.div
@@ -75,27 +76,34 @@ const UpdateBook = () => {
           className="mb-20 max-w-5xl mx-auto"
         >
           <motion.div
-            variants={fadeIn}
+            variants={cardVariants}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group"
           >
             <PiBookOpenBold className="size-15 group-hover:rotate-360 transition duration-1000 ease-in-out" />
           </motion.div>
           <motion.h1
-            variants={fadeInUp}
+            variants={cardVariants}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center text-4xl md:text-5xl font-semibold mb-10"
           >
             Update Your Book
           </motion.h1>
           <motion.p
-            variants={fadeInUp}
+            variants={cardVariants}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center text-xl mb-10 max-w-3xl mx-auto text-gray-400"
           >
             Edit your book information and keep your collection up to date.
             Easily manage details to organize your personal library.
           </motion.p>
+          <motion.div variants={cardVariants} className="w-[200px] mx-auto">
+
+            <Link to="/bookshelf" className="gradient-btn">
+              <FaArrowLeft className="text-lg md:text-xl"/>
+              <span>Go Back</span>
+            </Link>
+          </motion.div>
         </motion.div>
 
         <div className="theme-card-wrapper">
@@ -107,7 +115,7 @@ const UpdateBook = () => {
             className="theme-card-content"
           >
             <motion.h2
-              variants={fadeInUp}
+              variants={cardVariants}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-10 text-3xl md:text-4xl font-bold text-accent text-center"
             >
@@ -116,7 +124,7 @@ const UpdateBook = () => {
             <motion.form onSubmit={handleUpdateBook}>
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -134,7 +142,7 @@ const UpdateBook = () => {
                   />
                 </motion.div>
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -155,7 +163,7 @@ const UpdateBook = () => {
 
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -173,7 +181,7 @@ const UpdateBook = () => {
                   />
                 </motion.div>
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -194,7 +202,7 @@ const UpdateBook = () => {
 
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -233,7 +241,7 @@ const UpdateBook = () => {
                   </select>
                 </motion.div>
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -266,7 +274,7 @@ const UpdateBook = () => {
 
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -284,7 +292,7 @@ const UpdateBook = () => {
                   />
                 </motion.div>
                 <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -303,7 +311,7 @@ const UpdateBook = () => {
                 </motion.div>
               </div>
               <motion.div
-                variants={fadeInUp}
+                variants={cardVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="form-group mb-5 w-full "
               >
@@ -322,7 +330,7 @@ const UpdateBook = () => {
               </motion.div>
 
               <motion.div
-                variants={fadeInUp}
+                variants={cardVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="form-group mb-5 w-full "
               >
@@ -341,15 +349,15 @@ const UpdateBook = () => {
               </motion.div>
 
               <motion.div
-                variants={fadeInUp}
+                variants={cardVariants}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="flex justify-center pt-5"
               >
                 <button
                   type="submit"
-                  className="btn px-8 btn-lg btn-accent bg-gradient-to-r from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
+                  className="btn px-8 md:btn-lg btn-accent bg-gradient-to-r from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
                 >
-                  <FiEdit size={24} />
+                  <FiEdit className="text-xl md:text-2xl" />
 
                   <span>Update Book Info</span>
                 </button>

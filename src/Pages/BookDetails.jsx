@@ -1,7 +1,8 @@
 import { Helmet } from "@dr.pogodin/react-helmet";
 import React from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import { Link, useLoaderData, useLocation, useNavigate } from "react-router";
 import {
+  FaArrowLeft,
   FaBookReader,
   FaEnvelope,
   FaLongArrowAltRight,
@@ -32,6 +33,8 @@ const BookDetails = () => {
   const { user } = use(AuthContext);
   const navigate = useNavigate();
   const axiosSecure = UseAxiosSecure();
+    const location = useLocation();
+  const locationState = location.state;
 
   useEffect(() => {
     axios.get(`${baseUrl}/review/${book._id}`).then((result) => {
@@ -127,6 +130,15 @@ const BookDetails = () => {
       </Helmet>
 
       <div className="container mx-auto px-5">
+        <motion.div variants={cardVariants} className="w-[200px] mb-5">
+
+            <Link 
+            to={locationState ? locationState : "/bookshelf"} 
+            className="gradient-btn">
+              <FaArrowLeft className="text-lg md:text-xl"/>
+              <span>Go Back</span>
+            </Link>
+        </motion.div>
         <div className="flex flex-col sm:flex-row items-start gap-10 sm:relative">
           <motion.div
             initial="hidden"

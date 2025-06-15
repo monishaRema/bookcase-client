@@ -47,24 +47,24 @@ const AddBook = () => {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
+    hidden: {},
+    show: {
       transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.2,
+        staggerChildren: 0.25,
       },
     },
   };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
+    const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeInOut",
+      },
+    },
   };
 
   return (
@@ -75,28 +75,28 @@ const AddBook = () => {
         </Helmet>
 
         <motion.div
-          variants={containerVariants}
           initial="hidden"
-         animate="show"
+          animate="show"
           viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
           className="mb-20 max-w-5xl mx-auto"
         >
           <motion.div
-            variants={fadeIn}
+            variants={cardVariants}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="img-box bg-gradient-to-l from-[#001e2b10]  to-accent rounded-full w-[120px] h-[120px] mx-auto flex justify-center items-center mb-10 group"
           >
             <PiBookOpenBold className="size-15 group-hover:rotate-360 transition duration-1000 ease-in-out" />
           </motion.div>
           <motion.h1
-            variants={fadeInUp}
+            variants={cardVariants}
             transition={{ duration: 0.6 }}
             className="text-center text-3xl md:text-4xl font-semibold mb-10"
           >
             Add Your Book
           </motion.h1>
           <motion.p
-            variants={fadeInUp}
+            variants={cardVariants}
             transition={{ duration: 0.6 }}
             className="text-center text-xl mb-10 "
           >
@@ -108,7 +108,7 @@ const AddBook = () => {
             className="grid grid-cols-1 md:grid-cols-3 gap-5 "
           >
             <motion.div
-              variants={fadeInUp}
+              variants={cardVariants}
               transition={{ duration: 0.5 }}
               className="box-1 border border-[#663ef840] rounded  py-8 px-5"
             >
@@ -124,7 +124,7 @@ const AddBook = () => {
             </motion.div>
 
             <motion.div
-              variants={fadeInUp}
+              variants={cardVariants}
               transition={{ duration: 0.5 }}
               className="box-2 border border-[#663ef840] rounded  py-8 px-5"
             >
@@ -138,7 +138,7 @@ const AddBook = () => {
             </motion.div>
 
             <motion.div
-              variants={fadeInUp}
+              variants={cardVariants}
               transition={{ duration: 0.5 }}
               className="box-3 border border-[#663ef840] rounded  py-8 px-5"
             >
@@ -166,7 +166,7 @@ const AddBook = () => {
             >
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -183,7 +183,7 @@ const AddBook = () => {
                   />
                 </motion.div>
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -203,7 +203,7 @@ const AddBook = () => {
 
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -220,7 +220,7 @@ const AddBook = () => {
                   />
                 </motion.div>
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -240,7 +240,7 @@ const AddBook = () => {
 
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -278,7 +278,7 @@ const AddBook = () => {
                   </select>
                 </motion.div>
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -310,7 +310,7 @@ const AddBook = () => {
 
               <div className="flex flex-col md:flex-row gap-5">
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -328,7 +328,7 @@ const AddBook = () => {
                   />
                 </motion.div>
                 <motion.div
-                    variants={fadeInUp}
+                    variants={cardVariants}
               transition={{ duration: 0.5 }}
                   className="form-group mb-5 w-full md:w-1/2"
                 >
@@ -347,7 +347,7 @@ const AddBook = () => {
                 </motion.div>
               </div>
               <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
               transition={{ duration: 0.5 }}
                 className="form-group mb-5 w-full "
               >
@@ -366,7 +366,7 @@ const AddBook = () => {
               </motion.div>
 
               <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
               transition={{ duration: 0.5 }}
                 className="form-group mb-5 w-full "
               >
@@ -384,7 +384,7 @@ const AddBook = () => {
               </motion.div>
 
               <motion.div
-                  variants={fadeInUp}
+                  variants={cardVariants}
               transition={{ duration: 0.5 }}
                 className="flex justify-center pt-5"
               >
