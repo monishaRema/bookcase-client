@@ -41,7 +41,7 @@ return (
         <div className="bg-gradient-to-t to-accent from-primary rounded-xl size-20 flex justify-center items-center text-white text-3xl">
             {icon}
         </div>
-        <h3 className=" text-2xl md:text-3xl text-white capitalize">{category.book_category}</h3>
+        <h3 className=" text-xl md:text-2xl text-white capitalize">{category.book_category}</h3>
         <p className="text-gray-400">{category.count} Books</p>
       </div>
   </div>

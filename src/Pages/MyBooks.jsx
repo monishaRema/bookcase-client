@@ -85,7 +85,7 @@ const MyBooks = () => {
             <motion.p
               key={1}
               variants={cardVariants}
-              className="text-center  text-lg md:text-xl max-w-3xl mx-auto mb-5 text-gray-400"
+              className="text-center  theme-p max-w-3xl mx-auto mb-5 text-gray-400"
             >
               {books.length > 0
                 ? `Manage your personal book collection and track your reading progress.Keep track of what you’ve read and what’s next on your
@@ -102,7 +102,7 @@ const MyBooks = () => {
                 className="btn btn-lg btn-accent hover:bg-violet-600 flex items-center text-lg text-gray-100"
               >
                 <FaPlus size={20} />
-                <span className="text-base md:text-xl">Add Book to Shelf</span>
+                <span className="">Add Book to Shelf</span>
               </Link>
             </motion.div>
           </motion.div>

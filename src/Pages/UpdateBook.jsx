@@ -117,7 +117,7 @@ const UpdateBook = () => {
             <motion.h2
               variants={cardVariants}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="mb-10 text-3xl md:text-4xl font-bold text-accent text-center"
+              className="mb-10 text-3xl md:text-4xl font-bold text-white text-center"
             >
               Book Information
             </motion.h2>

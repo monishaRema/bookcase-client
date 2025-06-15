@@ -165,25 +165,25 @@ const Login = () => {
             className="form-box w-full md:w-1/2 p-6 md:p-10"
           >
             <form onSubmit={handleLogin}>
-              <motion.h2
+              <motion.h1
                 variants={cardVariants}
                 className="text-3xl md:text-4xl font-bold mb-1 text-white"
               >
                 Login
-              </motion.h2>
-              <motion.p variants={cardVariants} className="mb-7 text-base md:text-xl text-gray-400">
+              </motion.h1>
+              <motion.p variants={cardVariants} className="mb-7 theme-p text-gray-400">
                 Welcome back to your reading journey
               </motion.p>
 
               <motion.div variants={cardVariants} className="form-group mb-5">
-                <label htmlFor="email" className="block mb-2 text-base md:text-xl">
+                <label htmlFor="email" className="block mb-2 theme-label">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none text-sm md:text-lg"
+                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none theme-input"
                   placeholder="Enter your email"
                   required
                 />
@@ -193,14 +193,14 @@ const Login = () => {
                 variants={cardVariants}
                 className="form-group mb-5 relative"
               >
-                <label htmlFor="password" className="block mb-2 text-base md:text-xl">
+                <label htmlFor="password" className="block mb-2 theme-label">
                   Password
                 </label>
                 <input
                   type={showpassword ? "text" : "password"}
                   id="password"
                   name="password"
-                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none text-sm md:text-lg"
+                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none theme-input"
                   placeholder="Enter your password"
                   required
                 />
@@ -230,7 +230,7 @@ const Login = () => {
               <motion.div variants={cardVariants}>
                 <motion.button
                   type="submit"
-                  className="btn btn-accent text-white block w-full uppercase   text-base md:text-lg"
+                  className="btn btn-accent text-white block w-full uppercase"
                 >
                   Login
                 </motion.button>
@@ -243,7 +243,7 @@ const Login = () => {
             >
               Do not have an account?{" "}
               <Link
-                className="text-violet-400 hover:text-violet-600 text-base md:text-lg"
+                className="text-violet-400 hover:text-violet-600 "
                 to="/register"
               >
                 Register
@@ -265,7 +265,7 @@ const Login = () => {
                 className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
               >
                 <FaGoogle size={20} />
-                <span className="text-base font-medium text-base md:text-lg">
+                <span className="text-base font-medium ">
                   Continue With Google
                 </span>
               </button>

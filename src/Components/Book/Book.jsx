@@ -39,7 +39,7 @@ const Book = ({ book }) => {
 
       <Link className="gradient-btn flex items-center gap-3" to={`/book-details/${book?._id}`}>
         <CiViewBoard  size={24}/>
-        <span className="text-lg md:text-xl">View Book</span>
+        <span className="">View Book</span>
       </Link>
     </div>
   );

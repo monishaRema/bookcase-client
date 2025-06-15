@@ -92,7 +92,7 @@ if(loading){
       <div className="container mx-auto px-5">
         
         <h1 className="text-4xl md:text-5xl text-center mb-3">Profile Page</h1>
-        <p className="mb-15 text-gray-400 text-base md:text-lg text-center">
+        <p className="mb-15 text-gray-400 theme-p text-center">
           Your reading journey at a glance
         </p>
         <motion.div

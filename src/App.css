@@ -60,9 +60,15 @@ a {
 input {
   outline: none;
 }
+.theme-p{
+   @apply text-base md:text-lg
+}
 
 .theme-input {
   @apply w-full px-4 py-3 border border-[#663ef82a] bg-[#0f072e8f] rounded focus:border-accent outline-none placeholder-shown:text-gray-300 text-base;
+}
+.theme-label{
+  @apply text-base md:text-lg;
 }
 .theme-select {
   @apply select text-base h-auto w-full p-3 border border-[#663ef82a] bg-[#090320bb] rounded focus:border-accent outline-none;

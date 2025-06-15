@@ -43,10 +43,10 @@ const Error = () => {
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           className="mb-15 md:mb-0">
-            <motion.h1 variants={cardVariants} className="text-3xl md:text-5xl mb-5 font-bold">
+            <motion.h1 variants={cardVariants} className="text-4xl md:text-5xl mb-5 font-bold">
               Oops! Page not found{" "}
             </motion.h1>
-            <motion.p variants={cardVariants} className="text-base md:text-lg mb-5 text-gray-400">
+            <motion.p variants={cardVariants} className="theme-p mb-5 text-gray-400">
               The page you're looking for seems doesn't exist.
             </motion.p>
             <motion.div variants={cardVariants} className="flex justify-center md:justify-start">

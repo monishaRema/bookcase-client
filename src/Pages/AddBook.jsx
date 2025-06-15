@@ -98,7 +98,7 @@ const AddBook = () => {
           <motion.p
             variants={cardVariants}
             transition={{ duration: 0.6 }}
-            className="text-center text-xl mb-10 "
+            className="text-center theme-p mb-10 "
           >
             Share your literary journey with our community! Adding books to your
             digital <br /> bookshelf helps you:

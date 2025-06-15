@@ -318,7 +318,7 @@ const BookDetails = () => {
               </motion.h3>
               <motion.p
                 variants={cardVariants}
-                className="text-base md:text-lg text-gray-400 mt-5"
+                className="theme-p text-gray-400 mt-5"
               >
                 {book?.book_overview}
               </motion.p>
