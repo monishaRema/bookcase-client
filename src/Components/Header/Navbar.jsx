@@ -72,7 +72,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/"
-          className="navlink"
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           Home
         </NavLink>
@@ -80,7 +80,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/bookshelf"
-          className="navlink"
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           Bookshelf
         </NavLink>
@@ -88,7 +88,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/add-book"
-          className="navlink"
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           Add Book
         </NavLink>
@@ -96,7 +96,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/my-books"
-          className="navlink"
+          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
         >
           My Books
         </NavLink>
