@@ -172,7 +172,7 @@ const Register = () => {
         <motion.div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row bg-primary text-gray-100 shadow-lg rounded-2xl gap-5 items-center overflow-hidden border-2 border-[#6745EB20]">
           <motion.div
             initial="hidden"
-            whileInView="show"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="form-box w-full md:w-1/2 p-6 md:p-10"

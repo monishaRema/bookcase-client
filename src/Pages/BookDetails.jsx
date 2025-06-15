@@ -103,7 +103,7 @@ const BookDetails = () => {
     hidden: {},
     show: {
       transition: {
-        // staggerChildren: 0.25,
+        staggerChildren: 0.25,
       },
     },
   };
@@ -130,7 +130,6 @@ const BookDetails = () => {
         <div className="flex flex-col sm:flex-row items-start gap-10 sm:relative">
           <motion.div
             initial="hidden"
-            whileInView="show"
             animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
@@ -290,8 +289,8 @@ const BookDetails = () => {
           </motion.div>
 
           <motion.div
-            initial="hidden"
-            whileInView="show"
+             initial="hidden"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="book-details w-full md:w-6/12 lg:w-8/12"

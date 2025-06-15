@@ -10,10 +10,7 @@ import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { motion } from "motion/react";
 import { Helmet } from "@dr.pogodin/react-helmet";
 
-
-
 const MyBooks = () => {
-  
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = use(AuthContext);
@@ -61,8 +58,8 @@ const MyBooks = () => {
   return (
     <section className="py-25 bg-gradient-r from-primary to-secondary">
       <Helmet>
-          <title>Book Case | My Books</title>
-        </Helmet>
+        <title>Book Case | My Books</title>
+      </Helmet>
 
       {loading ? (
         <Spinner></Spinner>
@@ -70,7 +67,7 @@ const MyBooks = () => {
         <div className="container mx-auto px-5">
           <motion.div
             initial="hidden"
-            whileInView="show"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="mb-20 max-w-[900px] mx-auto"
@@ -81,7 +78,7 @@ const MyBooks = () => {
             <motion.h1
               key={0}
               variants={cardVariants}
-              className="text-center text-3xl md:text-4xl font-semibold mb-5"
+              className="text-center text-4xl md:text-5xl font-semibold mb-5"
             >
               {books.length > 0 ? `My Books` : `No book found in your shelf`}
             </motion.h1>
@@ -112,7 +109,7 @@ const MyBooks = () => {
 
           <motion.div
             initial="hidden"
-            whileInView="show"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"

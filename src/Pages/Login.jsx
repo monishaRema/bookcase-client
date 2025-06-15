@@ -160,7 +160,7 @@ const Login = () => {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            whileInView="show"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             className="form-box w-full md:w-1/2 p-6 md:p-10"
           >
