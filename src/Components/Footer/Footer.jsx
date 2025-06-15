@@ -112,7 +112,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="text-white font-semibold mb-4 text-xl md:text-3xl text-center md:text-start">
+            <h3 className="text-white font-semibold mb-4 text-xl md:text-2xl text-center md:text-start">
               Quick Links
             </h3>
             <ul className="text-sm text-center md:text-start">{links()}</ul>
@@ -125,7 +125,7 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
           >
            
-            <h3 className="text-white font-semibold mb-4 text-2xl md:text-3xl text-center md:text-start">Contact Us</h3>
+            <h3 className="text-white font-semibold mb-4 text-xl md:text-2xl text-center md:text-start">Contact Us</h3>
             <ul className="space-y-2 text-white">
               <li className="flex items-center gap-3 justify-center md:justify-start text-sm md:text-base">
                 <FaLocationArrow className="text-violet-400 text-lg md:text-xl" /> <span>123 Book Mall Street, Doha City</span>

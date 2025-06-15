@@ -91,7 +91,7 @@ if(loading){
     <section className="py-25 bg-gradient-to-bl from-primary via-[#6645eb4f] via-35% to-secondary">
       <div className="container mx-auto px-5">
         
-        <h1 className="text-3xl md:text-5xl text-center mb-3">Profile Page</h1>
+        <h1 className="text-4xl md:text-5xl text-center mb-3">Profile Page</h1>
         <p className="mb-15 text-gray-400 text-base md:text-lg text-center">
           Your reading journey at a glance
         </p>

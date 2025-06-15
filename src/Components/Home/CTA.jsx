@@ -32,7 +32,7 @@ const CTA = () => {
             <motion.h2   variants={fadeInUp} className="text-white text-4xl md:text-5xl font-semibold leading-15 md:leading-10">
 Ready to Start Your Journey?
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-base md:text-lg text-gray-300">
+            <motion.p variants={fadeInUp} className=" text-lg md:text-xl text-gray-300">
                 Join thousands of readers who have transformed their reading experience. Your next great book adventure awaits.
             </motion.p>
             <motion.div variants={fadeInUp}>
