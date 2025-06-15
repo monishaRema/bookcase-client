@@ -126,9 +126,7 @@ const Navbar = () => {
     </>
   );
 
-  const handleNavMenu = () => {
-    setNavOpen((prev) => !prev);
-  };
+;
 
   return (
     <header className="h-20">
@@ -147,7 +145,7 @@ const Navbar = () => {
                   className={`text-2xl rotate-180 ${
                     navOpen ? "text-violet-500" : ""
                   }`}
-                  onClick={() => handleNavMenu()}
+                  onClick={() => setNavOpen(prev => !prev)}
                 >
                   <FaBarsStaggered />
                 </button>
@@ -163,7 +161,7 @@ const Navbar = () => {
                     className="dropdown-box"
                   >
                     <motion.li
-                      onClick={() => handleNavMenu()}
+                      onClick={() => setNavOpen(false)}
                       variants={cardVariants}
                     >
                       <NavLink className={"navlink"} to="/">
@@ -171,7 +169,7 @@ const Navbar = () => {
                       </NavLink>
                     </motion.li>
                     <motion.li
-                      onClick={() => handleNavMenu()}
+                      onClick={() =>setNavOpen(false)}
                       variants={cardVariants}
                     >
                       <NavLink className={"navlink"} to="/bookshelf">
@@ -179,7 +177,7 @@ const Navbar = () => {
                       </NavLink>
                     </motion.li>
                     <motion.li
-                      onClick={() => handleNavMenu()}
+                      onClick={() =>setNavOpen(false)}
                       variants={cardVariants}
                     >
                       <NavLink className={"navlink "} to="/add-book">
@@ -187,7 +185,7 @@ const Navbar = () => {
                       </NavLink>
                     </motion.li>
                     <motion.li
-                      onClick={() => handleNavMenu()}
+                      onClick={() =>setNavOpen(false)}
                       variants={cardVariants}
                     >
                       <NavLink className={"navlink"} to="/my-books">
