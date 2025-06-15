@@ -389,7 +389,7 @@ const AddBook = () => {
                 className="flex justify-center pt-5"
               >
                 <button type="submit" className="gradient-btn">
-                  <GiBookshelf size={24} />
+                  <GiBookshelf className="text-xl md:tex-2xl" />
 
                   <span>Add Book to Shelf</span>
                 </button>

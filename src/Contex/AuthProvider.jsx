@@ -11,7 +11,7 @@ import {
   GoogleAuthProvider
 } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.config";
-import {motion} from "motion/react"
+
 
 
 const AuthProvider = ({ children }) => {
@@ -69,8 +69,6 @@ const AuthProvider = ({ children }) => {
     LogOut,
     ForgotPass,
     UpdateUser,
-
-    
   };
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;

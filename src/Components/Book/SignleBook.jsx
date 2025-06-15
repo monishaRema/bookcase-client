@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { FaBookReader, FaUserEdit } from "react-icons/fa";
 import { TbCategory } from "react-icons/tb";
 import { SlLike } from "react-icons/sl";
@@ -10,6 +10,7 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const SignleBook = ({ book, setBooks, books }) => {
   const axiosSecure = UseAxiosSecure();
+  const location= useLocation();
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -88,6 +89,7 @@ const SignleBook = ({ book, setBooks, books }) => {
       <div className="flex gap-2 ">
         <Link
           className="btn btn-accent flex-1 text-white"
+          state={location.pathname}
           to={`/book-details/${book?._id}`}
         >
           View
