@@ -108,7 +108,7 @@ const Navbar = () => {
     <header className="h-20">
       <motion.nav
         initial="hidden"
-        whileInView="show"
+       animate="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={navVarient}
         className="fixed top-0 left-0 right-0 w-full  bg-[#00000030] backdrop-blur-xl text-white z-50"

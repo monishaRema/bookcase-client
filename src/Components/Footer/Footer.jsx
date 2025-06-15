@@ -54,7 +54,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 md:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+           animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="lg:col-span-2 flex flex-col items-center justify-center md:justify-start md:items-start text-center md:text-start"
           >
@@ -108,7 +108,7 @@ const Footer = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+           animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
@@ -120,7 +120,7 @@ const Footer = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+           animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
@@ -142,7 +142,7 @@ const Footer = () => {
 
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+         animate={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
           className="border-t mt-8 pt-8 text-center border-[#9e7cfa54]"

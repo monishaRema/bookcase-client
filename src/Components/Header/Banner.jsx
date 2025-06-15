@@ -100,7 +100,7 @@ const Banner = () => {
           {slides.map((slide) => (
             <motion.div key={slide.id}
                initial="hidden"
-                    whileInView="show"
+                   animate="show"
                     viewport={{ once: false, amount: 0.5 }}
                     variants={sliderVariants}
             

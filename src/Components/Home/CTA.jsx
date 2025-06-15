@@ -18,15 +18,12 @@ const CTA = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
+
   return (
     <motion.section
      variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
+          animate="visible"
           viewport={{ once: true, amount: 0.2 }}
     className="py-32 bg-gradient-to-t from-primary via-[#44288f57] to-secondary"
     >
