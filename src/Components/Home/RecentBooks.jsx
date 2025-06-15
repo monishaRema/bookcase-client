@@ -50,7 +50,7 @@ const RecentBooks = () => {
       <div className="container mx-auto px-5">
         <motion.div
           initial="hidden"
-          whileInView="show"
+         animate="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
         >
@@ -72,7 +72,7 @@ const RecentBooks = () => {
         </motion.div>
         <motion.div
           initial="hidden"
-          whileInView="show"
+          animate="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
            className="flex flex-wrap gap-8 justify-center"
