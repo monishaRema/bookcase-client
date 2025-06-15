@@ -62,10 +62,10 @@ const UserProfile = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, x: 100 },
     show: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         duration: 0.7,
         ease: "easeInOut",
@@ -73,16 +73,17 @@ const UserProfile = () => {
     },
   };
     const cardVariantsAlt = {
-    hidden: { opacity: 0, y: -50 },
+    hidden: { opacity: 0, x: -100 },
     show: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         duration: 0.7,
         ease: "easeInOut",
       },
     },
   };
+
 if(loading){
   return <Spinner></Spinner>
 }
@@ -100,7 +101,8 @@ if(loading){
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
         className="flex flex-col lg:flex-row gap-10">
-          <motion.div className="profile-info bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl w-full lg:w-4/12 border-[#663ef840] flex flex-col items-center justify-center">
+
+          <motion.div variants={cardVariantsAlt} className="profile-info bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl w-full lg:w-4/12 border-[#663ef840] flex flex-col items-center justify-center">
             <div className="img-box">
               <img
                 src={photoUrl}
@@ -113,7 +115,7 @@ if(loading){
             </h2>
             <p className="text-gray-400 text-center">{user?.email}</p>
           </motion.div>
-          <motion.div
+          <motion.div variants={cardVariants}
             className="profile-details w-full lg:w-8/12 bg-[#55555521] rounded-2xl p-8 border-2 backdrop-blur-2xl border-[#663ef840]"
           >
             <motion.div
