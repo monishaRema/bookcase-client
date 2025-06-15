@@ -46,7 +46,7 @@ const UpdateBook = () => {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.2,
+        staggerChildren: 0.25,
       },
     },
   };
@@ -102,7 +102,7 @@ const UpdateBook = () => {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             className="theme-card-content"
           >

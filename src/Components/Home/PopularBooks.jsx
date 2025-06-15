@@ -58,7 +58,7 @@ const PopularBooks = () => {
           <motion.h2
             key={0}
             variants={cardVariants}
-            className="text-3xl md:text-5xl text-center mb-5 font-bold"
+            className="text-4xl md:text-5xl text-center mb-5 font-bold"
           >
             Popular Books
           </motion.h2>

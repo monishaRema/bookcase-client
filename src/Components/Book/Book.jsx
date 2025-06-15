@@ -23,23 +23,28 @@ const Book = ({ book }) => {
         </div>
         <div className="w-12/12">
         <h3 className="card-heading text-center">{book.book_title}</h3>
-        <p className="flex item-center gap-2 justify-center pb-5 border-b border-[#ad82fc30]"><span className="text-gray-400">By :</span> <span className="text-violet-400"> {book?.book_author}</span></p>
+        <p className="flex item-center gap-2 justify-center pb-5 border-b border-[#ad82fc30] text-sm md:text-base"><span className="text-gray-400">By :</span> <span className="text-violet-400"> {book?.book_author}</span></p>
         </div>
       </div>
       <div className="flex gap-5 justify-between">
         <p className="flex items-center gap-2">
-            <TbCategory className="text-accent text-2xl" />
-            <span className="text-gray-100 capitalize">{book?.book_category}</span>
+            <TbCategory className="text-accent text-xl md:text-2xl" />
+            <span className="text-gray-100 capitalize text-sm md:text-base">{book?.book_category}</span>
         </p>
          <p className="flex items-center gap-2">
-            <SlLike className="text-accent text-2xl" />
+            <SlLike className="text-accent text-xl md:text-2xl" />
             <span className="text-gray-100 capitalize">{book?.upvotes}</span>
         </p>
       </div>
 
       <Link className="gradient-btn flex items-center gap-3" to={`/book-details/${book?._id}`}>
+<<<<<<< HEAD
         <CiViewBoard  size={24}/>
         <span className="text-lg md:text-xl">View Book</span>
+=======
+        <CiViewBoard  className="size-5 md:size-6"/>
+        <span className="">View Book</span>
+>>>>>>> 97ea5ae5907db3e4bf9a4b707e5325235dbbd727
       </Link>
     </div>
   );

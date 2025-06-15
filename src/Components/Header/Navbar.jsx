@@ -200,7 +200,7 @@ const Navbar = () => {
               </ul>
               <motion.div 
               variants={navItemVariants}
-                className="buttons flex gap-1 md:gap-3 items-center"
+                className="buttons flex gap-2 md:gap-3 items-center"
                 
               >
                 {user &&  (

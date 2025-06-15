@@ -63,7 +63,7 @@ const Bookshelf = () => {
       <div className="container mx-auto px-5">
         <motion.div
           initial="hidden"
-          whileInView="show"
+          animate="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
           className="flex flex-col lg:flex-row gap-5 mb-10"
@@ -123,14 +123,18 @@ const Bookshelf = () => {
         ) : (
           <motion.div
             initial="hidden"
-            whileInView="show"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="flex flex-wrap gap-8 justify-center"
           >
             {books.length > 0 &&
               books.map((book) => (
-                <motion.div variants={cardVariants} key={book._id} className="w-full md:w-[350px]">
+                <motion.div
+                  variants={cardVariants}
+                  key={book._id}
+                  className="w-full md:w-[350px]"
+                >
                   <Book book={book} />
                 </motion.div>
               ))}

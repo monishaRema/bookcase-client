@@ -51,7 +51,7 @@ const Footer = () => {
   return (
     <footer className="border-t bg-[#120536] border-[#9e7cfa54] pt-20 pb-5">
       <div className="container mx-auto px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 md:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,14 +127,14 @@ const Footer = () => {
            
             <h3 className="text-white font-semibold mb-4 text-2xl md:text-3xl text-center md:text-start">Contact Us</h3>
             <ul className="space-y-2 text-white">
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <FaLocationArrow className="text-violet-400 text-xl" /> <span>123 Book Mall Street, Doha City</span>
+              <li className="flex items-center gap-3 justify-center md:justify-start text-sm md:text-base">
+                <FaLocationArrow className="text-violet-400 text-lg md:text-xl" /> <span>123 Book Mall Street, Doha City</span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <FaEnvelope className="text-violet-400 text-xl"/><span> tellus@book-case.com</span>
+              <li className="flex items-center gap-3 justify-center md:justify-start text-sm md:text-base">
+                <FaEnvelope className="text-violet-400 text-lg md:text-xl"/><span> tellus@book-case.com</span>
               </li>
-              <li className="flex items-center gap-3 justify-center md:justify-start">
-                <FaPhoneAlt className="text-violet-400 text-xl" /> +974 60033591
+              <li className="flex items-center gap-3 justify-center md:justify-start text-sm md:text-base">
+                <FaPhoneAlt className="text-violet-400 text-lg md:text-xl" /> +974 60033591
               </li>
             </ul>
           </motion.div>
@@ -147,7 +147,7 @@ const Footer = () => {
           transition={{ delay: 0.4 }}
           className="border-t mt-8 pt-8 text-center border-[#9e7cfa54]"
         >
-          <p className="text-gray-300 ">
+          <p className="text-gray-300 text-sm md:text-base">
             © {new Date().getFullYear()} Book Case. All rights reserved | Designed by <span className="text-violet-400">Mosnisha Rema.</span>
           </p>
         </motion.div>
