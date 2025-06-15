@@ -81,7 +81,7 @@ const MyBooks = () => {
             <motion.h1
               key={0}
               variants={cardVariants}
-              className="text-center text-3xl md:text-4xl font-semibold mb-5"
+              className="text-center text-4xl md:text-5xl font-semibold mb-5"
             >
               {books.length > 0 ? `My Books` : `No book found in your shelf`}
             </motion.h1>

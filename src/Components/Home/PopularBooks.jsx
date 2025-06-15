@@ -65,7 +65,7 @@ const PopularBooks = () => {
           <motion.p
             key={1}
             variants={cardVariants}
-            className="text-gray-300 mb-15 max-w-2xl mx-auto text-center text-lg"
+            className="text-gray-300 mb-15 max-w-2xl mx-auto text-center text-base md:text-lg"
           >
             Discover the most popular books loved by readers. Explore trending
             titles across genres and find your next great read.
