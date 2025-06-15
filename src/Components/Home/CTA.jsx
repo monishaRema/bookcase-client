@@ -32,7 +32,7 @@ const CTA = () => {
     >
       <div className="max-w-2xl mx-auto px-5">
          <div className="flex flex-col items-center justify-center text-center gap-10">
-            <motion.h2   variants={fadeInUp} className="text-white text-3xl md:text-4xl font-semibold">
+            <motion.h2   variants={fadeInUp} className="text-white text-4xl md:text-5xl font-semibold leading-15 md:leading-10">
 Ready to Start Your Journey?
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-base md:text-lg text-gray-300">
