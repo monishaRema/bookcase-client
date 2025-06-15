@@ -1,16 +1,17 @@
-import React, { use} from "react";
+import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
-
 
 import { AuthContext } from "../../Contex/AuthContex";
 import Logo from "../../assets/logo.png";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 import { Slide, toast } from "react-toastify";
-import UserAvator from "../../assets/userAvator.png"
+import UserAvator from "../../assets/userAvator.png";
+import { FaBarsStaggered } from "react-icons/fa6";
 import { delay, motion } from "framer-motion";
 
 const Navbar = () => {
+  const [navOpen, setNavOpen] = useState(false);
   const { user, LogOut, setUser } = use(AuthContext);
 
   const handleLogOut = () => {
@@ -67,6 +68,27 @@ const Navbar = () => {
     },
   };
 
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   const links = () => (
     <>
       <motion.li variants={navItemVariants}>
@@ -104,109 +126,107 @@ const Navbar = () => {
     </>
   );
 
+  const handleNavMenu = () => {
+    setNavOpen((prev) => !prev);
+  };
+
   return (
     <header className="h-20">
       <motion.nav
         initial="hidden"
-       animate="show"
+        animate="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={navVarient}
         className="fixed top-0 left-0 right-0 w-full  bg-[#00000030] backdrop-blur-xl text-white z-50"
-   
       >
         <div className="container mx-auto px-5">
-
           <div className="navbar px-0 flex justify-between items-center py-3">
-            <div className="flex items-center gap-1 md:gap-0">
-              <motion.div  variants={navItemVariants} className="dropdown">
+            <div className="flex items-center gap-3 lg:gap-0">
+              <div className="mobile-menu block lg:hidden">
+                <button
+                  className={`text-2xl rotate-180 ${
+                    navOpen ? "text-violet-500" : ""
+                  }`}
+                  onClick={() => handleNavMenu()}
+                >
+                  <FaBarsStaggered />
+                </button>
                 <div
-                  tabIndex={0}
-                  role="button"
-                  className="lg:hidden text-violet-400 dark:text-white cursor-pointer"
+                  className={`dropdown-container ${navOpen ? "active" : ""}`}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-7 w-7"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                  <ul
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.25 }}
+                    variants={containerVariants}
+                    tabIndex={0}
+                    className="dropdown-box"
                   >
-                    {" "}
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h8m-8 6h16"
-                    />{" "}
-                  </svg>
+                    <motion.li
+                      onClick={() => handleNavMenu()}
+                      variants={cardVariants}
+                    >
+                      <NavLink className={"navlink"} to="/">
+                        Home
+                      </NavLink>
+                    </motion.li>
+                    <motion.li
+                      onClick={() => handleNavMenu()}
+                      variants={cardVariants}
+                    >
+                      <NavLink className={"navlink"} to="/bookshelf">
+                        Bookshelf
+                      </NavLink>
+                    </motion.li>
+                    <motion.li
+                      onClick={() => handleNavMenu()}
+                      variants={cardVariants}
+                    >
+                      <NavLink className={"navlink "} to="/add-book">
+                        Add Book
+                      </NavLink>
+                    </motion.li>
+                    <motion.li
+                      onClick={() => handleNavMenu()}
+                      variants={cardVariants}
+                    >
+                      <NavLink className={"navlink"} to="/my-books">
+                        My Books
+                      </NavLink>
+                    </motion.li>
+                  </ul>
                 </div>
-                <ul
-                  tabIndex={0}
-                  className="text-base dropdown-content rounded-b-md shadow-sm z-1 mt-5 md:mt-9 w-64 px-4 py-5 space-y-3 bg-primary"
-                >
-                  <li>
-                    <NavLink className={"navlink"} to="/">
-                      Home
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      className={"navlink"}
-                      to="/bookshelf"
-                    >
-                      Bookshelf
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      className={"navlink "}
-                      to="/add-book"
-                    >
-                      Add Book
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      className={"navlink"}
-                      to="/my-books"
-                    >
-                      My Books
-                    </NavLink>
-                  </li>
-                </ul>
-              </motion.div>
-
+              </div>
               <Link className="flex items-center gap-1" to="/">
                 <motion.img
                   variants={navItemVariants}
                   className="w-12 h-10 md:w-20 md:h-13"
                   src={Logo}
-                  alt=""
+                  alt="Logo"
                 />
 
                 <motion.p
                   variants={navItemVariants}
                   className="text-lg md:text-3xl font-bold text-white flex flex-col font-play"
                 >
-                 <span>Book</span>
-                 <span className="-mt-2 font-light text-base md:text-lg uppercase tracking-[1px] md:tracking-[2px]">Case</span>
+                  <span>Book</span>
+                  <span className="-mt-2 font-light text-base md:text-lg uppercase tracking-[1px] md:tracking-[2px]">
+                    Case
+                  </span>
                 </motion.p>
               </Link>
             </div>
 
             <div className="flex gap-5">
-              <ul className="hidden lg:flex flex-row">
-                {links()}
-              </ul>
-              <motion.div 
-              variants={navItemVariants}
+              <ul className="hidden lg:flex flex-row">{links()}</ul>
+              <motion.div
+                variants={navItemVariants}
                 className="buttons flex gap-2 md:gap-3 items-center"
-                
               >
-                {user &&  (
+                {user && (
                   <>
                     <Link
-                     to="/user-profile"
+                      to="/user-profile"
                       className="size-10 rounded-full overflow-hidden"
                       data-tooltip-id="profile-tooltip"
                     >
@@ -222,33 +242,29 @@ const Navbar = () => {
                       </div>
                     </Tooltip>
                   </>
-                ) }
+                )}
 
                 {user ? (
-                  <button
-                    onClick={handleLogOut}
-                    className="nav-btn"
-                  >
+                  <button onClick={handleLogOut} className="nav-btn">
                     LogOut
                   </button>
                 ) : (
-                   <>
-                  <Link
-                    to="/register"
-                    className="nav-btn text-base md:text-xl"
-                  >
-                    Register
-                  </Link>
-                
-                  <Link
-                    to="/login"
-                    className="nav-btn-alt text-base md:text-xl"
-                  >
-                    LogIn
-                  </Link>
+                  <>
+                    <Link
+                      to="/register"
+                      className="nav-btn text-base md:text-xl"
+                    >
+                      Register
+                    </Link>
+
+                    <Link
+                      to="/login"
+                      className="nav-btn-alt text-base md:text-xl"
+                    >
+                      LogIn
+                    </Link>
                   </>
                 )}
-               
               </motion.div>
             </div>
           </div>

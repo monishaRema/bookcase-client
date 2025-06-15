@@ -28,7 +28,7 @@ const slides = [
     description: "Share reviews, join book clubs, and discover new authors through our vibrant community of readers who share your love for literature.",
     image: "https://img.freepik.com/free-photo/young-student-learning-library_23-2149215402.jpg?uid=R196871962&ga=GA1.1.1820641712.1742857839&semt=ais_hybrid&w=740",
     button_text: 'Get Started', 
-    button_link: '/bookshelf'
+    button_link: '/register'
 }
 ];
 
@@ -59,9 +59,9 @@ const Hero = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, x: 300 }}
+          initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -300 }}
+          exit={{ opacity: 0, x: -30 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="absolute inset-0"
         >
