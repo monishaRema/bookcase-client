@@ -103,7 +103,7 @@ const BookDetails = () => {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.25,
+        // staggerChildren: 0.25,
       },
     },
   };
@@ -131,6 +131,7 @@ const BookDetails = () => {
           <motion.div
             initial="hidden"
             whileInView="show"
+            animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="book-info w-full  md:w-6/12 lg:w-4/12 sm:sticky sm:top-0 rounded p-5 border border-[#663ef840]"

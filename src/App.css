@@ -20,6 +20,12 @@ body {
   background-color: #06041b;
   color: #e6e6e6;
 }
+.nav-btn{
+  @apply btn btn-outline text-violet-300 hover:bg-accent hover:text-white hover:border-accent text-xs md:text-base px-2 md:px-3 font-medium
+}
+.nav-btn-alt{
+  @apply btn bg-accent border border-accent text-white hover:bg-transparent hover:text-violet-300 hover:border-violet-300 text-xs md:text-base px-2 md:px-3 font-medium
+}
 
 h1,
 h2,
@@ -35,7 +41,14 @@ h6,
 }
 .navlink:hover,
 .navlink.active {
-  @apply text-accent;
+  @apply text-violet-400;
+}
+
+.footer-navlink{
+  @apply text-base md:text-lg font-medium inline-block py-1 hover:translate-x-2.5;
+}
+.footer-navlink.active{
+  @apply text-violet-400;
 }
 
 .btn,

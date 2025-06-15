@@ -227,7 +227,7 @@ const Navbar = () => {
                 {user ? (
                   <button
                     onClick={handleLogOut}
-                    className="btn btn-outline btn-accent text-sm md:text-base px-2 md:px-3"
+                    className="nav-btn"
                   >
                     LogOut
                   </button>
@@ -235,14 +235,14 @@ const Navbar = () => {
                    <>
                   <Link
                     to="/register"
-                    className="btn btn-outline btn-accent text-xs md:text-base px-2 md:px-3"
+                    className="nav-btn"
                   >
                     Register
                   </Link>
                 
                   <Link
                     to="/login"
-                    className="btn btn-outline btn-accent text-xs md:text-base px-2 md:px-3"
+                    className="nav-btn-alt"
                   >
                     LogIn
                   </Link>

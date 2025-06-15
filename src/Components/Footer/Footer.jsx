@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { MdContactPhone, MdOutlineWifiCalling3 } from "react-icons/md";
-import { IoLocationSharp } from "react-icons/io5";
+import { FaEnvelope, FaFacebook, FaFacebookF, FaGithub, FaInstagram, FaLinkedin, FaLinkedinIn, FaLocationArrow, FaPhoneAlt} from "react-icons/fa";
+
 
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.png";
@@ -14,26 +13,26 @@ const navItemVariants = {
 const Footer = () => {
   const links = () => (
     <>
-      <motion.li variants={navItemVariants}>
+      <motion.li >
         <NavLink
           to="/"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+          className="footer-navlink "
         >
           Home
         </NavLink>
       </motion.li>
-      <motion.li variants={navItemVariants}>
+      <motion.li>
         <NavLink
           to="/bookshelf"
-          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 "
+          className="footer-navlink"
         >
           Bookshelf
         </NavLink>
       </motion.li>
-      <motion.li variants={navItemVariants}>
+      <motion.li >
         <NavLink
           to="/add-book"
-          className="navlink text-base  md:text-lg font-medium inline-block py-3 px-6 "
+          className="footer-navlink"
         >
           Add Book
         </NavLink>
@@ -41,7 +40,7 @@ const Footer = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/my-books"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+          className="footer-navlink"
         >
           My Books
         </NavLink>
@@ -52,12 +51,12 @@ const Footer = () => {
   return (
     <footer className="border-t bg-[#120536] border-[#9e7cfa54] pt-20 pb-5">
       <div className="container mx-auto px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 flex flex-col items-center justify-center md:justify-start md:items-start text-center md:text-start"
           >
             <div className="flex items-center gap-2 mb-4">
               <div
@@ -78,7 +77,7 @@ const Footer = () => {
               </div>
               <motion.p
                 variants={navItemVariants}
-                className="text-base md:text-2xl font-bold text-white flex flex-col font-play"
+                className="text-xl md:text-2xl font-bold text-white flex flex-col font-play"
               >
                 <span>Book</span>
                 <span className="-mt-2 font-light text-base md:text-lg uppercase tracking-[1px] md:tracking-[2px]">
@@ -86,10 +85,25 @@ const Footer = () => {
                 </span>
               </motion.p>
             </div>
-            <p className="mt-6 max-w-md text-SM" style={{ color: "#ffffff" }}>
+            <p className="mt-3 max-w-sm text-sm md:text-base text-white">
               Your digital reading companion. Create, organize, and share your
               book collection with fellow book lovers around the world.
             </p>
+             <h3 className="text-white font-semibold my-5 text-lg md:text-xl">Follow Us</h3>
+            <div className="flex gap-3">
+              <span className="text-white bg-accent flex size-10 justify-center items-center rounded-full hover:rotate-360 hover:bg-violet-500 transition-all duration-600 ease-in-out">
+                <FaFacebookF className="size-5" />
+              </span>
+  <span className="text-white bg-accent flex size-10 justify-center items-center rounded-full hover:rotate-360 hover:bg-violet-500 transition-all duration-600 ease-in-out">
+                <FaInstagram className="size-6" />
+              </span>
+  <span className="text-white bg-accent flex size-10 justify-center items-center rounded-full hover:rotate-360 hover:bg-violet-500 transition-all duration-600 ease-in-out">
+                <FaLinkedinIn className="size-5" />
+              </span>
+  <span className="text-white bg-accent flex size-10 justify-center items-center rounded-full hover:rotate-360 hover:bg-violet-500 transition-all duration-600 ease-in-out">
+                <FaGithub className="size-6" />
+              </span>
+            </div>
           </motion.div>
 
           <motion.div
@@ -98,10 +112,10 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="text-white font-semibold mb-4 text-lg">
+            <h3 className="text-white font-semibold mb-4 text-xl md:text-3xl text-center md:text-start">
               Quick Links
             </h3>
-            <ul className=" text-sm">{links()}</ul>
+            <ul className="text-sm text-center md:text-start">{links()}</ul>
           </motion.div>
 
           <motion.div
@@ -110,31 +124,17 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-white font-semibold mb-4 text-lg">Follow Us</h3>
-            <div className="flex gap-4">
-              <span className="text-accent hover:text-white transition-all duration-300 ease-in-out">
-                <FaFacebook className="size-8" />
-              </span>
-              <span className="text-accent hover:text-white transition-all duration-300 ease-in-out">
-                <FaInstagram className="size-8" />
-              </span>
-              <span className="text-accent hover:text-white transition-all duration-300 ease-in-out">
-                <FaLinkedin className="size-8" />
-              </span>
-              <span className="text-accent hover:text-white transition-all duration-300 ease-in-out">
-                <FaGithub className="size-8" />
-              </span>
-            </div>
-            <h3 className="mt-5 font-semibold text-lg mb-4 text-white">Contact Us</h3>
+           
+            <h3 className="text-white font-semibold mb-4 text-2xl md:text-3xl text-center md:text-start">Contact Us</h3>
             <ul className="space-y-2 text-white">
-              <li className="flex items-center gap-2 ">
-                <IoLocationSharp className="text-accent size-5" /> 123 Book Mall Street, Doha City
+              <li className="flex items-center gap-3 justify-center md:justify-start">
+                <FaLocationArrow className="text-violet-400 text-xl" /> <span>123 Book Mall Street, Doha City</span>
               </li>
-              <li className="flex items-center gap-2">
-                <MdContactPhone className="text-accent size-4"  /> contact@book-case.com
+              <li className="flex items-center gap-3 justify-center md:justify-start">
+                <FaEnvelope className="text-violet-400 text-xl"/><span> tellus@book-case.com</span>
               </li>
-              <li className="flex items-center gap-2">
-                <MdOutlineWifiCalling3 className="text-accent size-5" /> +1 (123) 456-7890
+              <li className="flex items-center gap-3 justify-center md:justify-start">
+                <FaPhoneAlt className="text-violet-400 text-xl" /> +974 60033591
               </li>
             </ul>
           </motion.div>
@@ -148,7 +148,7 @@ const Footer = () => {
           className="border-t mt-8 pt-8 text-center border-[#9e7cfa54]"
         >
           <p className="text-gray-300 ">
-            © 2025 Book Case. All rights reserved. Designed by Mosnisha Rema.
+            © {new Date().getFullYear()} Book Case. All rights reserved | Designed by <span className="text-violet-400">Mosnisha Rema.</span>
           </p>
         </motion.div>
       </div>
