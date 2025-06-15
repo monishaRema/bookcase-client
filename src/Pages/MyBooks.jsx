@@ -8,10 +8,12 @@ import { FaPlus } from "react-icons/fa";
 import Spinner from "./Spinner";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { motion } from "motion/react";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 
 
 const MyBooks = () => {
+  
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = use(AuthContext);
@@ -58,6 +60,10 @@ const MyBooks = () => {
 
   return (
     <section className="py-25 bg-gradient-r from-primary to-secondary">
+      <Helmet>
+          <title>Book Case | My Books</title>
+        </Helmet>
+
       {loading ? (
         <Spinner></Spinner>
       ) : (
