@@ -72,7 +72,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/"
-          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
+          className="navlink"
         >
           Home
         </NavLink>
@@ -80,7 +80,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/bookshelf"
-          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
+          className="navlink"
         >
           Bookshelf
         </NavLink>
@@ -88,7 +88,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/add-book"
-          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
+          className="navlink"
         >
           Add Book
         </NavLink>
@@ -96,7 +96,7 @@ const Navbar = () => {
       <motion.li variants={navItemVariants}>
         <NavLink
           to="/my-books"
-          className="navlink text-base md:text-xl font-medium inline-block py-3 px-6 "
+          className="navlink"
         >
           My Books
         </NavLink>
@@ -122,7 +122,7 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="lg:hidden text-[#6A8C25] dark:text-white cursor-pointer"
+                  className="lg:hidden text-violet-400 dark:text-white cursor-pointer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
