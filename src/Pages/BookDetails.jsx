@@ -103,10 +103,6 @@ const BookDetails = () => {
     hidden: {},
     show: {
       transition: {
-<<<<<<< HEAD
-=======
-        staggerChildren: 0.25,
->>>>>>> 97ea5ae5907db3e4bf9a4b707e5325235dbbd727
       },
     },
   };
@@ -304,13 +300,13 @@ const BookDetails = () => {
                 className=" flex items-center gap-2 text-white"
               >
                 <MdViewCompact className="text-3xl" />
-                <span className="text-xl md:text-2xl font-semibold">
+                <span className="text-2xl md:text-3xl font-semibold">
                   Book Overview
                 </span>
               </motion.h3>
               <motion.p
                 variants={cardVariants}
-                className="text-base text-gray-400 mt-5"
+                className="text-base md:text-lg text-gray-400 mt-5"
               >
                 {book?.book_overview}
               </motion.p>
@@ -320,7 +316,7 @@ const BookDetails = () => {
                   onClick={() => handleUpvote(book?._id)}
                 >
                   <BiSolidLike size={24} />
-                  <span className="">Upvote</span>
+                  <span className="text-lg md-text-xl">Upvote</span>
                 </button>
               </motion.div>
             </div>

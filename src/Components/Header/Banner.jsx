@@ -113,12 +113,12 @@ const Banner = () => {
                 
                     className="max-w-[600px] mx-auto md:mx-0 text-center md:text-left md:pl-5"
                   >
-                    <motion.h2
+                    <motion.h1
                     key={0}
                     variants={sliderElementVariants}
-                    className="text-3xl md:text-5xl font-bold mb-4 text-[#6A8C25] dark:text-white">
+                    className="text-4xl md:text-5xl font-bold mb-4 text-[#6A8C25] dark:text-white">
                       {slide.title}
-                    </motion.h2>
+                    </motion.h1>
                     <motion.p key={1} variants={sliderElementVariants} className="text-lg md:text-xl mb-10 text-gray-500 dark:text-gray-200">
                       {slide.description}
                     </motion.p>
