@@ -129,7 +129,7 @@ const BookDetails = () => {
       </Helmet>
 
       <div className="container mx-auto px-5">
-        <motion.div variants={cardVariants} className="w-[200px] mb-5">
+        <motion.div variants={cardVariants} className="w-[200px] mb-5 mx-auto md:mx-0">
 
             <Link 
             to={locationState ? locationState : "/bookshelf"} 
@@ -138,13 +138,13 @@ const BookDetails = () => {
               <span>Go Back</span>
             </Link>
         </motion.div>
-        <div className="flex flex-col sm:flex-row items-start gap-10 sm:relative">
+        <div className="flex flex-col md:flex-row items-start gap-10 sm:relative">
           <motion.div
             initial="hidden"
             animate="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
-            className="book-info w-full  md:w-6/12 lg:w-4/12 sm:sticky sm:top-0 rounded p-5 border border-[#663ef840]"
+            className="book-info w-full  md:w-6/12 lg:w-4/12 md:sticky md:top-0 rounded p-5 border border-[#663ef840]"
           >
             <motion.div
               variants={cardVariants}
@@ -153,13 +153,13 @@ const BookDetails = () => {
               <img
                 src={book?.cover_photo}
                 alt={book?.book_title}
-                className="h-[300px] md:h-[350px] object-contain rounded"
+                className="h-[300px] md:h-[350px] object-contain rounded mx-auto md:mx-0"
               />
             </motion.div>
             <div className="content-box w-full mt-10">
               <motion.h1
                 variants={cardVariants}
-                className="text-3xl font-semibold mb-5"
+                className="text-3xl md:text-4xl font-semibold mb-8 text-center md:text-start"
               >
                 {book?.book_title}
               </motion.h1>
@@ -309,7 +309,7 @@ const BookDetails = () => {
             <div className="rounded p-5 border border-[#663ef840] mb-10">
               <motion.h3
                 variants={cardVariants}
-                className=" flex items-center gap-2 text-white"
+                className=" flex items-center gap-2 text-white justify-center md:justify-start"
               >
                 <MdViewCompact className="text-3xl" />
                 <span className="text-2xl md:text-3xl font-semibold">
@@ -318,11 +318,11 @@ const BookDetails = () => {
               </motion.h3>
               <motion.p
                 variants={cardVariants}
-                className="theme-p text-gray-400 mt-5"
+                className="theme-p text-gray-400 mt-5 text-center md:text-start"
               >
                 {book?.book_overview}
               </motion.p>
-              <motion.div variants={cardVariants} className="mt-10">
+              <motion.div variants={cardVariants} className="mt-10 flex justify-center md:justify-start">
                 <button
                   className="btn px-8 btn-lg btn-accent bg-gradient-to-t from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
                   onClick={() => handleUpvote(book?._id)}

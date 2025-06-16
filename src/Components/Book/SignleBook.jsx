@@ -45,11 +45,11 @@ const SignleBook = ({ book, setBooks, books }) => {
   return (
     <div className="card theme-card flex flex-col gap-5 justify-between">
       <div className="flex gap-3 items-center">
-        <div className="img-box w-5/12 overflow-hidden rounded  h-36">
+        <div className="img-box w-5/12 max-w-[150px] overflow-hidden rounded  h-40">
           <img
             src={book?.cover_photo}
             alt={book?.book_title}
-            className="size-full object-cover"
+            className="size-full rounded-sm"
           />
         </div>
         <div className="w-7/12">

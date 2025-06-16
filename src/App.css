@@ -150,6 +150,7 @@ input {
 .theme-card-wrapper:before {
   content: "";
   width: 100%;
+  height:100%;
   aspect-ratio: 1/1;
   position: absolute;
   top: 50%;
