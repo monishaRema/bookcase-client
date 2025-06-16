@@ -78,13 +78,13 @@ const Navbar = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, x: -150 },
     show: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        duration: 0.7,
-        ease: "easeInOut",
+        duration: 0.5,
+        ease: "linear",
       },
     },
   };
@@ -152,13 +152,17 @@ const Navbar = () => {
                 <div
                   className={`dropdown-container ${navOpen ? "active" : ""}`}
                 >
-                  <ul
+                 {
+                  navOpen && (
+
+                
+                  <motion.ul
                     initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.25 }}
+                    animate="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     variants={containerVariants}
                     tabIndex={0}
-                    className="dropdown-box"
+                    className={`dropdown-box`}
                   >
                     <motion.li
                       onClick={() => setNavOpen(false)}
@@ -192,7 +196,9 @@ const Navbar = () => {
                         My Books
                       </NavLink>
                     </motion.li>
-                  </ul>
+                  </motion.ul>
+                    )
+                 }
                 </div>
               </div>
               <Link className="flex items-center gap-1" to="/">

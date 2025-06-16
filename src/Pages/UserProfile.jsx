@@ -9,6 +9,7 @@ import BookChart from "../Components/BookChart/BookChart.jsx";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure.jsx";
 import UserAvator from "../assets/userAvator.png";
 import { motion } from "framer-motion";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 const UserProfile = () => {
   const [loading, setLoading] = useState(true);
@@ -89,6 +90,9 @@ if(loading){
 }
   return (
     <section className="py-25 bg-gradient-to-bl from-primary via-[#6645eb4f] via-35% to-secondary">
+           <Helmet>
+          <title>Book Case | User Profile</title>
+        </Helmet>
       <div className="container mx-auto px-5">
         
         <h1 className="text-4xl md:text-5xl text-center mb-3">Profile Page</h1>

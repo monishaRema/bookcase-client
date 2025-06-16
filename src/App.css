@@ -14,6 +14,10 @@
 
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 
@@ -67,17 +71,19 @@ h6,
   left:0;
 }
 .dropdown-box{
-  padding:15px 30px;
+  padding:30px 20px;
   display: flex;
   flex-direction: column;
-  gap:12px;
+  gap:15px;
 }
-.dropdown-container li{
-  transform: translateX(0);
+.dropdown-box li{
+  position: relative;
+  left: 0;
+  padding-inline: 10px;
   transition: all 0.5s ease-in-out;
 }
-.dropdown-container li:hover{
-  transform: translateX(10px)
+.dropdown-box li:hover{
+  left: 15px;
 }
 
 .btn,

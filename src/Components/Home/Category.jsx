@@ -21,11 +21,7 @@ const Category = () => {
         setLoading(false);
       })
       .catch((err) => {
-        Swal.fire({
-          title: err.message,
-          icon: "error",
-        });
-        setLoading(false);
+         setLoading(false);
       });
   }, []);
   const containerVariants = {
