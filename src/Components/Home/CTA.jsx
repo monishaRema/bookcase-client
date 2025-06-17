@@ -23,7 +23,7 @@ const CTA = () => {
     <motion.section
      variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
     className="py-32 bg-gradient-to-t from-primary via-[#44288f57] to-secondary"
     >

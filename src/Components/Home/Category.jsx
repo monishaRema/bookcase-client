@@ -54,7 +54,7 @@ const Category = () => {
       <div className="container mx-auto px-5">
         <motion.div
           initial="hidden"
-          animate="show"
+          whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
         >
@@ -77,7 +77,7 @@ const Category = () => {
 
         <motion.div
          initial="hidden"
-         animate="show"
+         whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
