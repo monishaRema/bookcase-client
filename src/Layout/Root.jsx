@@ -3,10 +3,12 @@ import { Outlet } from "react-router";
 import Navbar from "../Components/Header/Navbar";
 import Footer from "../Components/Footer/Footer";
 import { Slide, ToastContainer } from "react-toastify";
+import ScrollToTop from "../Components/Helpers/ScrollTop";
 
 const Root = () => {
   return (
     <>
+      <ScrollToTop></ScrollToTop>
       <Navbar></Navbar>
       <main className="main">
         <Outlet></Outlet>

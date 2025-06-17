@@ -54,11 +54,11 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
 
   return (
     <div
-      className="flex flex-col gap-5 bg-primary rounded mb-5 p-5"
+      className="flex flex-col gap-5 bg-primary rounded mb-5 p-5 text-center md:text-start"
       key={review._id}
     >
       <p className="text-base text-gray-300">{review.review_text}</p>
-      <div className="flex flex-wrap gap-5">
+      <div className="flex flex-wrap gap-5 justify-center md:justify-start">
         <p className="flex items-center gap-2">
           <FaUser className="text-accent text-xl" />
           <span className="text-gray-400 capitalize">{review?.user_name}</span>
@@ -72,7 +72,7 @@ const SingleReview = ({ review ,reviews, setReviews}) => {
         </p>
       </div>
       {review.user_email == email && (
-        <div className="flex gap-5 border-t border-[#663ef840] pt-5">
+        <div className="flex gap-5 border-t border-[#663ef840] pt-5 justify-center md:justify-start">
           <button
           onClick={()=>handleDeleteReview(review._id)}
           className="btn btn-warning">Delete</button>

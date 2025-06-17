@@ -7,13 +7,15 @@ import "./app.css";
 import { HelmetProvider } from "@dr.pogodin/react-helmet";
 
 
+
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HelmetProvider>
    <AuthProvider>
+      
       <RouterProvider router={routes} />
     </AuthProvider>
     </HelmetProvider>
-   
   </StrictMode>
 );

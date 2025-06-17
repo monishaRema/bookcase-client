@@ -76,7 +76,7 @@ const Review = ({ bookId, setReviews }) => {
   };
   return (
     <div className="p-5 border border-[#663ef840] rounded">
-      <h2 className="flex items-center gap-4 mb-5 text-white">
+      <h2 className="flex items-center justify-center md:justify-start gap-4 mb-5 text-white">
         <MdRateReview className="text-3xl mt-2" />
         <span className="text-2xl md:text-3xl font-bold">Write a Review</span>
       </h2>
@@ -85,13 +85,13 @@ const Review = ({ bookId, setReviews }) => {
           type="text"
           id="review"
           name="review"
-          className="theme-input h-32 mb-5"
+          className="theme-input h-32 mb-5 text-center md:text-start"
           placeholder="Write a book review"
           required
         ></textarea>
         <button
           type="submit"
-          className="btn px-8 btn-lg btn-accent bg-gradient-to-t from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
+          className="mx-auto md:mx-0 btn px-8 btn-lg btn-accent bg-gradient-to-t from-secondary to-accent text-white hover:border-secondary flex items-center gap-3"
         >
           <MdOutlineAddComment size={24} />
 

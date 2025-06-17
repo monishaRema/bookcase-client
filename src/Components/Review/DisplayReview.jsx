@@ -5,14 +5,14 @@ import SingleReview from "./SingleReview";
 const DisplayReview = ({ reviews, setReviews }) => {
   return (
     <div className="p-5 border border-[#663ef840] rounded my-15">
-      <h2 className="flex items-center gap-4 mb-5 text-white">
+      <h2 className="flex items-center justify-center md:justify-start gap-4 mb-5 text-white">
         <MdComment className="text-3xl mt-2" />
         <span className="text-2xl md:text-3xl font-bold">
           Reviews ({reviews.length})
         </span>
       </h2>
       {reviews.length === 0 && (
-        <div className=" font-medium text-gray-400 italic mt-4">
+        <div className=" font-medium text-gray-400 italic mt-4 text-center md:text-start">
           < p className="">
             <span>No reviews yet.</span> Be the first
             to share your thoughts about this book!
