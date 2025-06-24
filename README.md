@@ -117,5 +117,5 @@ Book Case/
 
 🧪 Setup & Installation
 git clone https://github.com/monishaRema/bookcase-client.git
-cd book-case-client
+cd bookcase-client
 npm install
