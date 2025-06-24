@@ -114,3 +114,8 @@ Book Case/
 ├── README.md
 └── vite.config.js
 </pre>
+
+🧪 Setup & Installation
+git clone https://github.com/monishaRema/bookcase-client.git
+cd book-case-client
+npm install
