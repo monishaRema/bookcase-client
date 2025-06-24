@@ -116,6 +116,7 @@ Book Case/
 </pre>
 
 ## 🧪 Setup & Installation
+```bash
 git clone https://github.com/monishaRema/bookcase-client.git
 cd bookcase-client
 npm install
