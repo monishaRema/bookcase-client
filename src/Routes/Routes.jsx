@@ -13,6 +13,7 @@ import Bookshelf from "../Pages/Bookshelf";
 import Error from "../Pages/Error";
 import Spinner from "../Pages/Spinner";
 import UserProfile from "../Pages/UserProfile";
+import About from "../Pages/About";
 
 
 export const routes = createBrowserRouter([
@@ -61,6 +62,10 @@ export const routes = createBrowserRouter([
       loader:()=> fetch(`${baseUrl}/all-books`),
       Component:Bookshelf, 
       hydrateFallbackElement: <Spinner></Spinner>
+      },
+      {
+        path: "/about",
+        Component: About
       },
       {
         path: '/register', 

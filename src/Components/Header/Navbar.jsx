@@ -89,45 +89,6 @@ const Navbar = () => {
     },
   };
 
-  const links = () => (
-    <>
-      <motion.li variants={navItemVariants}>
-        <NavLink
-          to="/"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
-        >
-          Home
-        </NavLink>
-      </motion.li>
-      <motion.li variants={navItemVariants}>
-        <NavLink
-          to="/bookshelf"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
-        >
-          Bookshelf
-        </NavLink>
-      </motion.li>
-      <motion.li variants={navItemVariants}>
-        <NavLink
-          to="/add-book"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
-        >
-          Add Book
-        </NavLink>
-      </motion.li>
-      <motion.li variants={navItemVariants}>
-        <NavLink
-          to="/my-books"
-          className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
-        >
-          My Books
-        </NavLink>
-      </motion.li>
-    </>
-  );
-
-;
-
   return (
     <header className="h-20">
       <motion.nav
@@ -145,60 +106,68 @@ const Navbar = () => {
                   className={`text-2xl rotate-180 ${
                     navOpen ? "text-violet-500" : ""
                   }`}
-                  onClick={() => setNavOpen(prev => !prev)}
+                  onClick={() => setNavOpen((prev) => !prev)}
                 >
                   <FaBarsStaggered />
                 </button>
                 <div
                   className={`dropdown-container ${navOpen ? "active" : ""}`}
                 >
-                 {
-                  navOpen && (
-
-                
-                  <motion.ul
-                    initial="hidden"
-                    animate="show"
-                    viewport={{ once: true, amount: 0.2 }}
-                    variants={containerVariants}
-                    tabIndex={0}
-                    className={`dropdown-box`}
-                  >
-                    <motion.li
-                      onClick={() => setNavOpen(false)}
-                      variants={cardVariants}
+                  {navOpen && (
+                    <motion.ul
+                      initial="hidden"
+                      animate="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={containerVariants}
+                      tabIndex={0}
+                      className={`dropdown-box`}
                     >
-                      <NavLink className={"navlink"} to="/">
-                        Home
-                      </NavLink>
-                    </motion.li>
-                    <motion.li
-                      onClick={() =>setNavOpen(false)}
-                      variants={cardVariants}
-                    >
-                      <NavLink className={"navlink"} to="/bookshelf">
-                        Bookshelf
-                      </NavLink>
-                    </motion.li>
-                    <motion.li
-                      onClick={() =>setNavOpen(false)}
-                      variants={cardVariants}
-                    >
-                      <NavLink className={"navlink "} to="/add-book">
-                        Add Book
-                      </NavLink>
-                    </motion.li>
-                    <motion.li
-                      onClick={() =>setNavOpen(false)}
-                      variants={cardVariants}
-                    >
-                      <NavLink className={"navlink"} to="/my-books">
-                        My Books
-                      </NavLink>
-                    </motion.li>
-                  </motion.ul>
-                    )
-                 }
+                      <motion.li
+                        onClick={() => setNavOpen(false)}
+                        variants={cardVariants}
+                      >
+                        <NavLink className={"navlink"} to="/">
+                          Home
+                        </NavLink>
+                      </motion.li>
+                      <motion.li
+                        onClick={() => setNavOpen(false)}
+                        variants={cardVariants}
+                      >
+                        <NavLink className={"navlink"} to="/bookshelf">
+                          Bookshelf
+                        </NavLink>
+                      </motion.li>
+                        <motion.li
+                        onClick={() => setNavOpen(false)}
+                        variants={cardVariants}
+                      >
+                        <NavLink className={"navlink"} to="/about">
+                         About Us
+                        </NavLink>
+                      </motion.li>
+                      {user && (
+                        <>
+                          <motion.li
+                            onClick={() => setNavOpen(false)}
+                            variants={cardVariants}
+                          >
+                            <NavLink className={"navlink "} to="/add-book">
+                              Add Book
+                            </NavLink>
+                          </motion.li>
+                          <motion.li
+                            onClick={() => setNavOpen(false)}
+                            variants={cardVariants}
+                          >
+                            <NavLink className={"navlink"} to="/my-books">
+                              My Books
+                            </NavLink>
+                          </motion.li>
+                        </>
+                      )}
+                    </motion.ul>
+                  )}
                 </div>
               </div>
               <Link className="flex items-center gap-1" to="/">
@@ -222,7 +191,52 @@ const Navbar = () => {
             </div>
 
             <div className="flex gap-5">
-              <ul className="hidden lg:flex flex-row">{links()}</ul>
+              <ul className="hidden lg:flex flex-row">
+                <motion.li variants={navItemVariants}>
+                  <NavLink
+                    to="/"
+                    className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+                  >
+                    Home
+                  </NavLink>
+                </motion.li>
+                <motion.li variants={navItemVariants}>
+                  <NavLink
+                    to="/bookshelf"
+                    className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+                  >
+                    Bookshelf
+                  </NavLink>
+                </motion.li>
+                <motion.li variants={navItemVariants}>
+                  <NavLink
+                    to="/about"
+                    className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+                  >
+                    About Us
+                  </NavLink>
+                </motion.li>
+                {user && (
+                  <>
+                    <motion.li variants={navItemVariants}>
+                      <NavLink
+                        to="/add-book"
+                        className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+                      >
+                        Add Book
+                      </NavLink>
+                    </motion.li>
+                    <motion.li variants={navItemVariants}>
+                      <NavLink
+                        to="/my-books"
+                        className="navlink text-base md:text-lg font-medium inline-block py-3 px-6 "
+                      >
+                        My Books
+                      </NavLink>
+                    </motion.li>
+                  </>
+                )}
+              </ul>
               <motion.div
                 variants={navItemVariants}
                 className="buttons flex gap-2 md:gap-3 items-center"
