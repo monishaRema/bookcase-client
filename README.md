@@ -1,8 +1,5 @@
 <img src="https://github.com/monishaRema/bookcase-client/blob/main/src/assets/Bookcase.png" />
 
-
----
-
 <img src="./src/assets/logo.png" width="120">
 
 # Book Case  
