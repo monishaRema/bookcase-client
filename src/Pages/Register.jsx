@@ -19,92 +19,102 @@ const Register = () => {
   const location = useLocation();
   const locationState = location.state;
   const navigate = useNavigate();
+  const [uploadImg, setUploadImg] = useState(
+    "https://cdn-icons-png.freepik.com/512/6870/6870041.png"
+  );
 
   if (user) {
     return <Navigate to="/"></Navigate>;
   }
 
-  const handleRegister = (e) => {
+  const uploadToImgbb = async (file) => {
+    const key = import.meta.env.VITE_IMGBB_KEY;
+    if (!key) throw new Error("Missing IMGBB API key");
+
+    // basic validation — adjust max size to your needs
+    const allowed = ["image/png", "image/jpeg", "image/webp"];
+    if (!allowed.includes(file.type))
+      throw new Error("Only PNG/JPEG/WEBP allowed");
+    if (file.size > 2 * 1024 * 1024) throw new Error("Image must be ≤ 2MB");
+
+    const formData = new FormData();
+
+    formData.append("image", file);
+
+    const res = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data?.success) {
+      throw new Error(data?.error?.message || "Image upload failed");
+    }
+    return data.data.display_url;
+  };
+
+  const handleRegister = async (e) => {
     e.preventDefault();
     const form = e.target;
     const displayName = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photoURL = form.photoUrl.value;
+    const file = form.photoUrl?.files?.[0];
 
     setErrorMessage("");
 
+    // validation you already had
     const hasLowercase = /[a-z]/.test(password);
     const hasUppercase = /[A-Z]/.test(password);
     const hasNumber = /[0-9]/.test(password);
-
-    if (password.length < 6) {
-      setErrorMessage("Password must be at least 6 characters long.");
-      return;
-    }
-    if (!hasLowercase) {
-      setErrorMessage("Password must include at least one lowercase letter.");
-      return;
-    }
-    if (!hasUppercase) {
-      setErrorMessage("Password must include at least one uppercase letter.");
-      return;
-    }
-    if (!hasNumber) {
-      setErrorMessage("Password must include at least one number.");
-      return;
-    }
+    if (password.length < 6)
+      return setErrorMessage("Password must be at least 6 characters long.");
+    if (!hasLowercase)
+      return setErrorMessage(
+        "Password must include at least one lowercase letter."
+      );
+    if (!hasUppercase)
+      return setErrorMessage(
+        "Password must include at least one uppercase letter."
+      );
+    if (!hasNumber)
+      return setErrorMessage("Password must include at least one number.");
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setErrorMessage("Please enter a valid email address.");
-      return;
+    if (!emailRegex.test(email))
+      return setErrorMessage("Please enter a valid email address.");
+
+    if (!file) return setErrorMessage("Profile photo is required.");
+
+    try {
+      const photoURL = await uploadToImgbb(file);
+
+      // 2) create firebase user
+      const currentUser = await CreateUser(email, password);
+      setUser(currentUser);
+
+      await UpdateUser({ displayName, photoURL });
+
+      const userData = { name: displayName, email, photo: photoURL };
+      const res = await axios.post(`${baseUrl}/user`, userData);
+
+      if (res.data?.insertedId) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You have registered successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        form.reset();
+        if (locationState) navigate(locationState);
+        else navigate("/");
+      } else {
+        throw new Error("User save failed");
+      }
+    } catch (err) {
+      setErrorMessage(err.message || "Something went wrong. Try again.");
     }
-
-    const updateProfile = () => {
-      const userDetails = {
-        displayName,
-        photoURL,
-      };
-
-      UpdateUser(userDetails);
-    };
-    CreateUser(email, password)
-      .then((currentUser) => {
-        setUser(currentUser);
-        updateProfile();
-
-        const userData = {
-          name: displayName,
-          email,
-          photo: photoURL,
-        };
-        axios
-          .post(`${baseUrl}/user`, userData)
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.insertedId) {
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "You have registered successfully",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              form.reset();
-
-              if (locationState) {
-                navigate(locationState);
-              } else {
-                navigate("/");
-              }
-            }
-          })
-          .catch((err) => setErrorMessage(err.message));
-      })
-      .catch((err) => {
-        setErrorMessage(err.message);
-      });
   };
 
   const handleGoogle = () => {
@@ -145,7 +155,7 @@ const Register = () => {
     show: {
       transition: {
         staggerChildren: 0.18,
-        ease:"linear"
+        ease: "linear",
       },
     },
   };
@@ -184,11 +194,39 @@ const Register = () => {
               >
                 Register
               </motion.h1>
-              <motion.p variants={cardVariants} className="mb-7 theme-p  text-gray-400">
+              <motion.p
+                variants={cardVariants}
+                className="mb-7 theme-p  text-gray-400"
+              >
                 Start your reading journey with Book Case
               </motion.p>
 
               {/* Form Fields */}
+
+              <motion.div variants={cardVariants} className="form-group mb-5">
+                <label htmlFor="photoUrl" className="block mb-2 theme-label ">
+                  <img
+                    src={uploadImg}
+                    alt="upload image"
+                    className="size-17 p-1 rounded-full object-cover border border-accent/80"
+                  />
+                </label>
+                <input
+                  type="file"
+                  id="photoUrl"
+                  name="photoUrl"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      setUploadImg(URL.createObjectURL(file));
+                    }
+                  }}
+                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none  theme-input"
+                  placeholder="Upload a profile picture"
+                  required
+                />
+              </motion.div>
               <motion.div variants={cardVariants} className="form-group mb-5">
                 <label htmlFor="name" className="block mb-2 theme-label ">
                   Name
@@ -213,20 +251,6 @@ const Register = () => {
                   name="email"
                   className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none theme-input "
                   placeholder="Enter your email"
-                  required
-                />
-              </motion.div>
-
-              <motion.div variants={cardVariants} className="form-group mb-5">
-                <label htmlFor="photoURL" className="block mb-2 theme-label ">
-                  Photo URL
-                </label>
-                <input
-                  type="text"
-                  id="photo"
-                  name="photoUrl"
-                  className="w-full p-3 border border-gray-700 rounded focus:border-accent outline-none  theme-input"
-                  placeholder="Enter your photo URL"
                   required
                 />
               </motion.div>
@@ -308,9 +332,7 @@ const Register = () => {
                 className="bg-[#00b4d8] text-white hover:bg-[#009bd8] w-full flex items-center gap-2 py-2 px-5 text-center rounded-md justify-center"
               >
                 <FaGoogle size={20} />
-                <span className=" font-medium ">
-                  Continue With Google
-                </span>
+                <span className=" font-medium ">Continue With Google</span>
               </button>
             </motion.div>
           </motion.div>
